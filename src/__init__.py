@@ -416,7 +416,7 @@ def getInstalledSkins():
 			print("skin: " + str(skin), None, "D")
 			if os.path.isdir(os.path.join(config.plugins.dreamplex.skinfolderpath.value, skin)) and skin != "default_FHD": # we exclude the default FHD because we switch between HD and FHD automatically
 				mySkins.append(skin)
-	except Exception, ex:
+	except Exception as ex:
 		printl("no skin found in Dreamplex", "__init__::getInstalledSkins", "D")
 		printl("Exception(" + str(type(ex)) + "): " + str(ex), "__init__::getInstalledSkins", "E")
 		mySkins.append(myDefaultSkin)
@@ -432,7 +432,7 @@ def getInstalledSkins():
 				xml = os.path.join(path, "skin_dreamplex.xml")
 				if os.path.isfile(xml):
 					mySkins.append("~" + skin)
-	except Exception, ex:
+	except Exception as ex:
 		printl("no skindata in enigma2 skin found", "__init__::getInstalledSkins", "D")
 		printl("Exception(" + str(type(ex)) + "): " + str(ex), "__init__::getInstalledSkins", "E")
 

@@ -194,7 +194,7 @@ class PlexLibrary(Screen):
 				printl("using this FQDN: " +  self.g_serverConfig.dns.value, self, "I")
 				printl("found this ip for fqdn: " + self.g_host, self, "I")
 				printl("using this serverPort: " +  self.serverConfig_port, self, "I")
-			except Exception, e:
+			except Exception as e:
 				printl("socket error: " + str(e), self, "W")
 				printl("trying fallback to ip", self, "I")
 				self.g_host = "%d.%d.%d.%d" % tuple(self.g_serverConfig.ip.value)
@@ -1130,7 +1130,7 @@ class PlexLibrary(Screen):
 					self.g_sectionCache[myUuid]["source"] = "plex"
 			else:
 				printl("uuid or updateAt are unknown", self, "D")
-		except Exception, e:
+		except Exception as e:
 			printl("something went wrong with section cache", self, "D")
 			printl("error: " + str(e), self, "D")
 
@@ -1341,7 +1341,7 @@ class PlexLibrary(Screen):
 			#if self.authHeader is None or server != self.lastHeaderForServer:
 
 			authHeaderPartOne = self.get_hTokenForServer(server)
-			print "authHeaderPartOne " + str(authHeaderPartOne)
+			print("authHeaderPartOne " + str(authHeaderPartOne))
 			self.lastHeaderForServer = server
 
 			# if self.g_sessionID is None:
@@ -1387,7 +1387,7 @@ class PlexLibrary(Screen):
 			printl("", self, "C")
 			return False
 
-		except socket.error, msg :
+		except socket.error as msg :
 			error="Unable to connect to " + server +"\nReason: " + str(msg)
 			self.lastError = error
 			printl( error, self, "D")
@@ -1395,7 +1395,7 @@ class PlexLibrary(Screen):
 			printl("", self, "C")
 			return False
 
-		except Exception, ex:
+		except Exception as ex:
 			printl( "error: " + str(ex), self, "D")
 
 	#========================================================================
@@ -1595,7 +1595,7 @@ class PlexLibrary(Screen):
 
 		try:
 			tree = etree.fromstring(html)
-		except Exception, e:
+		except Exception as e:
 			printl("Exception: " + str(e), self, "D")
 			self.lastResponse = str(html)
 
@@ -2018,7 +2018,7 @@ class PlexLibrary(Screen):
 						bits = part.get('key'), part.get('file'), part.get('container'), part.get('size'), part.get('duration')
 						parts.append(bits)
 						partsCount += 1
-					except Exception, e:
+					except Exception as e:
 						printl("Error: " + str(e), self, "D")
 
 					if myType == "Video":
@@ -2041,7 +2041,7 @@ class PlexLibrary(Screen):
 											printl("Found preferred audio id: " + str(stream['id']), self, "I" )
 											audio=stream
 											selectedAudioOffset=audioOffset
-									except Exception, e:
+									except Exception as e:
 										printl("Error: " + str(e), self, "D")
 
 								elif stream['streamType'] == '3': #subtitle
@@ -2051,7 +2051,7 @@ class PlexLibrary(Screen):
 											printl( "Found external subtitles id : " + str(stream['id']),self, "I")
 											external = stream
 											external['key']='http://'+server+external['key']
-									except Exception, e:
+									except Exception as e:
 										printl("Error: " + str(e) + " maybe we are embedded?", self, "D")
 										try:
 											if stream['selected'] == "1":
@@ -2059,7 +2059,7 @@ class PlexLibrary(Screen):
 												subCount += 1
 												subtitle = stream
 												selectedSubOffset=subOffset
-										except Exception, e:
+										except Exception as e:
 											printl("even not embedded ...: " + str(e), self, "D")
 						else:
 								printl( "Stream selection is set OFF", self, "I")
@@ -2818,7 +2818,7 @@ class PlexLibrary(Screen):
 
 		resp = urlopen(req)
 		if resp is None:
-			raise IOError, "No response from Server"
+			raise (IOError, "No response from Server")
 		urls = []
 		for line in resp:
 			if line[0] != '#':

@@ -111,10 +111,11 @@ lastKey = None
 # noinspection PyUnusedLocal
 def gotThreadMsg(msg):
 	msg = HttpDeamonThread.PlayerData.pop()
+	global lastKey
 
 	data = msg[0]
-	print "data ==>"
-	print str(data)
+	print("data ==>")
+	print(str(data))
 
 	# first we check if we are standby and exit this if needed
 	if inStandby is not None:
@@ -126,11 +127,10 @@ def gotThreadMsg(msg):
 			startNotifier()
 
 		elif command == "playMedia":
-			global lastKey
 			if data["currentKey"] != lastKey:
 				startPlayback(data)
 			else:
-				print "dropping mediaplay command ..."
+				print("dropping mediaplay command ...")
 
 			lastKey = data["currentKey"]
 
@@ -163,12 +163,11 @@ def gotThreadMsg(msg):
 				global_session.current_dialog.setVolume(int(data["volume"]))
 
 		elif command == "stop":
-			global lastKey
 			lastKey = None
 			stopPlayback(restartLiveTv=True)
 
 		elif command == "addSubscriber":
-			print "subscriber"
+			print("subscriber")
 			protocol= data["protocol"]
 			host = data["host"]
 			port = data["port"]
@@ -179,7 +178,7 @@ def gotThreadMsg(msg):
 			startNotifier()
 
 		elif command == "removeSubscriber":
-			print "remove subscriber"
+			print("remove subscriber")
 			uuid = data["uuid"]
 
 			HttpDeamonThread.removeSubscriber(uuid)
@@ -195,7 +194,7 @@ def gotThreadMsg(msg):
 
 		else:
 			# not handled command
-			print command
+			print(command)
 			raise Exception
 
 #===========================================================================
@@ -273,7 +272,7 @@ def updateNotifier():
 #===========================================================================
 def notifySubscribers():
 	players = getPlayer()
-	print "subscribers: " + str(HttpDeamonThread.getSubscribersList())
+	print("subscribers: " + str(HttpDeamonThread.getSubscribersList()))
 
 	if players:
 		HttpDeamonThread.notifySubscribers(players)
@@ -325,5 +324,7 @@ def Plugins(**kwargs):
 
 	if config.plugins.dreamplex.showInMainMenu.value:
 		myList.append(PluginDescriptor(name="DreamPlex", description=_("plex client for enigma2"), where = [PluginDescriptor.WHERE_MENU], fnc=menu_dreamplex))
+
+	myList.append(PluginDescriptor(name="DreamPlex", description="plex client for enigma2", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = main))
 
 	return myList
