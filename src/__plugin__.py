@@ -50,7 +50,7 @@ def registerPlugin(plugin):
 #===============================================================================
 # 
 #===============================================================================
-def getPlugins(where = None):
+def getPlugins(where=None):
 	printl("", "__plugin__::getPlugins", "S")
 	
 	if where is None:

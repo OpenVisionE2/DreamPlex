@@ -391,7 +391,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 	#===========================================================================
 	#
 	#===========================================================================
-	def addSearchString(self, entryData, searchString = None):
+	def addSearchString(self, entryData, searchString=None):
 		printl("", self, "S")
 		printl("entryData: " + str(entryData), self, "D")
 

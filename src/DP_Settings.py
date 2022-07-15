@@ -61,7 +61,7 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 		self.guiElements = getGuiElements()
 		
 		self.cfglist = []
-		ConfigListScreen.__init__(self, self.cfglist, session, on_change = self._changed)
+		ConfigListScreen.__init__(self, self.cfglist, session, on_change=self._changed)
 		
 		self._hasChanged = False
 
@@ -349,7 +349,7 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 #===============================================================================
 class DPS_ServerEntryList(MenuList):
 	
-	def __init__(self, menuList, enableWrapAround = True):
+	def __init__(self, menuList, enableWrapAround=True):
 		printl("", self, "S")
 		
 		MenuList.__init__(self, menuList, enableWrapAround, eListboxPythonMultiContent)

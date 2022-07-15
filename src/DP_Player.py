@@ -230,8 +230,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		if self.has_key('MovieListActions'):
 			self["MovieListActions"].setEnabled(False)
 
-		self.__event_tracker = ServiceEventTracker(screen=self, eventmap=
-		{
+		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
 			iPlayableService.evUser+10: self.__evAudioDecodeError,
 			iPlayableService.evUser+11: self.__evVideoDecodeError,
 			iPlayableService.evUser+12: self.__evPluginError,
@@ -450,7 +449,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 			self.session.openWithCallback(self.handleResume, MessageBox, _(" This file was partially played.\n\n Do you want to resume?"), MessageBox.TYPE_YESNO)
 
 		elif self.forceResume:
-			self.play(resume = True)
+			self.play(resume=True)
 
 		else:
 			self.play()
@@ -464,7 +463,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		printl("", self, "S")
 
 		if confirm:
-			self.play(resume = True)
+			self.play(resume=True)
 
 		else:
 			self.play()
@@ -607,7 +606,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	#===========================================================================
 	#
 	#===========================================================================
-	def play(self, resume = False):
+	def play(self, resume=False):
 		printl("", self, "S")
 
 		self.session.nav.stopService()

@@ -1042,7 +1042,7 @@ def closePlugin(session):
 #===========================================================================
 #
 #===========================================================================
-def getPlexHeader(g_sessionID, asDict = True):
+def getPlexHeader(g_sessionID, asDict=True):
 	printl2("", "__common__::getPlexHeader", "S")
 
 	boxData = getBoxInformation()
@@ -1082,7 +1082,7 @@ def getPlexHeader(g_sessionID, asDict = True):
 #===========================================================================
 #
 #===========================================================================
-def getUserAgentHeader(asDict = True):
+def getUserAgentHeader(asDict=True):
 	printl2("", "__common__::getUserAgentHeader", "S")
 
 	if asDict:

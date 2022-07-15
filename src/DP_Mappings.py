@@ -155,14 +155,14 @@ class DPS_Mappings(Screen):
 	#===================================================================
 	# 
 	#===================================================================
-	def setLocalPathCallback(self, callback = None, myType = None):
+	def setLocalPathCallback(self, callback=None, myType=None):
 		printl("", self, "S")
 		printl("myType: " + str(myType), self, "S")
 		
 		if callback is not None and len(callback):
 			printl("localPath: " + str(callback), self, "D")
 			self.localPath = str(callback)
-			self.session.openWithCallback(self.setRemotePathCallback, VirtualKeyBoard, title = (_("Enter your remote path segment here:")), text = "C:\Videos or /volume1/videos or \\\\SERVER\\Videos\\")
+			self.session.openWithCallback(self.setRemotePathCallback, VirtualKeyBoard, title=(_("Enter your remote path segment here:")), text="C:\Videos or /volume1/videos or \\\\SERVER\\Videos\\")
 		else:
 			self.session.open(MessageBox,_("Adding new mapping was not completed"), MessageBox.TYPE_INFO)
 			self.close()
@@ -170,7 +170,7 @@ class DPS_Mappings(Screen):
 	#===================================================================
 	# 
 	#===================================================================
-	def setRemotePathCallback(self, callback = None):
+	def setRemotePathCallback(self, callback=None):
 		printl("", self, "S")
 		
 		if callback is not None and len(callback):
@@ -209,7 +209,7 @@ class DPS_MappingsEntryList(MenuList):
 	lastMappingId = 0 # we use this to find the next id if we add a new element
 	location = None
 	
-	def __init__(self, menuList, serverID, tree, enableWrapAround = True):
+	def __init__(self, menuList, serverID, tree, enableWrapAround=True):
 		printl("", self, "S")
 		self.serverID = serverID
 		self.tree = tree

@@ -523,7 +523,7 @@ class PlexLibrary(Screen):
 		printl("url: " + str(url), self, "D")
 
 		printl("", self, "C")
-		return self.getMediaData(url, tagType = "Video", nextViewMode = "play", currentViewMode = "ShowMovies")
+		return self.getMediaData(url, tagType="Video", nextViewMode="play", currentViewMode="ShowMovies")
 
 	#===========================================================================
 	#
@@ -533,7 +533,7 @@ class PlexLibrary(Screen):
 		printl("url: " + str(url), self, "D")
 
 		printl("", self, "C")
-		return self.getMediaData(url, tagType = "Video", nextViewMode = "play", currentViewMode = "ShowMovies", fromRemotePlayer=fromRemotePlayer)
+		return self.getMediaData(url, tagType="Video", nextViewMode="play", currentViewMode="ShowMovies", fromRemotePlayer=fromRemotePlayer)
 
 	#===============================================================================
 	#
@@ -543,7 +543,7 @@ class PlexLibrary(Screen):
 		printl("url: " + str(url), self, "D")
 
 		printl("", self, "C")
-		return self.getDirectoryData(url, nextViewMode = "ShowAlbums", currentViewMode = "ShowArtists")
+		return self.getDirectoryData(url, nextViewMode="ShowAlbums", currentViewMode="ShowArtists")
 
 	#===============================================================================
 	#
@@ -553,7 +553,7 @@ class PlexLibrary(Screen):
 		printl("url: " + str(url), self, "D")
 
 		printl("", self, "C")
-		return  self.getMediaData(url, tagType = "Track", nextViewMode = "ShowTracks", currentViewMode = "ShowAlbums")
+		return  self.getMediaData(url, tagType="Track", nextViewMode="ShowTracks", currentViewMode="ShowAlbums")
 
 	#===========================================================================
 	#
@@ -563,7 +563,7 @@ class PlexLibrary(Screen):
 		printl("url: " + str(url), self, "D")
 
 		printl("", self, "C")
-		return self.getMediaData(url, tagType = "Track", nextViewMode = "play", currentViewMode="ShowTracks")
+		return self.getMediaData(url, tagType="Track", nextViewMode="play", currentViewMode="ShowTracks")
 
 	#=======================================================================
 	#
@@ -706,18 +706,18 @@ class PlexLibrary(Screen):
 
 		if switchMedias:
 			# we need this for example for episodes
-			entryData['thumb']			    = self.getImage(entry, server, myType = "art")
-			entryData['art']	            = self.getImage(entry, server, myType = "thumb")
+			entryData['thumb']			    = self.getImage(entry, server, myType="art")
+			entryData['art']	            = self.getImage(entry, server, myType="thumb")
 		else:
-			entryData['thumb']			    = self.getImage(entry, server, myType = "thumb")
-			entryData['art']	            = self.getImage(entry, server, myType = "art")
+			entryData['thumb']			    = self.getImage(entry, server, myType="thumb")
+			entryData['art']	            = self.getImage(entry, server, myType="art")
 
 		# in some cases there are other images
 		if "parentThumb" in entryData:
-			entryData['parentThumb']	    = self.getImage(entry, server, myType = "parentThumb")
+			entryData['parentThumb']	    = self.getImage(entry, server, myType="parentThumb")
 
 		if "banner" in entryData:
-			entryData['banner']             = self.getImage(entry, server, myType = "banner")
+			entryData['banner']             = self.getImage(entry, server, myType="banner")
 
 		printl("", self, "C")
 		return entryData
@@ -734,7 +734,7 @@ class PlexLibrary(Screen):
 		else:
 			currentViewMode = "ShowEpisodesDirect"
 
-		return self.getMediaData(url, tagType = "Video", nextViewMode = nextViewMode, currentViewMode=currentViewMode, switchMedias=True )
+		return self.getMediaData(url, tagType="Video", nextViewMode=nextViewMode, currentViewMode=currentViewMode, switchMedias=True )
 
 	#===========================================================================
 	#
@@ -1023,7 +1023,7 @@ class PlexLibrary(Screen):
 	#===========================================================================
 	#
 	#===========================================================================
-	def setAccessTokenHeader(self, address, accessToken, serverVersion = None):
+	def setAccessTokenHeader(self, address, accessToken, serverVersion=None):
 		printl("", self, "S")
 
 		#if address not in self.g_myplex_accessTokenDict:
@@ -2380,7 +2380,7 @@ class PlexLibrary(Screen):
 	#=============================================================================
 	# 
 	#=============================================================================
-	def getImage(self, data, server, myType, transcode = True):
+	def getImage(self, data, server, myType, transcode=True):
 		"""
 		Simply take a URL or path and determine how to format for images
 		@ input: elementTree element, server name
@@ -2851,7 +2851,7 @@ class PlexLibrary(Screen):
 	#===============================================================================
 	#
 	#===============================================================================
-	def getFullListEntry(self, entryData, url, viewState = None, isDirectory = False):
+	def getFullListEntry(self, entryData, url, viewState=None, isDirectory=False):
 		printl("", self, "S")
 
 		# TODO check after some time if we can delete this

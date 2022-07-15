@@ -153,7 +153,7 @@ class DPS_Users(Screen):
 	def greenKey(self):
 		printl("", self, "S")
 		
-		self.session.openWithCallback(self.setUsernameCallback, VirtualKeyBoard, title = (_("Enter the username here:")), text = "")
+		self.session.openWithCallback(self.setUsernameCallback, VirtualKeyBoard, title=(_("Enter the username here:")), text="")
 		
 		printl("", self, "C")
 
@@ -167,7 +167,7 @@ class DPS_Users(Screen):
 		currentName = content[2][7]
 		self.editMode = True
 
-		self.session.openWithCallback(self.setUsernameCallback, VirtualKeyBoard, title = (_("Enter the username here:")), text = currentName)
+		self.session.openWithCallback(self.setUsernameCallback, VirtualKeyBoard, title=(_("Enter the username here:")), text=currentName)
 
 		printl("", self, "C")
 		
@@ -175,7 +175,7 @@ class DPS_Users(Screen):
 	#===================================================================
 	# 
 	#===================================================================
-	def setUsernameCallback(self, callback = None, myType = None):
+	def setUsernameCallback(self, callback=None, myType=None):
 		printl("", self, "S")
 		printl("myType: " + str(myType), self, "S")
 		
@@ -188,14 +188,14 @@ class DPS_Users(Screen):
 				currentPin = content[3][7]
 			else:
 				currentPin = ""
-			self.session.openWithCallback(self.setPinCallback, VirtualKeyBoard, title = (_("Enter the pin here:")), text = currentPin)
+			self.session.openWithCallback(self.setPinCallback, VirtualKeyBoard, title=(_("Enter the pin here:")), text=currentPin)
 		else:
 			self.abortUserConfiguration()
 	
 	#===================================================================
 	# 
 	#===================================================================
-	def setPinCallback(self, callback = None):
+	def setPinCallback(self, callback=None):
 		printl("", self, "S")
 		foundMatchingUser = False
 
@@ -286,7 +286,7 @@ class DPS_UsersEntryList(MenuList):
 	lastMappingId = 0 # we use this to find the next id if we add a new element
 	location = None
 	
-	def __init__(self, menuList, serverID, tree, enableWrapAround = True):
+	def __init__(self, menuList, serverID, tree, enableWrapAround=True):
 		printl("", self, "S")
 		self.serverID = serverID
 		self.tree = tree

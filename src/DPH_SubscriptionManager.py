@@ -139,7 +139,7 @@ class SubscriptionManager:
 	#===========================================================================
 	#
 	#===========================================================================
-	def notify(self, players, event = False):
+	def notify(self, players, event=False):
 		self.cleanup()
 
 		# fetch the message, subscribers or not, since the server

@@ -92,7 +92,7 @@ class RemoteHandler(BaseHTTPRequestHandler):
 	#===========================================================================
 	#
 	#===========================================================================
-	def response(self, body, headers = {}, code = 200):
+	def response(self, body, headers={}, code=200):
 		printl("", self, "S")
 
 		try:

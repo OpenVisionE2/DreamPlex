@@ -53,7 +53,7 @@ from DPH_Singleton import Singleton
 #===============================================================================
 class DPS_Server(Screen, DPH_PlexScreen):
 
-	def __init__(self, session, what = None):
+	def __init__(self, session, what=None):
 		printl("", self, "S")
 
 		Screen.__init__(self, session)
@@ -304,7 +304,7 @@ class DPS_ServerConfig(ConfigListScreen, Screen, DPH_PlexScreen):
 	useHomeUsers = False
 	authenticated = False
 
-	def __init__(self, session, entry, data = None):
+	def __init__(self, session, entry, data=None):
 		printl("", self, "S")
 
 		Screen.__init__(self, session)

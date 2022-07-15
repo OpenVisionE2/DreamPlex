@@ -151,7 +151,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		self.miniTv = self.viewParams["settings"]["miniTv"]
 
 		if self.miniTv:
-			DPH_ScreenHelper.__init__(self, forceMiniTv= True)
+			DPH_ScreenHelper.__init__(self, forceMiniTv=True)
 		else:
 			DPH_ScreenHelper.__init__(self)
 
@@ -1571,7 +1571,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===========================================================================
 	#
 	#===========================================================================
-	def _load(self, entryData = None):
+	def _load(self, entryData=None):
 		printl("", self, "S")
 		printl("entryData: " + str(entryData), self, "D")
 
@@ -2104,9 +2104,9 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 
 		functionList = []
 
-		functionList.append((_("Mark media unwatched"), Plugin("View", fnc = self.markUnwatched), ))
-		functionList.append((_("Mark media watched"), Plugin("View", fnc = self.markWatched), ))
-		functionList.append((_("Initiate Library refresh"), Plugin("View", fnc = self.initiateRefresh), ))
+		functionList.append((_("Mark media unwatched"), Plugin("View", fnc=self.markUnwatched), ))
+		functionList.append((_("Mark media watched"), Plugin("View", fnc=self.markWatched), ))
+		functionList.append((_("Initiate Library refresh"), Plugin("View", fnc=self.initiateRefresh), ))
 		#functionList.append((_("Delete media from Library"), Plugin("View", fnc=self.deleteFromLibrary), ))
 
 		self.session.openWithCallback(self.displayOptionsMenuCallback, ChoiceBox, title=_("Media Functions"), list=functionList)
@@ -2373,7 +2373,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===========================================================================
 	#
 	#===========================================================================
-	def showPoster(self, forceShow = False):
+	def showPoster(self, forceShow=False):
 		printl("", self, "S")
 
 		if forceShow:
@@ -2413,7 +2413,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===========================================================================
 	#
 	#===========================================================================
-	def showBackdrop(self, forceShow = False):
+	def showBackdrop(self, forceShow=False):
 		printl("", self, "S")
 
 		if forceShow:
@@ -2485,7 +2485,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 				printl("starting download", self, "D")
 				authHeader = self.plexInstance.get_hTokenForServer(self.details["server"])
 				printl("header: " + str(authHeader), self, "D")
-				downloadPage(str(download_url), self.whatPoster, headers=authHeader).addCallback(lambda _: self.showPoster(forceShow = True))
+				downloadPage(str(download_url), self.whatPoster, headers=authHeader).addCallback(lambda _: self.showPoster(forceShow=True))
 			else:
 				self.noPicData()
 		else:
@@ -2511,7 +2511,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 				printl("starting download", self, "D")
 				authHeader = self.plexInstance.get_hTokenForServer(self.details["server"])
 				printl("header: " + str(authHeader), self, "D")
-				downloadPage(download_url, self.whatBackdrop, headers=authHeader).addCallback(lambda _: self.showBackdrop(forceShow = True))
+				downloadPage(download_url, self.whatBackdrop, headers=authHeader).addCallback(lambda _: self.showBackdrop(forceShow=True))
 			else:
 				self.noPicData()
 		else:
