@@ -248,7 +248,7 @@ class PlexLibrary(Screen):
 		fullList = []
 		entryData = {}
 		fullList.append((_("Movies"), Plugin.MENU_MOVIES, "movieEntry", entryData))
-		fullList.append((_("Tv Shows"), Plugin.MENU_TVSHOWS, "showEntry" ,entryData))
+		fullList.append((_("Tv Shows"), Plugin.MENU_TVSHOWS, "showEntry",entryData))
 		fullList.append((_("Music"), Plugin.MENU_MUSIC, "musicEntry", entryData))
 
 		extend = False # SWITCH
@@ -370,7 +370,7 @@ class PlexLibrary(Screen):
 					entryName = _(entryData.get('title').encode('utf-8')) + detail
 
 					if entryData.get('type') == 'show':
-						printl( "_MODE_TVSHOWS detected", self, "D")
+						printl("_MODE_TVSHOWS detected", self, "D")
 						if myFilter is not None and myFilter != "tvshow":
 							continue
 
@@ -380,7 +380,7 @@ class PlexLibrary(Screen):
 							fullList.append((_(entryData.get('title').encode('utf-8')), getPlugin("tvshows", Plugin.MENU_TVSHOWS), "showEntry", entryData))
 
 					elif entryData.get('type') == 'movie':
-						printl( "_MODE_MOVIES detected", self, "D")
+						printl("_MODE_MOVIES detected", self, "D")
 						if (myFilter is not None) and (myFilter != "movies"):
 							continue
 
@@ -390,7 +390,7 @@ class PlexLibrary(Screen):
 							fullList.append((_(entryData.get('title').encode('utf-8')), getPlugin("movies", Plugin.MENU_MOVIES), "movieEntry", entryData))
 
 					elif entryData.get('type') == 'artist':
-						printl( "_MODE_ARTISTS detected", self, "D")
+						printl("_MODE_ARTISTS detected", self, "D")
 						if (myFilter is not None) and (myFilter != "music"):
 							continue
 
@@ -398,7 +398,7 @@ class PlexLibrary(Screen):
 						fullList.append((entryName, Plugin.MENU_FILTER, "musicEntry", entryData))
 
 					elif entryData.get('type') == 'photo':
-						printl( "_MODE_PHOTOS detected but excluded", self, "D")
+						printl("_MODE_PHOTOS detected but excluded", self, "D")
 						# if (myFilter is not None) and (myFilter != "photos"):
 						# 	continue
 						# if self.g_useFilterSections:
@@ -621,9 +621,9 @@ class PlexLibrary(Screen):
 				#Create URL based on whether we are going to flatten the season view
 				if self.g_flattenShow:
 					printl("Flattening all shows", self, "I")
-					url = 'http://%s/%s'  % ( server, entryData['key'].replace("children","allLeaves"))
+					url = 'http://%s/%s'  % (server, entryData['key'].replace("children","allLeaves"))
 				else:
-					url = 'http://%s/%s'  % ( server, entryData['key'])
+					url = 'http://%s/%s'  % (server, entryData['key'])
 
 				# add to fullList
 				fullList.append(self.getFullListEntry(entryData, url, viewState))
@@ -689,7 +689,7 @@ class PlexLibrary(Screen):
 					entryData["type"]               = "Folder"
 					viewState = None
 
-				url = 'http://%s/%s'  % ( server, entryData['key'])
+				url = 'http://%s/%s'  % (server, entryData['key'])
 
 				# add to fullList
 				fullList.append(self.getFullListEntry(entryData, url, viewState))
@@ -734,7 +734,7 @@ class PlexLibrary(Screen):
 		else:
 			currentViewMode = "ShowEpisodesDirect"
 
-		return self.getMediaData(url, tagType="Video", nextViewMode=nextViewMode, currentViewMode=currentViewMode, switchMedias=True )
+		return self.getMediaData(url, tagType="Video", nextViewMode=nextViewMode, currentViewMode=currentViewMode, switchMedias=True)
 
 	#===========================================================================
 	#
@@ -889,7 +889,7 @@ class PlexLibrary(Screen):
 			for babies in child:
 				if babies.tag == "Part":
 					partData = (dict(babies.items()))
-					printl( "partData:" + str(partData), self, "D")
+					printl("partData:" + str(partData), self, "D")
 					mediaData["Parts"].append(partData)
 
 			if isMedia:
@@ -955,7 +955,7 @@ class PlexLibrary(Screen):
 		accessToken = None
 
 		if self.serverConfig_connectionType == "2": # MYPLEX
-			printl( "Adding myplex as server location", self, "D")
+			printl("Adding myplex as server location", self, "D")
 
 			if resolvedMyPlexAddress is not None: # this is the case if we come from remote player
 				response = self.getSharedServerForPlexUser()
@@ -975,12 +975,12 @@ class PlexLibrary(Screen):
 				self.g_host = None
 
 			elif not self.serverConfig_port:
-				printl( "No port defined. Using default of " + DEFAULT_PORT, self, "D")
+				printl("No port defined. Using default of " + DEFAULT_PORT, self, "D")
 				self.g_currentServer = self.g_host + ":" + DEFAULT_PORT
 
 			else:
 				self.g_currentServer = self.g_host + ":" + self.serverConfig_port
-				printl( "Settings hostname and port: " + self.g_currentServer, self, "D")
+				printl("Settings hostname and port: " + self.g_currentServer, self, "D")
 
 			if self.g_currentServer is not None:
 				printl("g_currentServer: " + str(self.g_currentServer), self, "D")
@@ -1219,7 +1219,7 @@ class PlexLibrary(Screen):
 	def getContentUrl(self, address, path):
 		printl("", self, "S")
 
-		contentUrl = 'http://%s%s' % ( address, path)
+		contentUrl = 'http://%s%s' % (address, path)
 
 		printl("contentUrl = " + contentUrl, self, "D")
 		printl("", self, "C")
@@ -1228,7 +1228,7 @@ class PlexLibrary(Screen):
 	#====================================================================
 	#
 	#====================================================================
-	def getAuthDetails(self, details, url_format=True, prefix="&" ):
+	def getAuthDetails(self, details, url_format=True, prefix="&"):
 		"""
 		Takes the token and creates the required arguments to allow
 		authentication.  This is really just a formatting tools
@@ -1249,7 +1249,7 @@ class PlexLibrary(Screen):
 		else:
 			if token is not None:
 				printl("", self, "C")
-				return {'X-Plex-Token' : token }
+				return {'X-Plex-Token': token}
 			else:
 				printl("", self, "C")
 				return {}
@@ -1267,7 +1267,7 @@ class PlexLibrary(Screen):
 
 		printl("Getting new token", self, "I")
 
-		if ( self.g_myplex_username or self.g_myplex_password ) == "":
+		if (self.g_myplex_username or self.g_myplex_password) == "":
 			printl("Missing myplex details in config...", self, "D")
 
 			printl("", self, "C")
@@ -1309,8 +1309,8 @@ class PlexLibrary(Screen):
 			self.g_serverConfig.myplexId.value = self.serverConfig_myplexId
 			self.g_serverConfig.myplexId.save()
 
-		printl ("token: " + token, self, "D", True, 8)
-		printl ("id: " + str(myId), self, "D")
+		printl("token: " + token, self, "D", True, 8)
+		printl("id: " + str(myId), self, "D")
 		printl("", self, "C")
 		return token
 
@@ -1356,7 +1356,7 @@ class PlexLibrary(Screen):
 
 			data = conn.getresponse()
 
-			if ( int(data.status) == 301 ) or ( int(data.status) == 302 ):
+			if (int(data.status) == 301) or (int(data.status) == 302):
 				printl("status 301 or 302 found", self, "I")
 
 				data = data.getheader('Location')
@@ -1367,7 +1367,7 @@ class PlexLibrary(Screen):
 
 			elif int(data.status) >= 400:
 				error = "HTTP response error: " + str(data.status) + " " + str(data.reason)
-				printl( error, self, "D")
+				printl(error, self, "D")
 				self.lastError = error
 
 				printl("", self, "C")
@@ -1379,24 +1379,24 @@ class PlexLibrary(Screen):
 				printl("", self, "C")
 				return link
 
-		except socket.gaierror :
+		except socket.gaierror:
 			error = 'Unable to lookup host: ' + server + "\nCheck host name is correct"
-			printl( error, self, "D")
+			printl(error, self, "D")
 			self.lastError = error
 
 			printl("", self, "C")
 			return False
 
-		except socket.error as msg :
+		except socket.error as msg:
 			error="Unable to connect to " + server +"\nReason: " + str(msg)
 			self.lastError = error
-			printl( error, self, "D")
+			printl(error, self, "D")
 
 			printl("", self, "C")
 			return False
 
 		except Exception as ex:
-			printl( "error: " + str(ex), self, "D")
+			printl("error: " + str(ex), self, "D")
 
 	#========================================================================
 	#
@@ -1469,7 +1469,7 @@ class PlexLibrary(Screen):
 
 		# 1 is stream no matter what
 		if self.g_stream == "1":
-			printl( "Selecting stream", self, "I")
+			printl("Selecting stream", self, "I")
 			printl("", self, "C")
 			return "http://"+server+stream
 
@@ -1480,7 +1480,7 @@ class PlexLibrary(Screen):
 			else:
 				protocol="afp"
 
-			printl( "Selecting smb/unc")
+			printl("Selecting smb/unc")
 			if myType=="UNC":
 				filelocation=protocol+":"+myFile.replace("\\","/")
 			else:
@@ -1518,7 +1518,7 @@ class PlexLibrary(Screen):
 						components.pop(3)
 					filelocation='/'.join(components)
 		else:
-			printl( "No option detected, streaming is safest to choose", self, "I" )
+			printl("No option detected, streaming is safest to choose", self, "I")
 			filelocation="http://"+server+stream
 
 		printl("Returning URL: " + filelocation, self, "I")
@@ -1577,7 +1577,7 @@ class PlexLibrary(Screen):
 	def getStreamDataById(self, server, myId, loadExtraData=False):
 		printl("", self, "S")
 
-		printl("Gather media stream info", self, "I" )
+		printl("Gather media stream info", self, "I")
 
 		#get metadata for audio and subtitle
 		suburl="http://"+server+"/library/metadata/"+myId
@@ -1629,7 +1629,7 @@ class PlexLibrary(Screen):
 							'language':	 	"Disabled",
 							'languageCode': "NA",
 							'format': 		"Disabled",
-							'partid' : 	partitem[0]
+							'partid': 	partitem[0]
 							}
 		for bits in tags:
 			stream=dict(bits.items())
@@ -1638,16 +1638,16 @@ class PlexLibrary(Screen):
 				try:
 					index = stream.get('index', "-1")
 
-					selectedSubtitle = {		'id': stream['id'],
+					selectedSubtitle = {'id': stream['id'],
 								'index': 		index,
 								'language':	 	stream['language'],
 								'languageCode': stream['languageCode'],
-								'format' : 		stream['format'],
-								'partid' : 	partitem[0]
+								'format': 		stream['format'],
+								'partid': 	partitem[0]
 						   }
-					printl ("selectedSubtitle = " + str(selectedSubtitle), self, "D" )
+					printl("selectedSubtitle = " + str(selectedSubtitle), self, "D")
 				except:
-					printl ("Unable to read subtitles due to XML parsing error", self, "E" )
+					printl("Unable to read subtitles due to XML parsing error", self, "E")
 
 		printl("", self, "C")
 		return selectedSubtitle
@@ -1679,10 +1679,10 @@ class PlexLibrary(Screen):
 		tags=tree.getiterator('Stream')
 
 
-		subtitle = {	'id': 0,
+		subtitle = {'id': 0,
 		                'language':     "None",
-						'partid' : 	partitem[0],
-		                'forced' : False
+						'partid': 	partitem[0],
+		                'forced': False
 					}
 
 		subtitlesList.append(subtitle)
@@ -1708,13 +1708,13 @@ class PlexLibrary(Screen):
 					if forced == "1":
 						forced = True
 
-					subtitle = {		'id': subtitleId,
+					subtitle = {'id': subtitleId,
 										'index': 		index,
 										'language':	 	language,
 										'languageCode': languageCode,
-										'myFormat' :	myFormat,
-										'partid' : 	    partid,
-										'selected' :    selected,
+										'myFormat':	myFormat,
+										'partid': 	    partid,
+										'selected':    selected,
 										'codec':        codec,
 										'default':      default,
 										'forced':       forced
@@ -1722,10 +1722,10 @@ class PlexLibrary(Screen):
 
 					subtitlesList.append(subtitle)
 				except:
-					printl ("Unable to set subtitles due to XML parsing error", self, "E" )
+					printl("Unable to set subtitles due to XML parsing error", self, "E")
 					pass
 
-		printl ("subtitlesList = " + str(subtitlesList), self, "D" )
+		printl("subtitlesList = " + str(subtitlesList), self, "D")
 
 		printl("", self, "C")
 		return subtitlesList
@@ -1760,21 +1760,21 @@ class PlexLibrary(Screen):
 			stream=dict(bits.items())
 			if stream['streamType'] == '2': #audio
 				try:
-					audio = {		'id': stream.get('id',-1),
+					audio = {'id': stream.get('id',-1),
 										'index': 		stream.get('index',-1),
 										'language':	 	stream.get('language','Unknown'),
 										'languageCode': stream.get('languageCode','Ukn'),
-										'format' : 		stream.get('format', 'UKN'),
-										'partid' : 	partitem[0],
-										'selected' : stream.get('selected',0)
+										'format': 		stream.get('format', 'UKN'),
+										'partid': 	partitem[0],
+										'selected': stream.get('selected',0)
 								}
 
 					audioList.append(audio)
 				except:
-					printl ("Unable to set audio due to XML parsing error", self, "E" )
+					printl("Unable to set audio due to XML parsing error", self, "E")
 					pass
 
-		printl ("audioList = " + str(audioList), self, "D" )
+		printl("audioList = " + str(audioList), self, "D")
 
 		printl("", self, "C")
 		return audioList
@@ -1896,7 +1896,7 @@ class PlexLibrary(Screen):
 									audioOffset += 1
 									try:
 										if stream['selected'] == "1":
-											printl("Found preferred audio id: " + str(stream['id']), self, "I" )
+											printl("Found preferred audio id: " + str(stream['id']), self, "I")
 											audio=stream
 											selectedAudioOffset=audioOffset
 									except:
@@ -1906,37 +1906,37 @@ class PlexLibrary(Screen):
 									subOffset += 1
 									try:
 										if stream['key']:
-											printl( "Found external subtitles id : " + str(stream['id']),self, "I")
+											printl("Found external subtitles id : " + str(stream['id']),self, "I")
 											external = stream
 											external['key']='http://'+server+external['key']
 									except:
 										#Otherwise it's probably embedded
 										try:
 											if stream['selected'] == "1":
-												printl( "Found preferred subtitles id : " + str(stream['id']), self, "I")
+												printl("Found preferred subtitles id : " + str(stream['id']), self, "I")
 												subCount += 1
 												subtitle = stream
 												selectedSubOffset=subOffset
 										except:
 											pass
 						else:
-								printl( "Stream selection is set OFF", self, "I")
+								printl("Stream selection is set OFF", self, "I")
 
 
-			streamData={'contents'   : contents,
-						'audio'	     : audio,
-						'audioCount' : audioCount,
-						'subtitle'   : subtitle,
-						'subCount'   : subCount,
-						'external'   : external,
-						'parts'	     : parts,
-						'partsCount' : partsCount,
-						'videoData'  : videoData,
-						'mediaData'  : mediaData,
-						'subOffset'  : selectedSubOffset ,
-						'audioOffset': selectedAudioOffset }
+			streamData={'contents': contents,
+						'audio': audio,
+						'audioCount': audioCount,
+						'subtitle': subtitle,
+						'subCount': subCount,
+						'external': external,
+						'parts': parts,
+						'partsCount': partsCount,
+						'videoData': videoData,
+						'mediaData': mediaData,
+						'subOffset': selectedSubOffset,
+						'audioOffset': selectedAudioOffset}
 
-			printl ("streamData = " + str(streamData), self, "D" )
+			printl("streamData = " + str(streamData), self, "D")
 			printl("", self, "C")
 			return streamData
 
@@ -1969,18 +1969,18 @@ class PlexLibrary(Screen):
 		selectedSubOffset=-1
 		selectedAudioOffset=-1
 
-		streamData={'contents'   : contents,
-					'audio'	     : audio,
-					'audioCount' : audioCount,
-					'subtitle'   : subtitle,
-					'subCount'   : subCount,
-					'external'   : external,
-					'parts'	     : parts,
-					'partsCount' : partsCount,
-					'videoData'  : videoData,
-					'mediaData'  : mediaData,
-					'subOffset'  : selectedSubOffset ,
-					'audioOffset': selectedAudioOffset }
+		streamData={'contents': contents,
+					'audio': audio,
+					'audioCount': audioCount,
+					'subtitle': subtitle,
+					'subCount': subCount,
+					'external': external,
+					'parts': parts,
+					'partsCount': partsCount,
+					'videoData': videoData,
+					'mediaData': mediaData,
+					'subOffset': selectedSubOffset,
+					'audioOffset': selectedAudioOffset}
 
 		if not tree:
 			return streamData
@@ -2044,7 +2044,7 @@ class PlexLibrary(Screen):
 									audioOffset += 1
 									try:
 										if stream['selected'] == "1":
-											printl("Found preferred audio id: " + str(stream['id']), self, "I" )
+											printl("Found preferred audio id: " + str(stream['id']), self, "I")
 											audio=stream
 											selectedAudioOffset=audioOffset
 									except Exception as e:
@@ -2054,44 +2054,44 @@ class PlexLibrary(Screen):
 									subOffset += 1
 									try:
 										if stream['key']:
-											printl( "Found external subtitles id : " + str(stream['id']),self, "I")
+											printl("Found external subtitles id : " + str(stream['id']),self, "I")
 											external = stream
 											external['key']='http://'+server+external['key']
 									except Exception as e:
 										printl("Error: " + str(e) + " maybe we are embedded?", self, "D")
 										try:
 											if stream['selected'] == "1":
-												printl( "Found preferred subtitles id : " + str(stream['id']), self, "I")
+												printl("Found preferred subtitles id : " + str(stream['id']), self, "I")
 												subCount += 1
 												subtitle = stream
 												selectedSubOffset=subOffset
 										except Exception as e:
 											printl("even not embedded ...: " + str(e), self, "D")
 						else:
-								printl( "Stream selection is set OFF", self, "I")
+								printl("Stream selection is set OFF", self, "I")
 
 
-			streamData={'contents'   : contents,
-						'audio'	     : audio,
-						'audioCount' : audioCount,
-						'subtitle'   : subtitle,
-						'subCount'   : subCount,
-						'external'   : external,
-						'parts'	     : parts,
-						'partsCount' : partsCount,
-						'videoData'  : videoData,
-						'mediaData'  : mediaData,
-						'subOffset'  : selectedSubOffset ,
-						'audioOffset': selectedAudioOffset }
+			streamData={'contents': contents,
+						'audio': audio,
+						'audioCount': audioCount,
+						'subtitle': subtitle,
+						'subCount': subCount,
+						'external': external,
+						'parts': parts,
+						'partsCount': partsCount,
+						'videoData': videoData,
+						'mediaData': mediaData,
+						'subOffset': selectedSubOffset,
+						'audioOffset': selectedAudioOffset}
 
-			printl ("streamData = " + str(streamData), self, "D" )
+			printl("streamData = " + str(streamData), self, "D")
 			printl("", self, "C")
 			return streamData
 
 	#========================================================================
 	#
 	#========================================================================
-	def getMediaOptionsToPlay(self, myId, vids, override=False, myType="Video", loadExtraData=False ):
+	def getMediaOptionsToPlay(self, myId, vids, override=False, myType="Video", loadExtraData=False):
 		printl("", self, "S")
 
 		self.getTranscodeSettings(override)
@@ -2128,7 +2128,7 @@ class PlexLibrary(Screen):
 
 		#alter playurl if needed
 		if protocol == "file":
-			printl( "We are playing a local file", self, "D")
+			printl("We are playing a local file", self, "D")
 			playurl=url.split(':',1)[1]
 
 			if self.g_serverConfig.srtRenamingForDirectLocal.value:
@@ -2157,12 +2157,12 @@ class PlexLibrary(Screen):
 					printl("unable to find the following subtitle file ... " + str(subtitleFileOrig),self, "D")
 
 		elif protocol == "http":
-			printl( "We are playing a stream", self, "I")
+			printl("We are playing a stream", self, "I")
 			if self.g_transcode == "true":
-				printl( "We will be transcoding the stream", self, "I")
+				printl("We will be transcoding the stream", self, "I")
 				playurl = self.transcode(myId,url)
 			else:
-				printl( "We will be playing raw stream", self, "I")
+				printl("We will be playing raw stream", self, "I")
 				playurl = url+token
 
 		try:
@@ -2180,7 +2180,7 @@ class PlexLibrary(Screen):
 				printl("", self, "C")
 				return
 
-		if not (self.g_transcode == "true" ):
+		if not (self.g_transcode == "true"):
 			self.setAudioSubtitles(self.streams)
 
 		# multiuser works only if the server is compatible
@@ -2216,14 +2216,14 @@ class PlexLibrary(Screen):
 	#===========================================================================
 	# 
 	#===========================================================================
-	def setAudioSubtitles(self, stream ): 
+	def setAudioSubtitles(self, stream): 
 		printl("", self, "S")
 			
 		if stream['contents'] == "type":
-			printl ("No streams to process.", self, "I")
+			printl("No streams to process.", self, "I")
 			
 			if self.g_streamControl == "3":
-				printl ("All subs disabled", self, "I")
+				printl("All subs disabled", self, "I")
 			
 			printl("", self, "C")   
 			return True
@@ -2233,13 +2233,13 @@ class PlexLibrary(Screen):
 			printl("Attempting to set Audio Stream", self, "I")
 			#Audio Stream first		
 			if stream['audioCount'] == 1:
-				printl ("Only one audio stream present - will leave as default", self, "I")
+				printl("Only one audio stream present - will leave as default", self, "I")
 			elif stream['audioCount'] > 1:
-				printl ("Multiple audio stream. Attempting to set to local language", self, "I")
+				printl("Multiple audio stream. Attempting to set to local language", self, "I")
 				try:
 					if audio['selected'] == "1":
-						printl ("Found preferred language at index " + str(stream['audioOffset']), self, "I")
-						printl ("Audio set", self, "I")
+						printl("Found preferred language at index " + str(stream['audioOffset']), self, "I")
+						printl("Audio set", self, "I")
 				except:
 					pass
 
@@ -2249,12 +2249,12 @@ class PlexLibrary(Screen):
 			printl("Attempting to set subtitle Stream", self, "I")
 			try:
 				if stream['subCount'] > 0 and subtitle['languageCode']:
-					printl ("Found embedded subtitle for local language", self, "I" )
-					printl ("Enabling embedded subtitles", self, "I")
+					printl("Found embedded subtitle for local language", self, "I")
+					printl("Enabling embedded subtitles", self, "I")
 					printl("", self, "C")
 					return True
 				else:
-					printl ("No embedded subtitles to set", self, "I")
+					printl("No embedded subtitles to set", self, "I")
 			except:
 				printl("Unable to set subtitles", self, "I")
 
@@ -2265,18 +2265,18 @@ class PlexLibrary(Screen):
 			try:   
 				if external:
 					try:
-						printl ("External of type ["+external['codec']+"]", self, "I")
+						printl("External of type ["+external['codec']+"]", self, "I")
 						if external['codec'] == "idx" or external['codec'] =="sub":
-							printl ("Skipping IDX/SUB pair - not supported yet", self, "I")
+							printl("Skipping IDX/SUB pair - not supported yet", self, "I")
 						else:	
 							printl("", self, "C")
 							return True
 					except:
 						pass					
 				else:
-					printl ("No external subtitles available. Will turn off subs", self, "I")
+					printl("No external subtitles available. Will turn off subs", self, "I")
 			except:
-				printl ("No External subs to set", self, "I")
+				printl("No External subs to set", self, "I")
 
 		printl("", self, "C")   
 		return False
@@ -2395,7 +2395,7 @@ class PlexLibrary(Screen):
 			printl("", self, "C")   
 			return ""
 			
-		elif image[0:4] == "http" :
+		elif image[0:4] == "http":
 			printl("", self, "C")   
 			return image
 		
@@ -2431,13 +2431,13 @@ class PlexLibrary(Screen):
 	#============================================================================
 	# 
 	#============================================================================
-	def watched(self, url ): 
+	def watched(self, url): 
 		printl("", self, "S")
 	
 		if url.find("unscrobble") > 0:
-			printl ("Marking as unwatched with: " + url, self, "I")
+			printl("Marking as unwatched with: " + url, self, "I")
 		else:
-			printl ("Marking as watched with: " + url, self, "I")
+			printl("Marking as watched with: " + url, self, "I")
 		
 		self.doRequest(url)
 
@@ -2447,9 +2447,9 @@ class PlexLibrary(Screen):
 	#===============================================================================
 	# 
 	#===============================================================================
-	def deleteMedia(self, url ): 
+	def deleteMedia(self, url): 
 		printl("", self, "S")
-		printl ("deleting media at: " + url, self, "I")
+		printl("deleting media at: " + url, self, "I")
 		
 		return_value = True
 		if return_value:
@@ -2494,7 +2494,7 @@ class PlexLibrary(Screen):
 	#===========================================================================
 	# 
 	#===========================================================================
-	def getUrlPathFormURL(self, url ):
+	def getUrlPathFormURL(self, url):
 		printl("", self, "S")
 
 		if url[0:4] == "http" or url[0:4] == "plex":
@@ -2507,7 +2507,7 @@ class PlexLibrary(Screen):
 		#===========================================================================
 	#
 	#===========================================================================
-	def getServerFromURL(self, url ):
+	def getServerFromURL(self, url):
 		"""
 		Simply split the URL up and get the server portion, sans port
 		@ input: url, woth or without protocol
@@ -2526,7 +2526,7 @@ class PlexLibrary(Screen):
 	#============================================================================
 	# 
 	#============================================================================
-	def getLinkURL(self, url, pathData, server ): 
+	def getLinkURL(self, url, pathData, server): 
 		"""
 		Investigate the passed URL and determine what is required to
 		turn it into a usable URL
@@ -2553,7 +2553,7 @@ class PlexLibrary(Screen):
 		elif path[0] == '/':
 			printl("Detected base path link", self, "I")
 			printl("", self, "C")   
-			return 'http://%s%s' % ( server, path )
+			return 'http://%s%s' % (server, path)
 	
 		#If key starts with plex:// then it requires transcoding 
 		elif path[0:5] == "plex:":
@@ -2574,7 +2574,7 @@ class PlexLibrary(Screen):
 		else:
 			printl("Detected relative link", self, "I")
 			printl("", self, "C")   
-			return "%s/%s" % ( url, path )
+			return "%s/%s" % (url, path)
 
 #===============================================================================
 # GETTER FUNCTIONS
@@ -2583,18 +2583,18 @@ class PlexLibrary(Screen):
 	#===============================================================================
 	# 
 	#===============================================================================
-	def getTranscodeSettings(self, override=False ):
+	def getTranscodeSettings(self, override=False):
 		printl("", self, "S")
 
 		if override is True:
-			printl( "Transcode override. Will play media with addon transcoding settings", self, "I")
+			printl("Transcode override. Will play media with addon transcoding settings", self, "I")
 			self.g_transcode="true"
 	
 		if self.g_transcode == "true":
 			
-			printl( "We are set to Transcode, overriding stream selection", self, "I")
+			printl("We are set to Transcode, overriding stream selection", self, "I")
 		
-			printl( "Transcode quality is " + self.serverConfig_quality, self, "I")
+			printl("Transcode quality is " + self.serverConfig_quality, self, "I")
 			protocols = "protocols=http-video;"
 			videoDecoders = "videoDecoders=mpeg2video{profile:high&resolution:1080&level:51},mpeg4{profile:high&resolution:1080&level:51},mpeg1video{profile:high&resolution:1080&level:51},mp4{profile:high&resolution:1080&level:51},h264{profile:high&resolution:1080&level:51}"
 			#dts is not running for some reason
@@ -2796,9 +2796,9 @@ class PlexLibrary(Screen):
 			transcode.append("identifier=com.plexapp.plugins.library")
 			transcode.append("ratingKey=%s" % myID)
 			transcode.append("offset=0")
-			transcode.append("quality=%d" % int(self.serverConfig_quality ))
+			transcode.append("quality=%d" % int(self.serverConfig_quality))
 			transcode.append("session=%s" % self.g_sessionID)
-			transcode.append("secondsPerSegment=%d" % int(self.g_segments ))
+			transcode.append("secondsPerSegment=%d" % int(self.g_segments))
 			transcode.append("url=%s%s" % (quote_plus('http://127.0.0.1:32400/'), quote_plus(filename)))
 			transcode.append("key=%s%s" % (quote_plus('http://127.0.0.1:32400/library/metadata/'), myID))
 			transcode.append("3g=0")
@@ -2831,7 +2831,7 @@ class PlexLibrary(Screen):
 		for line in resp:
 			if line[0] != '#':
 				urls.append("http://%s/%s/%s" % (server, streamPath, line[:-1]))
-				printl( "Got: http://%s/%s/%s" % (str(server), str(streamPath), str(line[:-1])),self, "I")
+				printl("Got: http://%s/%s/%s" % (str(server), str(streamPath), str(line[:-1])),self, "I")
 		resp.close()
 
 		indexURL = urls.pop()
@@ -2868,7 +2868,7 @@ class PlexLibrary(Screen):
 			contextMenu = None
 
 		# build url for content
-		nextUrl = 'http://%s%s'  % ( entryData['server'], entryData['key'])
+		nextUrl = 'http://%s%s'  % (entryData['server'], entryData['key'])
 
 		content = entryData.get('title','no Title').encode('utf-8'), entryData, contextMenu, viewState, nextUrl
 

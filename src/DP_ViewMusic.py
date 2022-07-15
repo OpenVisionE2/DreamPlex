@@ -33,9 +33,9 @@ from __init__ import _ # _ is translation
 #
 #===============================================================================
 def getViewClass():
-	printl("",__name__ , "S")
+	printl("",__name__, "S")
 
-	printl("",__name__ , "C")
+	printl("",__name__, "C")
 	return DPS_ViewMusic
 
 #===============================================================================
@@ -49,7 +49,7 @@ class DPS_ViewMusic(DP_View):
 	#
 	#===========================================================================
 	def __init__(self, viewClass, libraryName, loadLibraryFnc, viewParams):
-		printl("", self , "S")
+		printl("", self, "S")
 
 		DP_View.__init__(self, viewClass, libraryName, loadLibraryFnc, viewParams)
 

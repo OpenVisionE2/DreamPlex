@@ -56,7 +56,7 @@ class DPS_SystemCheck(Screen):
 
 		Screen.__init__(self, session)
 
-		self["actions"] = ActionMap(["ColorActions", "SetupActions" ],
+		self["actions"] = ActionMap(["ColorActions", "SetupActions"],
 		{
 		"ok": self.startSelection,
 		"cancel": self.cancel,
@@ -140,7 +140,7 @@ class DPS_SystemCheck(Screen):
 		self.package = "python-pyopenssl"
 
 		if testInetConnectivity() and self.checkInstallationState(True):
-			printl( "Starting request", self, "D")
+			printl("Starting request", self, "D")
 
 			conn = httplib.HTTPSConnection("api.github.com",timeout=10, port=443)
 			conn.request(url="/repos/DonDavici/DreamPlex/tags", method="GET", headers=getUserAgentHeader())
@@ -260,7 +260,7 @@ class DPS_SystemCheck(Screen):
 
 		printl("cmd: " + str(cmd), self, "D")
 
-		self.session.open(SConsole,"Excecuting command:", [cmd] , self.finishupdate)
+		self.session.open(SConsole,"Excecuting command:", [cmd], self.finishupdate)
 
 		printl("", self, "C")
 
@@ -341,7 +341,7 @@ class DPS_SystemCheck(Screen):
 	def executeInstallationCommand(self, command):
 		printl("", self, "S")
 
-		self.session.open(SConsole,"Excecuting command:", [command] , self.finishupdate)
+		self.session.open(SConsole,"Excecuting command:", [command], self.finishupdate)
 
 		printl("", self, "C")
 

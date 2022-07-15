@@ -291,7 +291,7 @@ class RemoteHandler(BaseHTTPRequestHandler):
 						splittedData = self.currentKey.split("/")
 						subtitleData = self.plexInstance.getSelectedSubtitleDataById(self.currentCompleteAddress, splittedData[-1])
 
-						data = {"command": "playMedia", "currentKey": self.currentKey, "listViewList": listViewList, "mediaContainer": mediaContainer, "autoPlayMode": autoPlayMode, "forceResume":  forceResume, "resumeMode": resumeMode, "playbackMode": playbackMode, "currentIndex": currentIndex, "libraryName": libraryName, "subtitleData": subtitleData }
+						data = {"command": "playMedia", "currentKey": self.currentKey, "listViewList": listViewList, "mediaContainer": mediaContainer, "autoPlayMode": autoPlayMode, "forceResume":  forceResume, "resumeMode": resumeMode, "playbackMode": playbackMode, "currentIndex": currentIndex, "libraryName": libraryName, "subtitleData": subtitleData}
 
 						self.playerCallback(data)
 						self.resetCallback()

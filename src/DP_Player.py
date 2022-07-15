@@ -340,7 +340,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	#===========================================================
 	#
 	#===========================================================
-	def selectMedia(self, count, options, server ):
+	def selectMedia(self, count, options, server):
 		printl("", self, "S")
 
 		#if we have two or more files for the same movie, then present a screen
@@ -368,7 +368,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 						name = items[0] + " (" + items[2] + " / " + size + " / " + duration + ")"
 
 					printl("name " + str(name), self, "D")
-					functionList.append((name ,indexCount, ))
+					functionList.append((name,indexCount, ))
 					indexCount+=1
 
 				self.session.openWithCallback(self.setSelectedMedia, ChoiceBox, title=_("Select media to play"), list=functionList)
@@ -393,7 +393,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 		Singleton().getPlexInstance().setPlaybackType(str(self.playbackMode))
 
-		mediaFileUrl = Singleton().getPlexInstance().mediaType({'key': self.options[result][0], 'file' : self.options[result][1]}, self.server)
+		mediaFileUrl = Singleton().getPlexInstance().mediaType({'key': self.options[result][0], 'file': self.options[result][1]}, self.server)
 		printl("We have selected media at " + mediaFileUrl, self, "I")
 
 		self.buildPlayerData(mediaFileUrl)
@@ -529,7 +529,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		printl("", self, "S")
 
 		# check for playable services
-		printl( "Checking for usable gstreamer service (builtin)... ",self, "I")
+		printl("Checking for usable gstreamer service (builtin)... ",self, "I")
 
 		# lets built the sref for the movieplayer out of the gathered information
 		if self.url[:4] == "http": #this means we are in streaming mode so we will use sref 4097
@@ -936,7 +936,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		try:
 			currPlay = self.session.nav.getCurrentService()
 			sTagAudioCodec = currPlay.info().getInfoString(iServiceInformation.sTagAudioCodec)
-			printl( "audio-codec %s can't be decoded by hardware" % sTagAudioCodec, self, "I")
+			printl("audio-codec %s can't be decoded by hardware" % sTagAudioCodec, self, "I")
 			Notifications.AddNotification(MessageBox, _("This Box can't decode %s streams!") % sTagAudioCodec, type=MessageBox.TYPE_INFO, timeout=10)
 		
 		except Exception as e:
@@ -953,7 +953,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		try:
 			currPlay = self.session.nav.getCurrentService()
 			sTagVideoCodec = currPlay.info().getInfoString(iServiceInformation.sTagVideoCodec)
-			printl( "video-codec %s can't be decoded by hardware" % sTagVideoCodec, self, "I")
+			printl("video-codec %s can't be decoded by hardware" % sTagVideoCodec, self, "I")
 			Notifications.AddNotification(MessageBox, _("This Box can't decode %s streams!") % sTagVideoCodec, type=MessageBox.TYPE_INFO, timeout=10)
 		
 		except Exception as e:
@@ -970,7 +970,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		try:
 			currPlay = self.session.nav.getCurrentService()
 			message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
-			printl( "[PlexPlayer] PluginError " + message, self, "I")
+			printl("[PlexPlayer] PluginError " + message, self, "I")
 			Notifications.AddNotification(MessageBox, _("Your Box can't decode this video stream!\n%s") % message, type=MessageBox.TYPE_INFO, timeout=10)
 		
 		except Exception as e:
@@ -984,11 +984,11 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	def __evEOF(self):
 		printl("", self, "S")
 		
-		printl( "got evEOF", self, "W")
+		printl("got evEOF", self, "W")
 		
 		try:
 			err = self.session.nav.getCurrentService().info().getInfoString(iServiceInformation.sUser+12)
-			printl( "Error: " + str(err), self, "W")
+			printl("Error: " + str(err), self, "W")
 			
 			if err != "":
 				Notifications.AddNotification(MessageBox, _("Your Box can't decode this video stream!\n%s") % err, type=MessageBox.TYPE_INFO, timeout=10)
@@ -1005,7 +1005,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	def seekWatcher(self,*args):
 		printl("", self, "S")
 		
-		printl( "seekWatcher started", self, "I")
+		printl("seekWatcher started", self, "I")
 		try:
 			while self is not None and self.resumeStamp is not None:
 				self.seekToStartPos()
@@ -1013,7 +1013,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		except Exception as e:
 			printl("stopping due to exception in seektostartpos, eg. stopped playback before ready ..." + str(e), self, "W")
 		
-		printl( "seekWatcher finished ", self, "I")
+		printl("seekWatcher finished ", self, "I")
 		printl("", self, "C")
 			
 	#===========================================================================
@@ -1029,17 +1029,17 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 					r = seek.getLength()
 					if not r[0]:
-						printl ("got duration", self, "D")
+						printl("got duration", self, "D")
 						if r[1] == 0:
-							printl( "duration 0", self, "D")
+							printl("duration 0", self, "D")
 							return
 						length = r[1]
 
 					r = seek.getPlayPosition()
 					if not r[0]:
-						printl( "playbacktime " + str(r[1]), self, "D")
+						printl("playbacktime " + str(r[1]), self, "D")
 						if r[1] < 90000:# ~2 sekunden
-							printl( "do not seek yet " + str(r[1]), self, "D")
+							printl("do not seek yet " + str(r[1]), self, "D")
 							printl("", self, "C")
 							return
 					else:
@@ -1047,10 +1047,10 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 						return
 
 					elapsed = self.resumeStamp * 90000
-					printl( "seeking to " + str(time) + " length " + str(length) + " ", self, "D")
+					printl("seeking to " + str(time) + " length " + str(length) + " ", self, "D")
 
 					if elapsed < 90000:
-						printl( "skip seeking < 10s", self, "D")
+						printl("skip seeking < 10s", self, "D")
 						printl("", self, "C")
 						return
 
@@ -1068,8 +1068,8 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	def bufferFull(self):
 		#printl("", self, "S")
 		
-		if self.seekstate != self.SEEK_STATE_PLAY :
-			printl( "Buffer filled start playing", self, "I")
+		if self.seekstate != self.SEEK_STATE_PLAY:
+			printl("Buffer filled start playing", self, "I")
 			self.setSeekState(self.SEEK_STATE_PLAY)
 
 		if self.timelineWatcher is not None:
@@ -1193,7 +1193,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 			if not EOF and currentTime is not None and currentTime > 0 and totalTime is not None and totalTime > 0:
 				progress = currentTime / float(totalTime/100.0)
-				printl( "played time is %s secs of %s @ %s%%" % ( currentTime, totalTime, progress),self, "I" )
+				printl("played time is %s secs of %s @ %s%%" % (currentTime, totalTime, progress),self, "I")
 			else:
 				progress = 100
 				printl("End of file reached", self, "D")
@@ -1212,12 +1212,12 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 				#If we are less than 95% complete, store resume time
 				elif progress < 95:
-					printl("Less than 95% progress, will store resume time", self, "I" )
+					printl("Less than 95% progress, will store resume time", self, "I")
 					self.plexInstance.doRequest("http://"+self.server+"/:/progress?key="+self.id+"&identifier=com.plexapp.plugins.library&time="+str(currentTime*1000))
 
 				#Otherwise, mark as watched
 				else:
-					printl( "Movie marked as watched. Over 95% complete", self, "I")
+					printl("Movie marked as watched. Over 95% complete", self, "I")
 					self.plexInstance.doRequest("http://"+self.server+"/:/scrobble?key="+self.id+"&identifier=com.plexapp.plugins.library")
 
 		except:
@@ -1289,12 +1289,12 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	# 
 	#===========================================================================
 	def updateTimeline(self):
-		printl("" ,self,"S")
+		printl("",self,"S")
 
 		try:
 			currentTime = self.getPlayPosition()[1] / 90000
 			totalTime = self.getPlayLength()[1] / 90000
-			progress = int(( float(currentTime) / float(totalTime) ) * 100)
+			progress = int((float(currentTime) / float(totalTime)) * 100)
 		except:
 			return
 
@@ -1319,12 +1319,12 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 				seekState = self.seekstate
 
 				if seekState == self.SEEK_STATE_PAUSE:
-					printl( "Movies PAUSED time: %s secs of %s @ %s%%" % ( currentTime, totalTime, progress), self,"D" )
+					printl("Movies PAUSED time: %s secs of %s @ %s%%" % (currentTime, totalTime, progress), self,"D")
 					urlPath += "&state=paused&time=" + str(currentTime*1000) + "&duration=" + str(totalTime*1000)
 					self.plexInstance.doRequest(urlPath)
 
-				elif seekState == self.SEEK_STATE_PLAY :
-					printl( "Movies PLAYING time: %s secs of %s @ %s%%" % ( currentTime, totalTime, progress),self,"D" )
+				elif seekState == self.SEEK_STATE_PLAY:
+					printl("Movies PLAYING time: %s secs of %s @ %s%%" % (currentTime, totalTime, progress),self,"D")
 					urlPath += "&state=playing&time=" + str(currentTime*1000) + "&duration=" + str(totalTime*1000)
 					self.plexInstance.doRequest(urlPath)
 
@@ -1338,14 +1338,14 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 				printl("exception: " + str(e), self, "E")
 				return False
 
-		printl("" ,self,"C")
+		printl("",self,"C")
 		return True
 
 	#===========================================================================
 	#
 	#===========================================================================
 	def getPlayerState(self):
-		printl("" ,self,"S")
+		printl("",self,"S")
 		params = {}
 
 		try:
@@ -1367,19 +1367,19 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 			params["lastKey"] = "/library/metadata/" + str(self.id)
 
-			printl("" ,self,"C")
+			printl("",self,"C")
 			return params
 
 		except:
 
-			printl("" ,self,"C")
+			printl("",self,"C")
 			return False
 
 	#===========================================================================
 	#
 	#===========================================================================
 	def getPlayer(self):
-		printl("" ,self,"S")
+		printl("",self,"S")
 		ret = None
 
 		if self.seekstate == self.SEEK_STATE_PAUSE or self.seekstate == self.SEEK_STATE_PLAY:
@@ -1390,19 +1390,19 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 				player['type'] = "video"
 				ret["video"] = player
 
-		printl("" ,self,"C")
+		printl("",self,"C")
 		return ret
 
 	#===========================================================================
 	#
 	#===========================================================================
 	def getMediaType(self):
-		printl("" ,self,"S")
+		printl("",self,"S")
 
 		# todo someday there might be music and photo if needed
 		mediaType = "video"
 
-		printl("" ,self,"C")
+		printl("",self,"C")
 		return mediaType
 
 	#===========================================================================
@@ -1544,7 +1544,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		else:
 			self.whatPoster = mediaPath + image_prefix + "_" + self.media_id + self.poster_postfix
 
-		printl( "what poster: " + self.whatPoster, self, "D")
+		printl("what poster: " + self.whatPoster, self, "D")
 
 		printl("builded poster data: " + str(self.whatPoster), self, "D")
 
@@ -1571,8 +1571,8 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 		download_url = download_url.replace('&width=999&height=999', '&width=' + self.width + '&height=' + self.height)
 
-		printl( "download url: " + download_url, self, "D")
-		printl( "what poster: " + self.whatPoster, self, "D")
+		printl("download url: " + download_url, self, "D")
+		printl("what poster: " + self.whatPoster, self, "D")
 
 		if download_url != "":
 			response = self.plexInstance.doRequest(download_url)

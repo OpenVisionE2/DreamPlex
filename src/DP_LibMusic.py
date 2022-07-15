@@ -35,7 +35,7 @@ class DP_LibMusic(DP_LibMain):
 	#
 	#===========================================================================
 	def __init__(self, session, initalEntryData):
-		printl ("", self, "S")
+		printl("", self, "S")
 
 		libraryName = "music"
 		DP_LibMain.__init__(self, session, libraryName)
@@ -43,16 +43,16 @@ class DP_LibMusic(DP_LibMain):
 		self.initalEntryData = initalEntryData
 		printl("initalEntryData: " + str(self.initalEntryData))
 
-		printl ("", self, "C")
+		printl("", self, "C")
 
 	#===============================================================================
 	#
 	#===============================================================================
 	def loadLibrary(self, entryData=None, forceUpdate=False):
-		printl ("", self, "S")
+		printl("", self, "S")
 
 		if entryData is None:
 			entryData = self.initalEntryData
 
-		printl ("", self, "C")
+		printl("", self, "C")
 		return self.loadLibraryData(entryData, forceUpdate)

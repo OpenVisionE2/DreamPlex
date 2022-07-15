@@ -81,9 +81,9 @@ class DPS_Server(Screen, DPH_PlexScreen):
 
 		self["actions"] = ActionMap(["WizardActions","MenuActions","ShortcutActions"],
 			{
-			 "ok"	:	self.keyOk,
-			 "back"	:	self.keyClose,
-			 "red"	:	self.keyRed,
+			 "ok":	self.keyOk,
+			 "back":	self.keyClose,
+			 "red":	self.keyRed,
 			 "yellow":	self.keyYellow,
 			 "green":	self.keyGreen,
 			 "blue":	self.keyBlue,
@@ -387,7 +387,7 @@ class DPS_ServerConfig(ConfigListScreen, Screen, DPH_PlexScreen):
 
 		if not self.authenticated:
 			if self.current.protectSettings.value:
-				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!") , type=Input.PIN)
+				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!"), type=Input.PIN)
 			else:
 				self.authenticated = True
 				self.createSetup()

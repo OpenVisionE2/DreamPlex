@@ -43,7 +43,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_SKIN, SCOPE_
 from DPH_Singleton import Singleton
 from DP_ViewFactory import getViews
 
-from __common__ import getVersion, registerPlexFonts, loadSkinParams, loadPlexSkin, checkPlexEnvironment, getBoxInformation ,printl2 as printl, getXmlContent, getBoxResolution, getSkinFolder, setSkinFolder, getSkinResolution
+from __common__ import getVersion, registerPlexFonts, loadSkinParams, loadPlexSkin, checkPlexEnvironment, getBoxInformation,printl2 as printl, getXmlContent, getBoxResolution, getSkinFolder, setSkinFolder, getSkinResolution
 
 #===============================================================================
 #
@@ -187,7 +187,7 @@ def initServerEntryConfig():
 
 
 	printl("=== SERVER SETTINGS ===", "__init__::initServerEntryConfig", "D")
-	printl("Server Settings: ","__init__::initServerEntryConfig", "D" )
+	printl("Server Settings: ","__init__::initServerEntryConfig", "D")
 	printl("id: " + str(config.plugins.dreamplex.Entries[i].id.value), "__init__::initServerEntryConfig", "D")
 	printl("state: " + str(config.plugins.dreamplex.Entries[i].state.value), "__init__::initServerEntryConfig", "D")
 	printl("autostart: " + str(config.plugins.dreamplex.Entries[i].autostart.value), "__init__::initServerEntryConfig", "D")
@@ -273,12 +273,12 @@ def initServerEntryConfig():
 	config.plugins.dreamplex.Entries[i].wol_mac			= ConfigText(default="00AA00BB00CC", visible_width=12, fixed_size=False)
 	config.plugins.dreamplex.Entries[i].wol_delay		= ConfigInteger(default=60, limits=(1, 180))
 
-	printl ("=== WOL ===", "__init__::initServerEntryConfig", "D")
+	printl("=== WOL ===", "__init__::initServerEntryConfig", "D")
 	printl("wol: " + str(config.plugins.dreamplex.Entries[i].wol.value), "__init__::initServerEntryConfig", "D")
 	printl("wol_mac: " + str(config.plugins.dreamplex.Entries[i].wol_mac.value), "__init__::initServerEntryConfig", "D")
 	printl("wol_delay: " + str(config.plugins.dreamplex.Entries[i].wol_delay.value), "__init__::initServerEntryConfig", "D")
 
-	printl ("=== SYNC ===", "__init__::initServerEntryConfig", "D")
+	printl("=== SYNC ===", "__init__::initServerEntryConfig", "D")
 	config.plugins.dreamplex.Entries[i].syncMovies	    = ConfigYesNo(default=True)
 	config.plugins.dreamplex.Entries[i].syncShows	    = ConfigYesNo(default=True)
 	config.plugins.dreamplex.Entries[i].syncMusic	    = ConfigYesNo(default=True)

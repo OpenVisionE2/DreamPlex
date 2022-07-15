@@ -277,7 +277,7 @@ class DPS_Syncer(Screen, DPH_ScreenHelper, DPH_PlexScreen):
 	def keyBouquetDown(self):
 		printl("", self, "S")
 
-		self["output"].pageDown ()
+		self["output"].pageDown()
 
 		printl("", self, "C")
 
@@ -514,7 +514,7 @@ class MediaSyncerInfo(object):
 	def isRunning(self):
 		printl("", self, "S")
 
-		printl("running: " + str(self.running),self , "D")
+		printl("running: " + str(self.running),self, "D")
 
 		printl("", self, "C")
 		return self.running
@@ -586,7 +586,7 @@ class BackgroundMediaSyncer(Thread):
 
 	urllibInstance = None
 
-	def __init__ (self):
+	def __init__(self):
 		Thread.__init__(self)
 		self.cancel = False
 		self.arg = None
@@ -739,7 +739,7 @@ class BackgroundMediaSyncer(Thread):
 			from PIL import Image
 		except Exception as e:
 			printl("Error: " + str(e), self, "D")
-			self.messages.push((THREAD_WORKING, _("Error!\nError-message:%s" % e) ))
+			self.messages.push((THREAD_WORKING, _("Error!\nError-message:%s" % e)))
 			self.messagePump.send(0)
 			return
 
@@ -842,7 +842,7 @@ class BackgroundMediaSyncer(Thread):
 								printl("File does not exist after rendering!", self, "D")
 								printl("Error: " + str(response[1]), self, "D")
 
-								self.messages.push((THREAD_WORKING, _("Error: ") + str(response[1]) + "Location: " + imageLocation ))
+								self.messages.push((THREAD_WORKING, _("Error: ") + str(response[1]) + "Location: " + imageLocation))
 								self.messagePump.send(0)
 
 								sleep(1)
@@ -853,7 +853,7 @@ class BackgroundMediaSyncer(Thread):
 
 				except Exception as e:
 					printl("Error: " + str(e), self, "D")
-					self.messages.push((THREAD_WORKING, _("Error!\nError-message:%s" % e) ))
+					self.messages.push((THREAD_WORKING, _("Error!\nError-message:%s" % e)))
 					self.messagePump.send(0)
 		else:
 			msg_text = _("\n\nNo Files found. Nothing to do!")
@@ -863,7 +863,7 @@ class BackgroundMediaSyncer(Thread):
 			sleep(1)
 
 		if self.cancel:
-			self.messages.push((THREAD_FINISHED, _("Process aborted.\nPress Exit to close.") ))
+			self.messages.push((THREAD_FINISHED, _("Process aborted.\nPress Exit to close.")))
 		else:
 			self.messages.push((THREAD_FINISHED, _("\n\nWe are done!")))
 
@@ -985,12 +985,12 @@ class BackgroundMediaSyncer(Thread):
 			self.cylceThroughLibrary(dryRun=False)
 
 			if self.cancel:
-				self.messages.push((THREAD_FINISHED, _("Process aborted.\nPress Exit to close.") ))
+				self.messages.push((THREAD_FINISHED, _("Process aborted.\nPress Exit to close.")))
 			else:
 				self.messages.push((THREAD_FINISHED, _("We did it :-)")))
 
 		except Exception as e:
-			self.messages.push((THREAD_FINISHED, _("Error!\nError-message:%s\nPress Exit to close." % e) ))
+			self.messages.push((THREAD_FINISHED, _("Error!\nError-message:%s\nPress Exit to close." % e)))
 		finally:
 			self.messagePump.send(0)
 
@@ -1217,7 +1217,7 @@ class BackgroundMediaSyncer(Thread):
 		printl("", self, "S")
 
 		download_url = download_url.replace('&width=999&height=999', '&width=' + width + '&height=' + height)
-		printl( "download url " + download_url, self, "D")
+		printl("download url " + download_url, self, "D")
 
 		if self.urllibInstance is None:
 			server = self.plexInstance.getServerFromURL(download_url)
@@ -1268,7 +1268,7 @@ THREAD_ERROR = 3
 #===========================================================================
 class ThreadQueue(object):
 	def __init__(self):
-		self.__list = [ ]
+		self.__list = []
 		self.__lock = Lock()
 
 	#===========================================================================

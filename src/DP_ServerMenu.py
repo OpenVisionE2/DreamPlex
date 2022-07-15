@@ -69,7 +69,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 	#===========================================================================
 	#
 	#===========================================================================
-	def __init__(self, session, g_serverConfig ):
+	def __init__(self, session, g_serverConfig):
 		printl("", self, "S")
 		DPH_Screen.__init__(self, session)
 		DPH_ScreenHelper.__init__(self)
@@ -246,12 +246,12 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 		if self.isHomeUser:
 			if choice[1] != "":
 				printl(choice[1], self, "D")
-				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!") ,type=Input.PIN)
+				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!"),type=Input.PIN)
 			else:
 				self.switchUser()
 		else:
 			if self.g_serverConfig.myplexPinProtect.value:
-				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!") , type=Input.PIN)
+				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!"), type=Input.PIN)
 				self.currentPin = self.g_serverConfig.myplexPin.value
 			else:
 				self.switchUser()
@@ -376,7 +376,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 				hasPromptTag = entryData.get('hasPromptTag', False)
 				printl("hasPromptTag: " + str(hasPromptTag), self, "D")
 				if hasPromptTag:
-					self.session.openWithCallback(self.addSearchString, DPS_InputBox, entryData, title=_("Please enter your search string: "), text=" " * 55, maxSize=55, type=Input.TEXT )
+					self.session.openWithCallback(self.addSearchString, DPS_InputBox, entryData, title=_("Please enter your search string: "), text=" " * 55, maxSize=55, type=Input.TEXT)
 				else:
 					self.menuStep -= 1
 					self.executeSelectedEntry(entryData)
@@ -506,7 +506,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 	def exit(self):
 		printl("", self, "S")
 
-		self.close((True,) )
+		self.close((True,))
 
 		printl("", self, "C")
 

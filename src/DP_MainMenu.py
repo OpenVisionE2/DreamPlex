@@ -342,7 +342,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 	#=======================================================================
 	# 
 	#=======================================================================
-	def getSettingsMenu (self):
+	def getSettingsMenu(self):
 		printl("", self, "S")
 		
 		mainMenuList = []
@@ -501,7 +501,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 	#===========================================================================
 	#
 	#===========================================================================
-	def sleepNow (self):
+	def sleepNow(self):
 		printl("", self, "S")
 
 		time.sleep(int(self.g_woldelay))

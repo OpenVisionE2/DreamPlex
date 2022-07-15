@@ -33,9 +33,9 @@ from __init__ import _ # _ is translation
 # 
 #===============================================================================
 def getViewClass():
-	printl("",__name__ , "S")
+	printl("",__name__, "S")
 	
-	printl("",__name__ , "C")
+	printl("",__name__, "C")
 	return DPS_ViewShows
 
 #===============================================================================
@@ -50,7 +50,7 @@ class DPS_ViewShows(DP_View):
 	# 
 	#===========================================================================
 	def __init__(self, viewClass, libraryName, loadLibraryFnc, viewParams):
-		printl("", self , "S")
+		printl("", self, "S")
 
 		DP_View.__init__(self, viewClass, libraryName, loadLibraryFnc, viewParams)
 
@@ -76,8 +76,8 @@ class DPS_ViewShows(DP_View):
 		self.setDuration()
 		self.setMediaFunctions()
 
-		if self.details ["currentViewMode"] == "ShowShows":
-			printl( "is ShowShows", self, "D")
+		if self.details["currentViewMode"] == "ShowShows":
+			printl("is ShowShows", self, "D")
 			#self.setTitle(str(self.mediaContainer.get("title2", " ")))
 			self["leafCount"].setText(self.details.get("leafCount", " "))
 			self["viewedLeafCount"].setText(self.details.get("viewedLeafCount", " "))
@@ -87,7 +87,7 @@ class DPS_ViewShows(DP_View):
 			self["genre"].setText(self.details.get("genre", " "))
 			self["year"].setText(str(self.details.get("year", " - ")))
 
-			self.parentSeasonId = self.details ["ratingKey"]
+			self.parentSeasonId = self.details["ratingKey"]
 
 			self.bname = self.details["ratingKey"]
 			self.pname = self.details["ratingKey"]
@@ -110,9 +110,9 @@ class DPS_ViewShows(DP_View):
 			# we use this for filtermode at startup
 			self.filterableContent = True
 
-		elif self.details ["currentViewMode"] == "ShowSeasons":
-			printl( "is ShowSeasons",self, "D")
-			printl( "self.mediaContainer: " + str(self.mediaContainer),self, "D")
+		elif self.details["currentViewMode"] == "ShowSeasons":
+			printl("is ShowSeasons",self, "D")
+			printl("self.mediaContainer: " + str(self.mediaContainer),self, "D")
 
 			if self.mediaContainer["title2"] == self.details["title"]:
 				self.grandparentTitle = str(self.mediaContainer.get("title1", " "))
@@ -141,8 +141,8 @@ class DPS_ViewShows(DP_View):
 			# we use this for filtermode at startup
 			self.filterableContent = False
 
-		elif self.details ["currentViewMode"] == "ShowEpisodes" or self.details["currentViewMode"] == "ShowEpisodesDirect":
-			printl( "is ShowEpisodes",self, "D")
+		elif self.details["currentViewMode"] == "ShowEpisodes" or self.details["currentViewMode"] == "ShowEpisodesDirect":
+			printl("is ShowEpisodes",self, "D")
 			self["tag"].setText(str(self.mediaContainer.get("title2", " ")))
 			self["writer"].setText(encodeThat(self.details.get("writer", " ")))
 

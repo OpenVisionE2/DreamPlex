@@ -572,7 +572,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===========================================================
 	#
 	#===========================================================
-	def selectMedia(self, count, options, server ):
+	def selectMedia(self, count, options, server):
 		printl("", self, "S")
 
 		#if we have two or more extras then present a screen
@@ -594,7 +594,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 						ratingKey = items[5]
 
 					printl("name " + str(name), self, "D")
-					functionList.append((name ,indexCount, url, ratingKey))
+					functionList.append((name,indexCount, url, ratingKey))
 					indexCount+=1
 
 				self.session.openWithCallback(self.setSelectedMedia, ChoiceBox, title=_("Select media to play"), list=functionList)
@@ -619,7 +619,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			printl("ratingKey: " + str(ratingKey), self, "D")
 			isExtraData = ratingKey, url
 
-			listViewList, mediaContainer = self.plexInstance.getMoviesFromSection( "http://"+ self.server +"/library/metadata/" + ratingKey)
+			listViewList, mediaContainer = self.plexInstance.getMoviesFromSection("http://"+ self.server +"/library/metadata/" + ratingKey)
 			autoPlayMode = False
 			resumeMode = False # this is always false because we are in extradata here
 			playbackMode = str(1) #because we are a trailer we override to streamed self.serverConfig.playbackType.value
@@ -1634,7 +1634,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 				else:
 					viewState = undefinedIcon
 
-			content = (listViewEntry[0], listViewEntry[1], listViewEntry[2], viewState ,listViewEntry[4])
+			content = (listViewEntry[0], listViewEntry[1], listViewEntry[2], viewState,listViewEntry[4])
 			newList.append(content)
 
 		printl("", self, "C")
@@ -1758,7 +1758,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			self.handlePictures()
 
 		else:
-			self["title"].setText( "no data retrieved")
+			self["title"].setText("no data retrieved")
 			self["shortDescription"].setText("no data retrieved")
 
 		printl("", self, "C")
@@ -2428,7 +2428,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 				if ptr is not None:
 					self["backdrop"].instance.setPixmap(ptr)
 
-		elif self.usePicCache :
+		elif self.usePicCache:
 			if fileExists(self.whatBackdrop):
 
 				if self.whatBackdrop is not None:
@@ -2481,7 +2481,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			if self.details["thumb"] != "":
 				download_url = self.details["thumb"]
 				download_url = download_url.replace('&width=999&height=999', '&width=' + self.posterWidth + '&height=' + self.posterHeight)
-				printl( "download url: " + download_url, self, "D")
+				printl("download url: " + download_url, self, "D")
 				printl("starting download", self, "D")
 				authHeader = self.plexInstance.get_hTokenForServer(self.details["server"])
 				printl("header: " + str(authHeader), self, "D")
@@ -2507,7 +2507,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			if self.details["art"] != "":
 				download_url = self.details["art"]
 				download_url = download_url.replace('&width=999&height=999', '&width=' + self.backdropWidth + '&height=' + self.backdropHeight)
-				printl( "download url: " + download_url, self, "D")
+				printl("download url: " + download_url, self, "D")
 				printl("starting download", self, "D")
 				authHeader = self.plexInstance.get_hTokenForServer(self.details["server"])
 				printl("header: " + str(authHeader), self, "D")
@@ -2665,7 +2665,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===========================================================================
 	#
 	#===========================================================================
-	def restoreElementsInViewStep (self):
+	def restoreElementsInViewStep(self):
 		"""
 		restores gui elements according to the self.viewChangeStorage dict and self.viewStep
 		"""
@@ -3096,7 +3096,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		self.whatPoster = self.mediaPath + self.image_prefix + "_" + self.pname + self.poster_postfix
 		self.whatBackdrop = self.mediaPath + self.image_prefix + "_" + self.bname + self.backdrop_postfix
 
-		printl("self.whatPoster : " + str(self.whatPoster ), self, "D")
+		printl("self.whatPoster : " + str(self.whatPoster), self, "D")
 		printl("self.whatBackdrop: " + str(self.whatBackdrop), self, "D")
 
 		printl("", self, "C")

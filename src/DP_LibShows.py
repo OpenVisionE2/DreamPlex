@@ -35,7 +35,7 @@ class DP_LibShows(DP_LibMain):
 	# 
 	#===========================================================================
 	def __init__(self, session, initalEntryData):
-		printl ("", self, "S")
+		printl("", self, "S")
 
 		self.initalEntryData = initalEntryData
 		printl("initalEntryData: " + str(self.initalEntryData), self, "D")
@@ -43,13 +43,13 @@ class DP_LibShows(DP_LibMain):
 		libraryName = "shows"
 		DP_LibMain.__init__(self, session, libraryName)
 
-		printl ("", self, "C")
+		printl("", self, "C")
 
 	#===============================================================================
 	# 
 	#===============================================================================
 	def loadLibrary(self, entryData=None, forceUpdate=False):
-		printl ("", self, "S")
+		printl("", self, "S")
 
 		if entryData is None:
 			entryData = self.initalEntryData
@@ -59,6 +59,6 @@ class DP_LibShows(DP_LibMain):
 			entryData["currentViewMode"] = "ShowEpisodesDirect"
 		self.currentViewMode = "ShowEpisodesDirect"
 
-		printl ("", self, "C")
+		printl("", self, "C")
 		return self.loadLibraryData(entryData, forceUpdate)
 
