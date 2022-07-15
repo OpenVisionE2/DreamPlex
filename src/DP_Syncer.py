@@ -148,7 +148,7 @@ class DPS_Syncer(Screen, DPH_ScreenHelper, DPH_PlexScreen):
 					text = "Can not start renderer because there is still a syncer running."
 				else:
 					text = "Can not start syncer because there is still a renderer running."
-				self.session.open(MessageBox,_("\n%s") % text, MessageBox.TYPE_INFO)
+				self.session.open(MessageBox, _("\n%s") % text, MessageBox.TYPE_INFO)
 				printl("detected another run of syncer", self, "D")
 				self.close()
 				return
@@ -354,7 +354,7 @@ class DPS_Syncer(Screen, DPH_ScreenHelper, DPH_PlexScreen):
 		if not self.mediaSyncerInfo.isRunning():
 			self.close(0)
 		else:
-			self.session.openWithCallback(self.askForBackground,MessageBox,_("Sync or Renderer is still running!\nContinue in background?"), MessageBox.TYPE_YESNO)
+			self.session.openWithCallback(self.askForBackground, MessageBox, _("Sync or Renderer is still running!\nContinue in background?"), MessageBox.TYPE_YESNO)
 
 		printl("", self, "C")
 
@@ -514,7 +514,7 @@ class MediaSyncerInfo(object):
 	def isRunning(self):
 		printl("", self, "S")
 
-		printl("running: " + str(self.running),self, "D")
+		printl("running: " + str(self.running), self, "D")
 
 		printl("", self, "C")
 		return self.running
@@ -522,7 +522,7 @@ class MediaSyncerInfo(object):
 	#===========================================================================
 	#
 	#===========================================================================
-	def infoCallBack(self,text):
+	def infoCallBack(self, text):
 		printl("", self, "S")
 
 		printl("Message: " + str(text), self, "D")
@@ -534,7 +534,7 @@ class MediaSyncerInfo(object):
 	#===========================================================================
 	#
 	#===========================================================================
-	def progressCallBack(self,text):
+	def progressCallBack(self, text):
 		printl("", self, "S")
 
 		printl("Message: " + str(text), self, "D")
@@ -550,7 +550,7 @@ class MediaSyncerInfo(object):
 		printl("", self, "S")
 
 		if self.callback_finished is not None:
-			printl("callback_finished: " + str(self.callback_finished),self, "D")
+			printl("callback_finished: " + str(self.callback_finished), self, "D")
 			self.callback_finished()
 
 		if self.mode == "render":
@@ -751,7 +751,7 @@ class BackgroundMediaSyncer(Thread):
 			resolutionString = "*1280x720_v2.jpg"
 			searchString = "1280x720_v2.jpg"
 
-		self.count = len(glob.glob1(config.plugins.dreamplex.mediafolderpath.value,resolutionString))
+		self.count = len(glob.glob1(config.plugins.dreamplex.mediafolderpath.value, resolutionString))
 
 		msg_text = _("\n\nFiles found: ") + str(self.count)
 		self.messages.push((THREAD_WORKING, msg_text))
@@ -761,7 +761,7 @@ class BackgroundMediaSyncer(Thread):
 
 		if int(self.count) > 0:
 			self.currentIndex = 0
-			for myFile in glob.glob1(config.plugins.dreamplex.mediafolderpath.value,resolutionString):
+			for myFile in glob.glob1(config.plugins.dreamplex.mediafolderpath.value, resolutionString):
 				sleep(0.2)
 				self.currentIndex += 1
 				if self.cancel:
@@ -825,7 +825,7 @@ class BackgroundMediaSyncer(Thread):
 								resizedImage = i.resize(newSize)
 								resizedImage.save(imageLocation, format=extension)
 
-							printl("started rendering : " + str(videoLocation),self, "D")
+							printl("started rendering : " + str(videoLocation), self, "D")
 
 							if self.resolution == "FHD":
 								cmd = renderCommand + " -v 0 -f 25 -n1 -I p -j " + imageLocation + " | mpeg2enc -v 0 -f 12 -x 1920 -y 1080 -a 3 -4 1 -2 1 -q 1 -H --level high -o " + videoLocation
@@ -837,7 +837,7 @@ class BackgroundMediaSyncer(Thread):
 							response = commands.getstatusoutput(cmd)
 
 							if fileExists(videoLocation) and response[0] == 0:
-								printl("finished rendering myFile: " + str(myFile),self, "D")
+								printl("finished rendering myFile: " + str(myFile), self, "D")
 							else:
 								printl("File does not exist after rendering!", self, "D")
 								printl("Error: " + str(response[1]), self, "D")
@@ -950,7 +950,7 @@ class BackgroundMediaSyncer(Thread):
 		# get sections from server
 		self.sectionList = self.plexInstance.getAllSections()
 		self.sectionCount = len(self.sectionList)
-		printl("sectionList: " + str(self.sectionList),self, "D")
+		printl("sectionList: " + str(self.sectionList), self, "D")
 
 		# get servername
 		self.prefix = self.plexInstance.getServerName().lower()
@@ -973,13 +973,13 @@ class BackgroundMediaSyncer(Thread):
 			# in this run we gather only the information
 			self.cylceThroughLibrary()
 
-			printl("sectionCount " + str(self.sectionCount),self, "D")
-			printl("movieCount " + str(self.movieCount),self, "D")
-			printl("showCount  " + str(self.showCount),self, "D")
-			printl("seasonCount " + str(self.seasonCount),self, "D")
-			printl("episodeCount " + str(self.episodeCount),self, "D")
-			printl("artistCount " + str(self.artistCount),self, "D")
-			printl("albumCount " + str(self.albumCount),self, "D")
+			printl("sectionCount " + str(self.sectionCount), self, "D")
+			printl("movieCount " + str(self.movieCount), self, "D")
+			printl("showCount  " + str(self.showCount), self, "D")
+			printl("seasonCount " + str(self.seasonCount), self, "D")
+			printl("episodeCount " + str(self.episodeCount), self, "D")
+			printl("artistCount " + str(self.artistCount), self, "D")
+			printl("albumCount " + str(self.albumCount), self, "D")
 
 			# this run really fetches the data
 			self.cylceThroughLibrary(dryRun=False)

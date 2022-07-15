@@ -57,7 +57,7 @@ class DPH_HorizontalMenu(object):
 		printl("", self, "S")
 
 		rangeList = []
-		for i in range(1,(self.depth + 1)):
+		for i in range(1, (self.depth + 1)):
 			rangeList.append("-" + str(i))
 			rangeList.append("+" + str(i))
 
@@ -97,7 +97,7 @@ class DPH_HorizontalMenu(object):
 		try:
 			self[self.translatePositionToName(0)].setText(content[currentIndex][0])
 
-			for i in range(1,(self.depth + 1)):
+			for i in range(1, (self.depth + 1)):
 				targetIndex = currentIndex + i
 				if targetIndex < count:
 					self[self.translatePositionToName(+i)].setText(content[targetIndex][0])

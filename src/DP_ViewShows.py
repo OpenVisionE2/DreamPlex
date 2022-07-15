@@ -33,9 +33,9 @@ from __init__ import _ # _ is translation
 # 
 #===============================================================================
 def getViewClass():
-	printl("",__name__, "S")
+	printl("", __name__, "S")
 	
-	printl("",__name__, "C")
+	printl("", __name__, "C")
 	return DPS_ViewShows
 
 #===============================================================================
@@ -111,8 +111,8 @@ class DPS_ViewShows(DP_View):
 			self.filterableContent = True
 
 		elif self.details["currentViewMode"] == "ShowSeasons":
-			printl("is ShowSeasons",self, "D")
-			printl("self.mediaContainer: " + str(self.mediaContainer),self, "D")
+			printl("is ShowSeasons", self, "D")
+			printl("self.mediaContainer: " + str(self.mediaContainer), self, "D")
 
 			if self.mediaContainer["title2"] == self.details["title"]:
 				self.grandparentTitle = str(self.mediaContainer.get("title1", " "))
@@ -142,7 +142,7 @@ class DPS_ViewShows(DP_View):
 			self.filterableContent = False
 
 		elif self.details["currentViewMode"] == "ShowEpisodes" or self.details["currentViewMode"] == "ShowEpisodesDirect":
-			printl("is ShowEpisodes",self, "D")
+			printl("is ShowEpisodes", self, "D")
 			self["tag"].setText(str(self.mediaContainer.get("title2", " ")))
 			self["writer"].setText(encodeThat(self.details.get("writer", " ")))
 
@@ -216,7 +216,7 @@ class DPS_ViewShows(DP_View):
 		printl("", self, "S")
 
 		# first we call the the rest of the onEnter from super
-		super(DPS_ViewShows,self).onLeave()
+		super(DPS_ViewShows, self).onLeave()
 
 		# first restore Elements
 		self.restoreElementsInViewStep()

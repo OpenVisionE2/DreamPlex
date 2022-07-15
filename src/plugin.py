@@ -252,7 +252,7 @@ def startNotifier():
 		global notifyWatcherConn
 		notifyWatcherConn = notifyWatcher.timeout.connect(notifySubscribers)
 
-	notifyWatcher.start(1000,False)
+	notifyWatcher.start(1000, False)
 
 #===========================================================================
 #

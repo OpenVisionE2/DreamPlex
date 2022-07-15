@@ -206,7 +206,7 @@ class SubscriptionManager:
 			info['time'] = timeToMillis(props['time'])
 			info['duration'] = timeToMillis(props['totaltime'])
 			info['state'] = ("paused", "playing")[int(props['speed'])]
-			info['shuffle'] = ("0","1")[props.get('shuffled', False)]
+			info['shuffle'] = ("0", "1")[props.get('shuffled', False)]
 		except:
 			info['time'] = 0
 			info['duration'] = 0

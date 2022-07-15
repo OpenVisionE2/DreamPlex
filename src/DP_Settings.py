@@ -109,7 +109,7 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 	def createSetup(self):
 		printl("", self, "S")
 		
-		separator = "".ljust(240,"_")
+		separator = "".ljust(240, "_")
 		
 		self.cfglist = []
 		
@@ -240,19 +240,19 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 		cur = self["config"].getCurrent()
 		
 		if cur == self.mediafolderpath:
-			self.session.openWithCallback(self.savePathConfig,DPS_PathSelector,self.mediafolderpath[1].value, "media")
+			self.session.openWithCallback(self.savePathConfig, DPS_PathSelector, self.mediafolderpath[1].value, "media")
 		
 		elif cur == self.configfolderpath:
-			self.session.openWithCallback(self.savePathConfig,DPS_PathSelector,self.configfolderpath[1].value, "config")
+			self.session.openWithCallback(self.savePathConfig, DPS_PathSelector, self.configfolderpath[1].value, "config")
 		
 		elif cur == self.playerTempPath:
-			self.session.openWithCallback(self.savePathConfig,DPS_PathSelector,self.playerTempPath[1].value, "player")
+			self.session.openWithCallback(self.savePathConfig, DPS_PathSelector, self.playerTempPath[1].value, "player")
 
 		elif cur == self.logfolderpath:
-			self.session.openWithCallback(self.savePathConfig,DPS_PathSelector,self.logfolderpath[1].value, "log")
+			self.session.openWithCallback(self.savePathConfig, DPS_PathSelector, self.logfolderpath[1].value, "log")
 
 		elif cur == self.cachefolderpath:
-			self.session.openWithCallback(self.savePathConfig,DPS_PathSelector,self.cachefolderpath[1].value, "cache")
+			self.session.openWithCallback(self.savePathConfig, DPS_PathSelector, self.cachefolderpath[1].value, "cache")
 		
 		printl("", self, "C")
 

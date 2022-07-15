@@ -31,9 +31,9 @@ from __init__ import _ # _ is translation
 # 
 #===============================================================================
 def getViewClass():
-	printl("",__name__, "S")
+	printl("", __name__, "S")
 	
-	printl("",__name__, "C")
+	printl("", __name__, "C")
 	return DPS_ViewMovies
 
 #===============================================================================
@@ -123,7 +123,7 @@ class DPS_ViewMovies(DP_View):
 		printl("", self, "S")
 
 		# first we call the the rest of the onEnter from super
-		super(DPS_ViewMovies,self).onLeave()
+		super(DPS_ViewMovies, self).onLeave()
 
 		# we do the refresh here to be able to handle directory content
 		self.refresh()

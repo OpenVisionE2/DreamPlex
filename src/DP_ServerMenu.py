@@ -246,7 +246,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 		if self.isHomeUser:
 			if choice[1] != "":
 				printl(choice[1], self, "D")
-				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!"),type=Input.PIN)
+				self.session.openWithCallback(self.askForPin, InputBox, title=_("Please enter the pincode!"), type=Input.PIN)
 			else:
 				self.switchUser()
 		else:
@@ -278,7 +278,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 
 		if not accessToken:
 			# we get all the restriction data from plex and not from the local server this means that if we ar not connected no data is coming to check, means no restction
-			self.session.open(MessageBox,"No accessToken! Check plex.tv connection and plexPass status.", MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, "No accessToken! Check plex.tv connection and plexPass status.", MessageBox.TYPE_INFO)
 		else:
 			self.g_serverConfig.myplexCurrentHomeUser.value = title
 			self.g_serverConfig.myplexCurrentHomeUserAccessToken.value = accessToken
@@ -301,13 +301,13 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 			pass
 		else:
 			if int(enteredPin) == int(self.currentPin):
-				self.session.open(MessageBox,"The pin was correct! Switching user.", MessageBox.TYPE_INFO)
+				self.session.open(MessageBox, "The pin was correct! Switching user.", MessageBox.TYPE_INFO)
 				if self.isHomeUser:
 					self.switchUser()
 				else:
 					self.switchUser()
 			else:
-				self.session.open(MessageBox,"The pin was wrong! Abort user switiching.", MessageBox.TYPE_INFO)
+				self.session.open(MessageBox, "The pin was wrong! Abort user switiching.", MessageBox.TYPE_INFO)
 
 		printl("", self, "C")
 
@@ -590,6 +590,6 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 		printl("", self, "S")
 
 		text = self.plexInstance.getLastErrorMessage()
-		self.session.open(MessageBox,_("\n%s") % text, MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, _("\n%s") % text, MessageBox.TYPE_INFO)
 
 		printl("", self, "C")

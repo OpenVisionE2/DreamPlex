@@ -116,7 +116,7 @@ class DPS_Mappings(Screen):
 		self["btn_greenText"].setText(_("Add Entry"))
 
 		if self.error:
-			self.session.open(MessageBox,_("Something went wrong while opening mappings xml!"), MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, _("Something went wrong while opening mappings xml!"), MessageBox.TYPE_INFO)
 			self.close()
 
 		printl("", self, "C")
@@ -137,7 +137,7 @@ class DPS_Mappings(Screen):
 	def cancel(self):
 		printl("", self, "S")
 
-		self.close(False,self.session)
+		self.close(False, self.session)
 		
 		printl("", self, "C")
 		
@@ -147,7 +147,7 @@ class DPS_Mappings(Screen):
 	def greenKey(self):
 		printl("", self, "S")
 		
-		self.session.openWithCallback(self.setLocalPathCallback, DPS_PathSelector,"/", "mapping")
+		self.session.openWithCallback(self.setLocalPathCallback, DPS_PathSelector, "/", "mapping")
 		
 		printl("", self, "C")
 		
@@ -164,7 +164,7 @@ class DPS_Mappings(Screen):
 			self.localPath = str(callback)
 			self.session.openWithCallback(self.setRemotePathCallback, VirtualKeyBoard, title=(_("Enter your remote path segment here:")), text="C:\Videos or /volume1/videos or \\\\SERVER\\Videos\\")
 		else:
-			self.session.open(MessageBox,_("Adding new mapping was not completed"), MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, _("Adding new mapping was not completed"), MessageBox.TYPE_INFO)
 			self.close()
 	
 	#===================================================================
@@ -179,7 +179,7 @@ class DPS_Mappings(Screen):
 			
 			self["content"].addNewMapping(self.remotePath, self.localPath)
 		else:
-			self.session.open(MessageBox,_("Adding new mapping was not completed"), MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, _("Adding new mapping was not completed"), MessageBox.TYPE_INFO)
 		
 		
 		self.close()

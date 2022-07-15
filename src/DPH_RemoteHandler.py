@@ -122,7 +122,7 @@ class RemoteHandler(BaseHTTPRequestHandler):
 
 		try:
 			request_path = self.path[1:]
-			request_path = re.sub(r"\?.*","",request_path)
+			request_path = re.sub(r"\?.*", "", request_path)
 
 			printl("request path is: [%s]" % request_path, self, "D")
 

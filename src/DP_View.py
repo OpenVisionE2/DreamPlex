@@ -579,7 +579,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		self.options = options
 		self.server = server
 		if not self.options:
-			self.session.open(MessageBox,(_("No extras found ...\n\nPress exit to return.")), MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, (_("No extras found ...\n\nPress exit to return.")), MessageBox.TYPE_INFO)
 		else:
 			if count > 1:
 				printl("we have more than one playable part ...", self, "I")
@@ -594,7 +594,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 						ratingKey = items[5]
 
 					printl("name " + str(name), self, "D")
-					functionList.append((name,indexCount, url, ratingKey))
+					functionList.append((name, indexCount, url, ratingKey))
 					indexCount += 1
 
 				self.session.openWithCallback(self.setSelectedMedia, ChoiceBox, title=_("Select media to play"), list=functionList)
@@ -763,7 +763,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		remove(self.whatBackdrop)
 
 		text = "Successfully removed images!"
-		self.session.open(MessageBox,_("\n%s") % text, MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, _("\n%s") % text, MessageBox.TYPE_INFO)
 
 		printl("", self, "C")
 
@@ -828,7 +828,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			# we did not found the file on the box
 			text = "Couldn't find the file on your box.\n\nPlease check if the mount in /mnt/net/ is working!"
 
-		self.session.open(MessageBox,_("\n%s") % text, MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, _("\n%s") % text, MessageBox.TYPE_INFO)
 
 		printl("", self, "C")
 
@@ -1018,7 +1018,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	def initPlaybackMode(self):
 		printl("", self, "S")
 
-		self.playbackModes = [("0", _("Streamed")),("1", _("Transcoded")), ("2", _("Direct Local"))]
+		self.playbackModes = [("0", _("Streamed")), ("1", _("Transcoded")), ("2", _("Direct Local"))]
 		self.configuredPlaybackMode = int(self.serverConfig.playbackType.value)
 		self.nextPlaybackMode = self.configuredPlaybackMode
 		self.lengthOfPlaybackModes = len(self.playbackModes)
@@ -1634,7 +1634,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 				else:
 					viewState = undefinedIcon
 
-			content = (listViewEntry[0], listViewEntry[1], listViewEntry[2], viewState,listViewEntry[4])
+			content = (listViewEntry[0], listViewEntry[1], listViewEntry[2], viewState, listViewEntry[4])
 			newList.append(content)
 
 		printl("", self, "C")
@@ -1662,7 +1662,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			self.processSubViewElements(myType=self.currentViewMode)
 		else:
 			text = "You have no data in this section!"
-			self.session.open(MessageBox,_("\n%s") % text, MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, _("\n%s") % text, MessageBox.TYPE_INFO)
 			self.leaveNow()
 
 		printl("", self, "C")
@@ -1835,10 +1835,10 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			self.unseenUrl = self.context.get("unwatchURL", None)
 			self.deleteUrl = self.context.get("deleteURL", None)
 			self.refreshUrl = self.context.get("libraryRefreshURL", None)
-			printl("seenUrl: " + str(self.seenUrl),self, "D")
-			printl("unseenUrl: " + str(self.unseenUrl),self, "D")
-			printl("deleteUrl: " + str(self.deleteUrl),self, "D")
-			printl("refreshUrl: " + str(self.refreshUrl),self, "D")
+			printl("seenUrl: " + str(self.seenUrl), self, "D")
+			printl("unseenUrl: " + str(self.unseenUrl), self, "D")
+			printl("deleteUrl: " + str(self.deleteUrl), self, "D")
+			printl("refreshUrl: " + str(self.refreshUrl), self, "D")
 
 		printl("", self, "C")
 
@@ -2192,7 +2192,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 				selection = i
 				break
 
-		self.session.openWithCallback(self.displaySubtitleMenuCallback, ChoiceBox, title=_("Subtitle Functions\n\nPlease take note that switching the subtitles here will take only effect if you use direct local or transcoding!"), list=functionList,selection=selection)
+		self.session.openWithCallback(self.displaySubtitleMenuCallback, ChoiceBox, title=_("Subtitle Functions\n\nPlease take note that switching the subtitles here will take only effect if you use direct local or transcoding!"), list=functionList, selection=selection)
 
 		printl("", self, "C")
 
@@ -2231,7 +2231,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 				selection = i
 				break
 
-		self.session.openWithCallback(self.displayAudioMenuCallback, ChoiceBox, title=_("Audio Functions\n\nPlease take note that switching the language here will take only effect if you enable transcoding!"), list=functionList,selection=selection)
+		self.session.openWithCallback(self.displayAudioMenuCallback, ChoiceBox, title=_("Audio Functions\n\nPlease take note that switching the language here will take only effect if you enable transcoding!"), list=functionList, selection=selection)
 
 		printl("", self, "C")
 
@@ -2312,7 +2312,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			Singleton().getPlexInstance().doRequest(self.deleteUrl)
 			self.getViewListData()
 		else:
-			self.session.open(MessageBox,_("Deleting aborted!"), MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, _("Deleting aborted!"), MessageBox.TYPE_INFO)
 
 		printl("", self, "C")
 
@@ -2379,9 +2379,9 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		if forceShow:
 			if self.whatPoster is not None:
 				if getOeVersion() != "oe22":
-					self.EXpicloadPoster.startDecode(self.whatPoster,0,0,False)
+					self.EXpicloadPoster.startDecode(self.whatPoster, 0, 0, False)
 				else:
-					self.EXpicloadPoster.startDecode(self.whatPoster,False)
+					self.EXpicloadPoster.startDecode(self.whatPoster, False)
 
 				ptr = self.EXpicloadPoster.getData()
 
@@ -2393,9 +2393,9 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 
 				if self.whatPoster is not None:
 					if getOeVersion() != "oe22":
-						self.EXpicloadPoster.startDecode(self.whatPoster,0,0,False)
+						self.EXpicloadPoster.startDecode(self.whatPoster, 0, 0, False)
 					else:
-						self.EXpicloadPoster.startDecode(self.whatPoster,False)
+						self.EXpicloadPoster.startDecode(self.whatPoster, False)
 
 					ptr = self.EXpicloadPoster.getData()
 
@@ -2419,9 +2419,9 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		if forceShow:
 			if self.whatBackdrop is not None:
 				if getOeVersion() != "oe22":
-					self.EXpicloadBackdrop.startDecode(self.whatBackdrop,0,0,False)
+					self.EXpicloadBackdrop.startDecode(self.whatBackdrop, 0, 0, False)
 				else:
-					self.EXpicloadBackdrop.startDecode(self.whatBackdrop,False)
+					self.EXpicloadBackdrop.startDecode(self.whatBackdrop, False)
 
 				ptr = self.EXpicloadBackdrop.getData()
 
@@ -2433,9 +2433,9 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 
 				if self.whatBackdrop is not None:
 					if getOeVersion() != "oe22":
-						self.EXpicloadBackdrop.startDecode(self.whatBackdrop,0,0,False)
+						self.EXpicloadBackdrop.startDecode(self.whatBackdrop, 0, 0, False)
 					else:
-						self.EXpicloadBackdrop.startDecode(self.whatBackdrop,False)
+						self.EXpicloadBackdrop.startDecode(self.whatBackdrop, False)
 
 					ptr = self.EXpicloadBackdrop.getData()
 
@@ -2572,7 +2572,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 
 		# enable audio and subtitles information if we have transcoding active
 		if self.serverConfig.playbackType.value == "1": # transcoded
-			printl("audio: " + str(self.viewParams["elements"]["audio"]),self, "D")
+			printl("audio: " + str(self.viewParams["elements"]["audio"]), self, "D")
 			if self.viewParams["elements"]["audio"]["visible"]:
 				self.toggleElementVisibilityWithLabel("audio")
 			else:
@@ -2653,7 +2653,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 						position = self[element].getPosition()
 						self.viewChangeStorage[self.viewStep][element]["xCoord"] = position[0]
 						self.viewChangeStorage[self.viewStep][element]["yCoord"] = position[1]
-						self.alterGuiElementPosition(element,xCoord, yCoord)
+						self.alterGuiElementPosition(element, xCoord, yCoord)
 
 				printl("viewChangeStorage:" + str(self.viewChangeStorage), self, "D")
 		# it not we use the params form the main view
@@ -2690,7 +2690,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 					xCoord = params.get("xCoord")
 					yCoord = params.get("yCoord")
 
-					self.alterGuiElementPosition(element,xCoord, yCoord)
+					self.alterGuiElementPosition(element, xCoord, yCoord)
 		else:
 			printl("key is 0 or not in storage ...", self, "D")
 
@@ -3139,7 +3139,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		if config.plugins.dreamplex.useBackdropVideos.value and self.loadedStillPictureLib:
 			self.stopBackdropVideo()
 
-		super(DP_View,self).closePlugin()
+		super(DP_View, self).closePlugin()
 
 		printl("", self, "C")
 

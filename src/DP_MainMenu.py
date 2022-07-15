@@ -335,7 +335,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 	def Error(self, error):
 		printl("", self, "S")
 		
-		self.session.open(MessageBox,_("UNEXPECTED ERROR:") + "\n%s" % error, MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, _("UNEXPECTED ERROR:") + "\n%s" % error, MessageBox.TYPE_INFO)
 		
 		printl("", self, "C")
 		
@@ -466,7 +466,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 	def showOfflineMessage(self):
 		printl("", self, "S")
 
-		self.session.openWithCallback(self.startServerMenu,MessageBox,_("Plexserver seems to be offline. Please check your your settings or connection!\n Retry?"), MessageBox.TYPE_YESNO)
+		self.session.openWithCallback(self.startServerMenu, MessageBox, _("Plexserver seems to be offline. Please check your your settings or connection!\n Retry?"), MessageBox.TYPE_YESNO)
 
 		printl("", self, "C")
 
@@ -480,7 +480,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 			# User said 'yes'
 			printl("Wake On LAN: " + str(self.g_wolon), self, "D")
 
-			for i in range(1,12):
+			for i in range(1, 12):
 				if not self.g_wakeserver == "":
 					try:
 						printl("Waking server " + str(i) + " with MAC: " + self.g_wakeserver, self, "D")

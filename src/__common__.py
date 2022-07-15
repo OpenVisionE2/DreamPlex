@@ -1087,7 +1087,7 @@ def getUserAgentHeader(asDict=True):
 
 	if asDict:
 		#Create the standard header structure and load with a User Agent to ensure we get back a response.
-		header = {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US;rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 ( .NET CLR 3.5.30729)',}
+		header = {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US;rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 ( .NET CLR 3.5.30729)', }
 	else:
 		header = []
 		header.append('User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US;rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 ( .NET CLR 3.5.30729)')
@@ -1143,7 +1143,7 @@ def millisToTime(t):
 	seconds %= 60
 	minutes %= 60
 	millis %= 1000
-	return {'hours':hours,'minutes':minutes,'seconds':seconds,'milliseconds':millis}
+	return {'hours': hours, 'minutes': minutes, 'seconds': seconds, 'milliseconds': millis}
 
 #===========================================================================
 #

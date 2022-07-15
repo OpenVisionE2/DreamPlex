@@ -122,7 +122,7 @@ class DPS_Users(Screen):
 		self["btn_yellowText"].setText(_("Edit User"))
 
 		if self.error:
-			self.session.open(MessageBox,_("Something went wrong while opening users xml!"), MessageBox.TYPE_INFO)
+			self.session.open(MessageBox, _("Something went wrong while opening users xml!"), MessageBox.TYPE_INFO)
 			self.close()
 
 		printl("", self, "C")
@@ -143,7 +143,7 @@ class DPS_Users(Screen):
 	def cancel(self):
 		printl("", self, "S")
 
-		self.close(False,self.session)
+		self.close(False, self.session)
 		
 		printl("", self, "C")
 		
@@ -225,7 +225,7 @@ class DPS_Users(Screen):
 						break
 
 			if not foundMatchingUser:
-				self.session.open(MessageBox,_("The user was not found!"), MessageBox.TYPE_INFO)
+				self.session.open(MessageBox, _("The user was not found!"), MessageBox.TYPE_INFO)
 			else:
 				self.finishUserEntry()
 
@@ -240,7 +240,7 @@ class DPS_Users(Screen):
 	def abortUserConfiguration(self):
 		printl("", self, "S")
 
-		self.session.open(MessageBox,_("Adding new user was not completed"), MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, _("Adding new user was not completed"), MessageBox.TYPE_INFO)
 		#self.close()
 
 		printl("", self, "C")
@@ -250,7 +250,7 @@ class DPS_Users(Screen):
 	#===================================================================
 	def finishUserEntry(self):
 		printl("", self, "S")
-		self.session.open(MessageBox,_("Confirmed User from Plex was configured!"), MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, _("Confirmed User from Plex was configured!"), MessageBox.TYPE_INFO)
 
 		if self.editMode:
 			content = self["content"].getCurrent()

@@ -247,7 +247,7 @@ class DPH_MultiColorFunctions(object):
 		dp_highlighted = parseColor(getSkinHighlightedColor())
 		dp_normal = parseColor(getSkinNormalColor())
 
-		for i in range(1,int(levels) + 1):
+		for i in range(1, int(levels) + 1):
 			self["L" + str(i)] = MultiColorLabel()
 			self["L" + str(i)].foreColors = [dp_highlighted, dp_normal]
 			self["L" + str(i)].setText(str(i))
@@ -263,7 +263,7 @@ class DPH_MultiColorFunctions(object):
 		self.currentFunctionLevel = currentLevel
 		printl("currentFunctionLevel: " + str(self.currentFunctionLevel), self, "D")
 
-		for i in range(1,int(self.levels) + 1):
+		for i in range(1, int(self.levels) + 1):
 			if int(self.currentFunctionLevel) == int(i):
 				self["L" + str(i)].setForegroundColorNum(0)
 			else:

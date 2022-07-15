@@ -43,7 +43,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_SKIN, SCOPE_
 from DPH_Singleton import Singleton
 from DP_ViewFactory import getViews
 
-from __common__ import getVersion, registerPlexFonts, loadSkinParams, loadPlexSkin, checkPlexEnvironment, getBoxInformation,printl2 as printl, getXmlContent, getBoxResolution, getSkinFolder, setSkinFolder, getSkinResolution
+from __common__ import getVersion, registerPlexFonts, loadSkinParams, loadPlexSkin, checkPlexEnvironment, getBoxInformation, printl2 as printl, getXmlContent, getBoxResolution, getSkinFolder, setSkinFolder, getSkinResolution
 
 #===============================================================================
 #
@@ -164,7 +164,7 @@ def initServerEntryConfig():
 	i = len(config.plugins.dreamplex.Entries) - 1
 
 	defaultName = "PlexServer"
-	defaultIp = [192,168,0,1]
+	defaultIp = [192, 168, 0, 1]
 	defaultPort = 32400
 
 	# SERVER SETTINGS
@@ -172,14 +172,14 @@ def initServerEntryConfig():
 	config.plugins.dreamplex.Entries[i].state = ConfigYesNo(default=True)
 	config.plugins.dreamplex.Entries[i].autostart = ConfigYesNo()
 	config.plugins.dreamplex.Entries[i].name = ConfigText(default=defaultName, visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].connectionType = ConfigSelection(default="0", choices=[("0", _("IP")),("1", _("DNS")), ("2", _("MYPLEX"))])
+	config.plugins.dreamplex.Entries[i].connectionType = ConfigSelection(default="0", choices=[("0", _("IP")), ("1", _("DNS")), ("2", _("MYPLEX"))])
 	config.plugins.dreamplex.Entries[i].ip = ConfigIP(default=defaultIp)
 	config.plugins.dreamplex.Entries[i].dns = ConfigText(default="my.dns.url", visible_width=50, fixed_size=False)
 	config.plugins.dreamplex.Entries[i].port = ConfigInteger(default=defaultPort, limits=(1, 65555))
-	config.plugins.dreamplex.Entries[i].playbackType = ConfigSelection(default="0", choices=[("0", _("Streamed")),("1", _("Transcoded")), ("2", _("Direct Local"))])
+	config.plugins.dreamplex.Entries[i].playbackType = ConfigSelection(default="0", choices=[("0", _("Streamed")), ("1", _("Transcoded")), ("2", _("Direct Local"))])
 	config.plugins.dreamplex.Entries[i].localAuth = ConfigYesNo()
 	config.plugins.dreamplex.Entries[i].machineIdentifier = ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].loadExtraData = ConfigSelection(default="0", choices=[("0", "None"),("1", "Plex Pass"), ("2", "YTTrailer")])
+	config.plugins.dreamplex.Entries[i].loadExtraData = ConfigSelection(default="0", choices=[("0", "None"), ("1", "Plex Pass"), ("2", "YTTrailer")])
 
 	config.plugins.dreamplex.Entries[i].srtRenamingForDirectLocal = ConfigYesNo()
 	config.plugins.dreamplex.Entries[i].subtitlesLanguage = ConfigText(default="de", visible_width=10, fixed_size=False)
@@ -187,7 +187,7 @@ def initServerEntryConfig():
 
 
 	printl("=== SERVER SETTINGS ===", "__init__::initServerEntryConfig", "D")
-	printl("Server Settings: ","__init__::initServerEntryConfig", "D")
+	printl("Server Settings: ", "__init__::initServerEntryConfig", "D")
 	printl("id: " + str(config.plugins.dreamplex.Entries[i].id.value), "__init__::initServerEntryConfig", "D")
 	printl("state: " + str(config.plugins.dreamplex.Entries[i].state.value), "__init__::initServerEntryConfig", "D")
 	printl("autostart: " + str(config.plugins.dreamplex.Entries[i].autostart.value), "__init__::initServerEntryConfig", "D")
@@ -238,11 +238,11 @@ def initServerEntryConfig():
 	config.plugins.dreamplex.Entries[i].universalTranscoder = ConfigYesNo(default=True)
 
 	# old transcoder settings
-	config.plugins.dreamplex.Entries[i].quality = ConfigSelection(default="7", choices=[("0", _("64kbps, 128p, 3fps")), ("1", _("96kbps, 128p, 12fps")), ("2", _("208kbps, 160p, 15fps")), ("3", _("320kbps, 240p")),("4", _("720kbps, 320p")), ("5", _("1.5Mbps, 480p")), ("6", _("2Mbps, 720p")), ("7", _("3Mbps, 720p")), ("8", _("4Mbps, 720p")), ("9", _("8Mbps, 1080p")), ("10", _("10Mbps, 1080p")),("11", _("12Mbps, 1080p")),("12", _("20Mbps, 1080p"))])
+	config.plugins.dreamplex.Entries[i].quality = ConfigSelection(default="7", choices=[("0", _("64kbps, 128p, 3fps")), ("1", _("96kbps, 128p, 12fps")), ("2", _("208kbps, 160p, 15fps")), ("3", _("320kbps, 240p")), ("4", _("720kbps, 320p")), ("5", _("1.5Mbps, 480p")), ("6", _("2Mbps, 720p")), ("7", _("3Mbps, 720p")), ("8", _("4Mbps, 720p")), ("9", _("8Mbps, 1080p")), ("10", _("10Mbps, 1080p")), ("11", _("12Mbps, 1080p")), ("12", _("20Mbps, 1080p"))])
 	config.plugins.dreamplex.Entries[i].segments = ConfigInteger(default=5, limits=(1, 10))
 
 	# universal transcoder settings
-	config.plugins.dreamplex.Entries[i].uniQuality = ConfigSelection(default="3", choices=[("0", _("420x240, 320kbps")), ("1", _("576x320, 720 kbps")), ("2", _("720x480, 1,5mbps")), ("3", _("1024x768, 2mbps")),("4", _("1280x720, 3mbps")), ("5", _("1280x720, 4mbps")), ("6", _("1920x1080, 8mbps")), ("7", _("1920x1080, 10mbps")), ("8", _("1920x1080, 12mbps")), ("9", _("1920x1080, 20mbps"))])
+	config.plugins.dreamplex.Entries[i].uniQuality = ConfigSelection(default="3", choices=[("0", _("420x240, 320kbps")), ("1", _("576x320, 720 kbps")), ("2", _("720x480, 1,5mbps")), ("3", _("1024x768, 2mbps")), ("4", _("1280x720, 3mbps")), ("5", _("1280x720, 4mbps")), ("6", _("1920x1080, 8mbps")), ("7", _("1920x1080, 10mbps")), ("8", _("1920x1080, 12mbps")), ("9", _("1920x1080, 20mbps"))])
 
 
 	printl("=== TRANSCODED ===", "__init__::initServerEntryConfig", "D")

@@ -39,7 +39,7 @@ def getDefaultCineElementsList():
 	printl("", "DP_ViewFactory::", "S")
 
 	elementsList = ["pagination", "total", "backdrop", "poster", "writer", "resolution", "cast", "audio", "info",
-	                "aspect", "codec", "rated", "title", "grandparentTitle","tag", "shortDescription", "subtitles", "director",
+	                "aspect", "codec", "rated", "title", "grandparentTitle", "tag", "shortDescription", "subtitles", "director",
 	                "genre", "year", "duration", "rating_stars", "sound", "soundchannels", "pagination", "total", "leafCount", "unviewedLeafCount", "viewedLeafCount",
 	                "videoCodec", "bitrate", "videoFrameRate", "audioChannels", "aspectRatio",
 	                "videoResolution", "audioCodec", "file", "childCount", "studio"]
