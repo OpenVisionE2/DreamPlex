@@ -61,4 +61,3 @@ def _StringsForTransalation():
 	a = _("Movies")
 	a = _("Shows")
 	a = _("Series")
-

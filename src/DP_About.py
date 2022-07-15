@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Some of the code is from other plugins:
@@ -44,9 +44,9 @@ class DPS_About(Screen):
 	#===========================================================================
 	def __init__(self, session):
 		printl("", self, "S")
-		
+
 		Screen.__init__(self, session)
-		
+
 		self["leftText"] = Label()
 		self["rightText"] = Label()
 
@@ -54,46 +54,46 @@ class DPS_About(Screen):
 		{
 			"cancel": self.keyCancel,
 		}, -2)
-		
+
 		self.onLayoutFinish.append(self.finishLayout)
-		
+
 		printl("", self, "C")
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def finishLayout(self):
 		printl("", self, "S")
 
 		self.setTitle(_("About"))
-		
+
 		self["leftText"].setText(self.getLeftText())
 		self["rightText"].setText(self.getRightText())
 
 		printl("", self, "C")
-		
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def keyCancel(self):
 		printl("", self, "S")
-		
+
 		self.close()
-		
+
 		printl("", self, "C")
-		
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def getLeftText(self):
 		printl("", self, "S")
 
 		if config.plugins.dreamplex.remoteAgent.value:
 			state, information = getHttpDeamonInformation()
-		
+
 		content = ""
 		content += "Information\n\n"
-		content += "DreamPlex - a plex client for Enigma2 \n" 
+		content += "DreamPlex - a plex client for Enigma2 \n"
 		content += "Version: \t" + getVersion() + "\n\n"
 		content += "Author: \t DonDavici\n"
 		content += "\n"

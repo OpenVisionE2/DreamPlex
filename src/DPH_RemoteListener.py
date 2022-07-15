@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Based on XBMCLocalProxy 0.1 Copyright 2011 Torben Gerkensmeyer
@@ -208,4 +208,3 @@ class HttpDeamon(Thread):
 		self.playerDataPump.send(0)
 
 		printl("", __name__, "C")
-

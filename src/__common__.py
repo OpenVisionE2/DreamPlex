@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Some of the code is from other plugins:
@@ -75,7 +75,7 @@ g_archType = None
 STARTING_MESSAGE = ">>>>>>>>>>"
 CLOSING_MESSAGE = "<<<<<<<<<<"
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
@@ -83,7 +83,7 @@ def printl2(string, parent=None, dmode="U", obfuscate=False, steps=4):
 	"""
 	@param string:
 	@param parent:
-	@param dmode: default = "U" undefined 
+	@param dmode: default = "U" undefined
 							"E" shows error
 							"W" shows warning
 							"I" shows important information to have better overview if something really happening or not
@@ -243,7 +243,7 @@ def revokeCacheFiles():
 def writeToLog(dmode, out):
 	"""
 	singleton handler for the log file
-	
+
 	@param dmode: E, W, S, H, A, C, I
 	@param out: message string
 	@return: none
@@ -270,7 +270,7 @@ def writeToLog(dmode, out):
 			printl2("Exception(" + str(type(ex)) + "): " + str(ex), "__common__::writeToLog", "E")
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
@@ -298,14 +298,14 @@ def openLogFile():
 	#printl2("", "openLogFile", "C")
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
 def testInetConnectivity(target="http://www.google.com"):
 	"""
 	test if we get an answer from the specified url
-	
+
 	@param target:
 	@return: bool
 	"""
@@ -337,14 +337,14 @@ def testInetConnectivity(target="http://www.google.com"):
 		return False
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
 def testPlexConnectivity(ip, port):
 	"""
 	test if the plex server is online on the specified port
-	
+
 	@param ip: e.g. 192.168.0.1
 	@param port: e.g. 32400
 	@return: bool
@@ -374,13 +374,13 @@ def testPlexConnectivity(ip, port):
 
 
 #===============================================================================
-# 
-#===============================================================================	
+#
+#===============================================================================
 def registerPlexFonts():
 	"""
 	registers fonts for skins
-	
-	@param: none 
+
+	@param: none
 	@return none
 	"""
 	printl2("", "__common__::registerPlexFonts", "S")
@@ -455,15 +455,15 @@ def loadSkinParams():
 	printl2("", "__common__::loadSkinParams", "C")
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
 def loadPlexSkin():
 	"""
 	loads the corresponding skin.xml file
-	
-	@param: none 
+
+	@param: none
 	@return none
 	"""
 	printl2("", "__common__::loadPlexSkin", "S")
@@ -475,16 +475,16 @@ def loadPlexSkin():
 	printl2("", "__common__::loadPlexSkin", "C")
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
 def checkPlexEnvironment():
 	"""
 	checks needed file structure for plex
-	
-	@param: none 
-	@return none	
+
+	@param: none
+	@return none
 	"""
 	printl2("", "__common__::checkPlexEnvironment", "S")
 
@@ -505,14 +505,14 @@ def checkPlexEnvironment():
 	printl2("", "__common__::checkPlexEnvironment", "C")
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
 def checkDirectory(directory):
 	"""
 	checks if dir exists. if not it is added
-	
+
 	@param directory: e.g. /media/hdd/
 	@return: none
 	"""
@@ -532,14 +532,14 @@ def checkDirectory(directory):
 	printl2("", "__common__::checkDirectory", "C")
 
 #===============================================================================
-# 
-#===============================================================================		
+#
+#===============================================================================
 
 
 def getServerFromURL(url): # CHECKED
 	"""
 	Simply split the URL up and get the server portion, sans port
-	
+
 	@param url: with or without protocol
 	@return: the server URL
 	"""
@@ -555,7 +555,7 @@ def getServerFromURL(url): # CHECKED
 		return url.split('/')[0]
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
@@ -587,7 +587,7 @@ def getUUID():
 	return str(g_uuid)
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
@@ -883,7 +883,7 @@ def formatTime(msec):
 		return "%i" % seconds
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
@@ -894,7 +894,7 @@ def getScale():
 	return AVSwitch().getFramebufferScale()
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 
@@ -921,7 +921,7 @@ def checkXmlFile(location):
 	printl2("", "__common__::checkXmlFile", "C")
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 
@@ -944,7 +944,7 @@ def getXmlContent(location):
 	return tree
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 
@@ -961,7 +961,7 @@ def writeXmlContent(content, location):
 	printl2("", "__common__::getXmlContent", "C")
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 
@@ -1009,7 +1009,7 @@ def durationToTime(duration):
 	return "%d:%02d:%02d" % (h, m, s)
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 
@@ -1029,7 +1029,7 @@ def convertSize(size):
 		return '0B'
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Some of the code is from other plugins:
@@ -30,18 +30,18 @@ from __common__ import printl2 as printl, encodeThat
 from __init__ import _ # _ is translation
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
 def getViewClass():
 	printl("", __name__, "S")
-	
+
 	printl("", __name__, "C")
 	return DPS_ViewShows
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
@@ -51,7 +51,7 @@ class DPS_ViewShows(DP_View):
 	grandparentTitle = None
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def __init__(self, viewClass, libraryName, loadLibraryFnc, viewParams):
 		printl("", self, "S")

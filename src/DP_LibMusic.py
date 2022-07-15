@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Some of the code is from other plugins:
@@ -27,7 +27,7 @@ from DP_LibMain import DP_LibMain
 from __common__ import printl2 as printl
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Some of the code is from other plugins:
@@ -61,12 +61,12 @@ except ImportError:
 #
 #===============================================================================
 class DPS_Users(Screen):
-	
+
 	editMode = False
-	
+
 	def __init__(self, session, serverID, plexInstance):
 		printl("", self, "S")
-		
+
 		Screen.__init__(self, session)
 		self["actions"] = ActionMap(["ColorActions", "SetupActions"],
 		{
@@ -76,7 +76,7 @@ class DPS_Users(Screen):
 		"green": self.greenKey,
 		"yellow": self.yellowKey,
 		}, -1)
-		
+
 		self.guiElements = getGuiElements()
 		self.plexInstance = plexInstance
 
@@ -103,7 +103,7 @@ class DPS_Users(Screen):
 		self["btn_yellowText"] = Label()
 
 		self.onShown.append(self.finishLayout)
-		
+
 		printl("", self, "C")
 
 	#===========================================================================
@@ -128,33 +128,33 @@ class DPS_Users(Screen):
 		printl("", self, "C")
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def updateList(self):
 		printl("", self, "S")
-		
+
 		self["content"].buildList()
 
 		printl("", self, "C")
-		
+
 	#===================================================================
-	# 
+	#
 	#===================================================================
 	def cancel(self):
 		printl("", self, "S")
 
 		self.close(False, self.session)
-		
+
 		printl("", self, "C")
-		
+
 	#===================================================================
-	# 
+	#
 	#===================================================================
 	def greenKey(self):
 		printl("", self, "S")
-		
+
 		self.session.openWithCallback(self.setUsernameCallback, VirtualKeyBoard, title=(_("Enter the username here:")), text="")
-		
+
 		printl("", self, "C")
 
 	#===================================================================
@@ -170,15 +170,15 @@ class DPS_Users(Screen):
 		self.session.openWithCallback(self.setUsernameCallback, VirtualKeyBoard, title=(_("Enter the username here:")), text=currentName)
 
 		printl("", self, "C")
-		
+
 	#===================================================================
-	# 
+	#
 	#===================================================================
 
 	def setUsernameCallback(self, callback=None, myType=None):
 		printl("", self, "S")
 		printl("myType: " + str(myType), self, "S")
-		
+
 		if callback is not None and len(callback):
 			printl("username: " + str(callback), self, "D")
 			self.username = str(callback)
@@ -191,9 +191,9 @@ class DPS_Users(Screen):
 			self.session.openWithCallback(self.setPinCallback, VirtualKeyBoard, title=(_("Enter the pin here:")), text=currentPin)
 		else:
 			self.abortUserConfiguration()
-	
+
 	#===================================================================
-	# 
+	#
 	#===================================================================
 	def setPinCallback(self, callback=None):
 		printl("", self, "S")
@@ -263,7 +263,7 @@ class DPS_Users(Screen):
 
 		printl("", self, "C")
 	#===================================================================
-	# 
+	#
 	#===================================================================
 
 	def redKey(self):
@@ -273,22 +273,22 @@ class DPS_Users(Screen):
 		if content is not None:
 			currentId = content[1][7]
 			printl("currentId: " + str(currentId), self, "D")
-			
+
 			self["content"].deleteSelectedUser(currentId)
 		self.close()
-		
+
 		printl("", self, "C")
-		
+
 #===============================================================================
 #
 #===============================================================================
 
 
 class DPS_UsersEntryList(MenuList):
-	
+
 	lastMappingId = 0 # we use this to find the next id if we add a new element
 	location = None
-	
+
 	def __init__(self, menuList, serverID, tree, enableWrapAround=True):
 		printl("", self, "S")
 		self.serverID = serverID
@@ -301,24 +301,24 @@ class DPS_UsersEntryList(MenuList):
 		self.location = config.plugins.dreamplex.configfolderpath.value + "homeUsers"
 
 		printl("", self, "C")
-		
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def postWidgetCreate(self, instance):
 		printl("", self, "S")
-		
+
 		MenuList.postWidgetCreate(self, instance)
 		instance.setItemHeight(20)
 
 		printl("", self, "C")
-		
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def buildList(self):
 		printl("", self, "S")
-		
+
 		self.list = []
 
 		homeUsersFromServer = self.getHomeUsersFromServer()
@@ -361,9 +361,9 @@ class DPS_UsersEntryList(MenuList):
 				return server
 
 		return None
-	
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def deleteSelectedUser(self, userId):
 		printl("", self, "S")
@@ -372,7 +372,7 @@ class DPS_UsersEntryList(MenuList):
 		for server in tree.findall("server"):
 			printl("servername: " + str(server.get('id')), self, "D")
 			if str(server.get('id')) == str(self.serverID):
-				
+
 				for user in server.findall('user'):
 					printl("user: " + str(user.get('id')), self, "D")
 					if str(user.get('id')) == str(userId):
@@ -381,8 +381,8 @@ class DPS_UsersEntryList(MenuList):
 		printl("", self, "C")
 
 	#===========================================================================
-	# 
-	#===========================================================================	
+	#
+	#===========================================================================
 	def addNewUser(self, username, pin, authenticationToken, myId):
 		printl("", self, "S")
 
@@ -396,20 +396,20 @@ class DPS_UsersEntryList(MenuList):
 		printl("token: " + str(authenticationToken), self, "D")
 
 		existingServer = False
-		
+
 		for server in tree.findall("server"):
 			printl("servername: " + str(server.get('id')), self, "D")
 			if str(server.get('id')) == str(self.serverID):
 				existingServer = True
-				
+
 				server.append(etree.Element('user id="' + str(newId) + '" username="' + username + '" pin="' + pin + '" token="' + authenticationToken + '"'))
 				writeXmlContent(tree, self.location)
-		
+
 		if not existingServer: # this server has no node in the xml
 			printl("expanding server list", self, "D")
 			tree.append(etree.Element('server id="' + str(self.serverID) + '"'))
 			writeXmlContent(tree, self.location)
-			
+
 			# now lets go through the xml again to add the mapping to the server
 			self.addNewUser(username, pin, authenticationToken, newId)
 

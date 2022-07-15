@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Some of the code is from other plugins:
@@ -95,7 +95,7 @@ def getDefaultSettingsList():
 	return settingsList
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
@@ -116,7 +116,7 @@ def getViews(libraryName):
 
 	elif libraryName == "music":
 		availableViewList = getViewsFromSkinParams("musicView")
-	
+
 	else:
 		availableViewList = ()
 
@@ -124,13 +124,13 @@ def getViews(libraryName):
 	return availableViewList
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 
 def getViewsFromSkinParams(myType):
 	printl("", "DP_ViewFactory::getViewsFromSkinParams", "S")
-	
+
 	tree = Singleton().getSkinParamsInstance()
 
 	availableViewList = []
@@ -153,7 +153,7 @@ def getViewsFromSkinParams(myType):
 	elif myType == "musicView":
 		myFile = "DP_ViewMusic"
 		defaultParams = getMusicViewDefaults()
-		
+
 	else:
 		raise Exception
 
@@ -193,9 +193,9 @@ def getViewsFromSkinParams(myType):
 				currentParams["settings"][setting] = translateValues(value)
 
 		view = (name, myFile, currentParams)
-		
+
 		availableViewList.append(view)
-	
+
 	#printl("availableViewList: " + str(availableViewList), __name__, "D")
 	printl("", "DP_ViewFactory::getViewsFromSkinParams", "C")
 	return availableViewList
@@ -236,7 +236,7 @@ def getSubViewParams(tree):
 	return useMe, myDict
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 
@@ -342,7 +342,7 @@ def getShowViewDefaults():
 	return params
 
 #===========================================================================
-# 
+#
 #===========================================================================
 
 

@@ -758,4 +758,3 @@ class DPS_ServerConfig(ConfigListScreen, Screen, DPH_PlexScreen):
 		#self.session.open(MessageBox,(_("myPlex Token:") + "\n%s \n" + _("myPlex Localtoken:") + "\n%s \n"+ _("for the user:") + "\n%s") % (self.current.myplexToken.value, self.current.myplexLocalToken.value, self.current.myplexTokenUsername.value), MessageBox.TYPE_INFO)
 
 		printl("", self, "C")
-

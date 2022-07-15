@@ -38,4 +38,3 @@ class DreamplexPlayerSummary(Screen):
 		Screen.__init__(self, session, parent)
 
 		self.skinName = ["DreamPlexPlayerSummary"]
-

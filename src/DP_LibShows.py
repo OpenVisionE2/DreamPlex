@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 Some of the code is from other plugins:
@@ -27,14 +27,14 @@ from DP_LibMain import DP_LibMain
 from __common__ import printl2 as printl
 
 #===============================================================================
-# 
+#
 #===============================================================================
 
 
 class DP_LibShows(DP_LibMain):
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def __init__(self, session, initalEntryData):
 		printl("", self, "S")
@@ -48,7 +48,7 @@ class DP_LibShows(DP_LibMain):
 		printl("", self, "C")
 
 	#===============================================================================
-	# 
+	#
 	#===============================================================================
 	def loadLibrary(self, entryData=None, forceUpdate=False):
 		printl("", self, "S")
@@ -63,4 +63,3 @@ class DP_LibShows(DP_LibMain):
 
 		printl("", self, "C")
 		return self.loadLibraryData(entryData, forceUpdate)
-

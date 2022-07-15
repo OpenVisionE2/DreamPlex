@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 DreamPlex Plugin by DonDavici, 2012
- 
+
 https://github.com/DonDavici/DreamPlex
 
 special thx to hippojay for his great work in plexbmc
@@ -60,15 +60,15 @@ except ImportError:
 	except ImportError:
 		etree = None
 		raise Exception
-					
+
 #===============================================================================
-# 
+#
 #===============================================================================
 #The method seed() sets the integer starting value used in generating random numbers. Call this function before calling any other random module function.
 seed()
 
 #===============================================================================
-# 
+#
 #===============================================================================
 DEFAULT_PORT = "32400"
 MYPLEX_SERVER = "my.plexapp.com"
@@ -124,9 +124,9 @@ class PlexLibrary(Screen):
 	g_serverConfig = None
 	g_error = False
 	g_showUnSeenCounts = False
-	
+
 	##################
-	
+
 	##################
 	g_serverDict = []
 	g_serverVersion = None
@@ -143,24 +143,24 @@ class PlexLibrary(Screen):
 	fallback = ""
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def __init__(self, session, serverConfig=None, resolvedMyPlexAddress=None, machineIdentifier=None):
 		printl("", self, "S")
-		
+
 		Screen.__init__(self, session)
 
 		self.g_error = False
 		printl("running on " + str(sys.version_info), self, "I")
-		
+
 		# global serverConfig
 		self.g_serverConfig = serverConfig
-				
+
 		# global settings
 		self.g_useFilterSections = config.plugins.dreamplex.showFilter.value
 		self.g_showUnSeenCounts = config.plugins.dreamplex.showUnSeenCounts.value
 		self.g_sessionID = getUUID()
-		
+
 		# server settings
 		self.serverConfig_Name = str(self.g_serverConfig.name.value)
 		self.serverConfig_connectionType = str(self.g_serverConfig.connectionType.value)
@@ -2209,28 +2209,28 @@ class PlexLibrary(Screen):
 			playerData["currentFile"] = self.currentFile
 			playerData["subtitleFileTemp"] = subtitleFileTemp
 		playerData["universalTranscoder"] = self.g_serverConfig.universalTranscoder.value
-		
+
 		return playerData
-	
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
-	def setAudioSubtitles(self, stream): 
+	def setAudioSubtitles(self, stream):
 		printl("", self, "S")
-			
+
 		if stream['contents'] == "type":
 			printl("No streams to process.", self, "I")
-			
+
 			if self.g_streamControl == "3":
 				printl("All subs disabled", self, "I")
-			
-			printl("", self, "C")   
+
+			printl("", self, "C")
 			return True
-	
+
 		if self.g_streamControl == "1" or self.g_streamControl == "2":
 			audio = stream['audio']
 			printl("Attempting to set Audio Stream", self, "I")
-			#Audio Stream first		
+			#Audio Stream first
 			if stream['audioCount'] == 1:
 				printl("Only one audio stream present - will leave as default", self, "I")
 			elif stream['audioCount'] > 1:
@@ -2260,24 +2260,24 @@ class PlexLibrary(Screen):
 		if self.g_streamControl == "1" or self.g_streamControl == "2":
 			external = stream['external']
 			printl("Attempting to set external subtitle stream", self, "I")
-		
-			try:   
+
+			try:
 				if external:
 					try:
 						printl("External of type [" + external['codec'] + "]", self, "I")
 						if external['codec'] == "idx" or external['codec'] == "sub":
 							printl("Skipping IDX/SUB pair - not supported yet", self, "I")
-						else:	
+						else:
 							printl("", self, "C")
 							return True
 					except:
-						pass					
+						pass
 				else:
 					printl("No external subtitles available. Will turn off subs", self, "I")
 			except:
 				printl("No External subs to set", self, "I")
 
-		printl("", self, "C")   
+		printl("", self, "C")
 		return False
 
 	#===============================================================================
@@ -2376,9 +2376,9 @@ class PlexLibrary(Screen):
 
 		#printl("", self, "C")
 		return tempList
-	
+
 	#=============================================================================
-	# 
+	#
 	#=============================================================================
 	def getImage(self, data, server, myType, transcode=True):
 		"""
@@ -2392,27 +2392,27 @@ class PlexLibrary(Screen):
 		image = data.get(myType, '').split('?t')[0]
 
 		if image == '':
-			printl("", self, "C")   
+			printl("", self, "C")
 			return ""
-			
+
 		elif image[0:4] == "http":
-			printl("", self, "C")   
+			printl("", self, "C")
 			return image
-		
+
 		elif image[0] == '/':
 			if transcode:
-				printl("", self, "C")   
+				printl("", self, "C")
 				return self.photoTranscode(server, 'http://localhost:32400' + image)
 			else:
-				printl("", self, "C")   
+				printl("", self, "C")
 				return 'http://' + server + image
-		
-		else: 
-			printl("", self, "C")   
+
+		else:
+			printl("", self, "C")
 			return ""
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def photoTranscode(self, server, url, width=999, height=999):
 		printl("", self, "S")
@@ -2424,50 +2424,50 @@ class PlexLibrary(Screen):
 			printl("transcode_url: " + str(transcode_url), self, "D")
 		else:
 			printl("unspecified width and height", self, "D")
-		
-		printl("", self, "C")   
+
+		printl("", self, "C")
 		return transcode_url
 
 	#============================================================================
-	# 
+	#
 	#============================================================================
-	def watched(self, url): 
+	def watched(self, url):
 		printl("", self, "S")
-	
+
 		if url.find("unscrobble") > 0:
 			printl("Marking as unwatched with: " + url, self, "I")
 		else:
 			printl("Marking as watched with: " + url, self, "I")
-		
+
 		self.doRequest(url)
 
-		printl("", self, "C")   
+		printl("", self, "C")
 		return
 
 	#===============================================================================
-	# 
+	#
 	#===============================================================================
-	def deleteMedia(self, url): 
+	def deleteMedia(self, url):
 		printl("", self, "S")
 		printl("deleting media at: " + url, self, "I")
-		
+
 		return_value = True
 		if return_value:
 			printl("Deleting....")
 			self.doRequest(url, myType="DELETE")
-		
-		printl("", self, "C")   
+
+		printl("", self, "C")
 		return True
-	
+
 	#===============================================================================
-	# 
+	#
 	#===============================================================================
 	def buildContextMenu(self, url, ratingKey, server):
 		printl("", self, "S")
 
 		context = {}
 
-		#Initiate Library refresh 
+		#Initiate Library refresh
 		refreshURL = url.replace("/all", "/refresh")
 		libraryRefreshURL = refreshURL.split('?')[0] # + self.get_aTokenForServer(server)
 		context['libraryRefreshURL'] = libraryRefreshURL
@@ -2479,29 +2479,29 @@ class PlexLibrary(Screen):
 		#Mark media watched
 		watchedURL = "http://" + server + "/:/scrobble?key=" + ratingKey + "&identifier=com.plexapp.plugins.library"# + self.get_uTokenForServer(server)
 		context['watchedURL'] = watchedURL
-	
+
 		#Delete media from Library
 		deleteURL = "http://" + server + "/library/metadata/" + ratingKey # + self.get_uTokenForServer(server)
 		context['deleteURL'] = deleteURL
-	
+
 		printl("", self, "C")
 		return context
 
 #===============================================================================
 # HELPER FUNCTIONS
 #===============================================================================
-	
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def getUrlPathFormURL(self, url):
 		printl("", self, "S")
 
 		if url[0:4] == "http" or url[0:4] == "plex":
-			printl("", self, "C")   
+			printl("", self, "C")
 			return "/" + "/".join(url.split('/')[3:])
 		else:
-			printl("", self, "C")   
+			printl("", self, "C")
 			return "/" + "/".join(url.split('/')[1:])
 
 		#===========================================================================
@@ -2522,11 +2522,11 @@ class PlexLibrary(Screen):
 		else:
 			printl("", self, "C")
 			return url.split('/')[0]
-	
+
 	#============================================================================
-	# 
+	#
 	#============================================================================
-	def getLinkURL(self, url, pathData, server): 
+	def getLinkURL(self, url, pathData, server):
 		"""
 		Investigate the passed URL and determine what is required to
 		turn it into a usable URL
@@ -2537,27 +2537,27 @@ class PlexLibrary(Screen):
 
 		path = pathData.get('key', '')
 		printl("Path is " + path, self, "I")
-		
+
 		if path == '':
 			printl("Empty Path", self, "I")
-			printl("", self, "C")   
+			printl("", self, "C")
 			return
-		
+
 		#If key starts with http, then return it
 		if path[0:4] == "http":
 			printl("Detected http link", self, "I")
-			printl("", self, "C")   
+			printl("", self, "C")
 			return path
-			
-		#If key starts with a / then prefix with server address	
+
+		#If key starts with a / then prefix with server address
 		elif path[0] == '/':
 			printl("Detected base path link", self, "I")
-			printl("", self, "C")   
+			printl("", self, "C")
 			return 'http://%s%s' % (server, path)
-	
-		#If key starts with plex:// then it requires transcoding 
+
+		#If key starts with plex:// then it requires transcoding
 		elif path[0:5] == "plex:":
-			printl("Detected plex link", self, "I")	
+			printl("Detected plex link", self, "I")
 			components = path.split('&')
 			for i in components:
 				if 'prefix=' in i:
@@ -2565,15 +2565,15 @@ class PlexLibrary(Screen):
 					break
 			if pathData.get('identifier', None):
 				components.append('identifier=' + pathData['identifier'])
-			
+
 			path = '&'.join(components)
-			printl("", self, "C")		   
+			printl("", self, "C")
 			return 'plex://' + server + '/' + '/'.join(path.split('/')[3:])
-			
-		#Any thing else is assumed to be a relative path and is built on existing url		
+
+		#Any thing else is assumed to be a relative path and is built on existing url
 		else:
 			printl("Detected relative link", self, "I")
-			printl("", self, "C")   
+			printl("", self, "C")
 			return "%s/%s" % (url, path)
 
 #===============================================================================
@@ -2581,7 +2581,7 @@ class PlexLibrary(Screen):
 #===============================================================================
 
 	#===============================================================================
-	# 
+	#
 	#===============================================================================
 	def getTranscodeSettings(self, override=False):
 		printl("", self, "S")
@@ -2589,11 +2589,11 @@ class PlexLibrary(Screen):
 		if override is True:
 			printl("Transcode override. Will play media with addon transcoding settings", self, "I")
 			self.g_transcode = "true"
-	
+
 		if self.g_transcode == "true":
-			
+
 			printl("We are set to Transcode, overriding stream selection", self, "I")
-		
+
 			printl("Transcode quality is " + self.serverConfig_quality, self, "I")
 			protocols = "protocols=http-video;"
 			videoDecoders = "videoDecoders=mpeg2video{profile:high&resolution:1080&level:51},mpeg4{profile:high&resolution:1080&level:51},mpeg1video{profile:high&resolution:1080&level:51},mp4{profile:high&resolution:1080&level:51},h264{profile:high&resolution:1080&level:51}"
@@ -2603,11 +2603,11 @@ class PlexLibrary(Screen):
 			self.g_capability = quote_plus(protocols + ";" + videoDecoders + ";" + audioDecoders)
 
 			printl("Plex Client Capability = " + self.g_capability, self, "I")
-			
-			printl("", self, "C")   
+
+			printl("", self, "C")
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def get_hTokenForServer(self, server):
 		printl("", self, "S")
@@ -2620,7 +2620,7 @@ class PlexLibrary(Screen):
 			return None
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def get_aTokenForServer(self, server):
 		printl("", self, "S")
@@ -2633,7 +2633,7 @@ class PlexLibrary(Screen):
 			return None
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def get_uTokenForServer(self, server):
 		printl("", self, "S")
@@ -2646,16 +2646,16 @@ class PlexLibrary(Screen):
 			return None
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def getServerName(self):
 		printl("", self, "S")
-		
+
 		printl("", self, "C")
 		return self.serverConfig_Name
-	
+
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def setServerDetails(self):
 		printl("", self, "S")
@@ -2678,13 +2678,13 @@ class PlexLibrary(Screen):
 		printl("", self, "C")
 
 	#===========================================================================
-	# 
+	#
 	#===========================================================================
 	def getUniversalTranscoderSettings(self):
 		printl("", self, "S")
-		
+
 		quality = int(self.g_serverConfig.uniQuality.value)
-		
+
 		if quality == 0:
 			#420x240, 320kbps
 			videoResolution = "420x240"
@@ -2740,7 +2740,7 @@ class PlexLibrary(Screen):
 			videoResolution = "no settings"
 			maxVideoBitrate = "no settings"
 			videoQuality = "no settings"
-		
+
 		printl("", self, "C")
 		return videoQuality, videoResolution, maxVideoBitrate
 
