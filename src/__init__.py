@@ -52,64 +52,64 @@ version = getVersion()
 source = "feed" # other option is "ipk"
 
 defaultPluginFolderPath = resolveFilename(SCOPE_PLUGINS, "Extensions/DreamPlex/")
-defaultSkinsFolderPath	= resolveFilename(SCOPE_PLUGINS, "Extensions/DreamPlex/skins")
-defaultLogFolderPath    = "/tmp/"
-defaultCacheFolderPath	= "/hdd/dreamplex/cache/"
-defaultMediaFolderPath  = "/hdd/dreamplex/media/"
-defaultPlayerTempPath  	= "/hdd/dreamplex/"
-defaultConfigFolderPath	= "/hdd/dreamplex/config/"
+defaultSkinsFolderPath = resolveFilename(SCOPE_PLUGINS, "Extensions/DreamPlex/skins")
+defaultLogFolderPath = "/tmp/"
+defaultCacheFolderPath = "/hdd/dreamplex/cache/"
+defaultMediaFolderPath = "/hdd/dreamplex/media/"
+defaultPlayerTempPath = "/hdd/dreamplex/"
+defaultConfigFolderPath = "/hdd/dreamplex/config/"
 
 # skin data
 defaultSkin = "original"
 skins = []
 
 config.plugins.dreamplex = ConfigSubsection()
-config.plugins.dreamplex.about                  	= ConfigSelection(default="1", choices=[("1", " ")]) # need this for seperator in settings
-config.plugins.dreamplex.debugMode         			= ConfigYesNo()
-config.plugins.dreamplex.writeDebugFile    			= ConfigYesNo()
-config.plugins.dreamplex.showInMainMenu	   			= ConfigYesNo(default=True)
-config.plugins.dreamplex.showFilter	   	   			= ConfigYesNo(default=True)
-config.plugins.dreamplex.autoLanguage      			= ConfigYesNo()
-config.plugins.dreamplex.playTheme         			= ConfigYesNo()
-config.plugins.dreamplex.showUnSeenCounts			= ConfigYesNo()
-config.plugins.dreamplex.fastScroll		   			= ConfigYesNo()
-config.plugins.dreamplex.liveTvInViews				= ConfigYesNo()
-config.plugins.dreamplex.startWithFilterMode	    = ConfigYesNo()
-config.plugins.dreamplex.summerizeSections 			= ConfigYesNo(default=True)
-config.plugins.dreamplex.summerizeServers 			= ConfigYesNo(default=True)
-config.plugins.dreamplex.stopLiveTvOnStartup 		= ConfigYesNo()
-config.plugins.dreamplex.useCache			 		= ConfigYesNo(default=True)
-config.plugins.dreamplex.usePicCache			 	= ConfigYesNo(default=True)
-config.plugins.dreamplex.useBackdropVideos		 	= ConfigYesNo()
-config.plugins.dreamplex.showDetailsInList          = ConfigYesNo()
+config.plugins.dreamplex.about = ConfigSelection(default="1", choices=[("1", " ")]) # need this for seperator in settings
+config.plugins.dreamplex.debugMode = ConfigYesNo()
+config.plugins.dreamplex.writeDebugFile = ConfigYesNo()
+config.plugins.dreamplex.showInMainMenu = ConfigYesNo(default=True)
+config.plugins.dreamplex.showFilter = ConfigYesNo(default=True)
+config.plugins.dreamplex.autoLanguage = ConfigYesNo()
+config.plugins.dreamplex.playTheme = ConfigYesNo()
+config.plugins.dreamplex.showUnSeenCounts = ConfigYesNo()
+config.plugins.dreamplex.fastScroll = ConfigYesNo()
+config.plugins.dreamplex.liveTvInViews = ConfigYesNo()
+config.plugins.dreamplex.startWithFilterMode = ConfigYesNo()
+config.plugins.dreamplex.summerizeSections = ConfigYesNo(default=True)
+config.plugins.dreamplex.summerizeServers = ConfigYesNo(default=True)
+config.plugins.dreamplex.stopLiveTvOnStartup = ConfigYesNo()
+config.plugins.dreamplex.useCache = ConfigYesNo(default=True)
+config.plugins.dreamplex.usePicCache = ConfigYesNo(default=True)
+config.plugins.dreamplex.useBackdropVideos = ConfigYesNo()
+config.plugins.dreamplex.showDetailsInList = ConfigYesNo()
 config.plugins.dreamplex.showDetailsInListDetailType = ConfigSelection(default="1", choices=[("1", "user"), ("2", "server")])
-config.plugins.dreamplex.boxName		            = ConfigText(default="DreamPlex", visible_width=50, fixed_size=False)
-config.plugins.dreamplex.lcd4linux 			        = ConfigYesNo()
-config.plugins.dreamplex.exitFunction 		        = ConfigSelection(default="0", choices=[("0", "Nothing"), ("1", "stop playback, return to library"), ("2", "search library while playing")])
+config.plugins.dreamplex.boxName = ConfigText(default="DreamPlex", visible_width=50, fixed_size=False)
+config.plugins.dreamplex.lcd4linux = ConfigYesNo()
+config.plugins.dreamplex.exitFunction = ConfigSelection(default="0", choices=[("0", "Nothing"), ("1", "stop playback, return to library"), ("2", "search library while playing")])
 
 if source != "ipk":
-	config.plugins.dreamplex.showUpdateFunction		= ConfigYesNo()
+	config.plugins.dreamplex.showUpdateFunction = ConfigYesNo()
 else:
-	config.plugins.dreamplex.showUpdateFunction	    = ConfigYesNo(default=True)
+	config.plugins.dreamplex.showUpdateFunction = ConfigYesNo(default=True)
 
-config.plugins.dreamplex.checkForUpdateOnStartup 	= ConfigYesNo()
-config.plugins.dreamplex.updateType					= ConfigSelection(default="1", choices=[("1", "Stable"), ("2", "Beta")])
+config.plugins.dreamplex.checkForUpdateOnStartup = ConfigYesNo()
+config.plugins.dreamplex.updateType = ConfigSelection(default="1", choices=[("1", "Stable"), ("2", "Beta")])
 
-config.plugins.dreamplex.pluginfolderpath  		= ConfigDirectory(default=defaultPluginFolderPath)
-config.plugins.dreamplex.skinfolderpath			= ConfigDirectory(default=defaultSkinsFolderPath)
+config.plugins.dreamplex.pluginfolderpath = ConfigDirectory(default=defaultPluginFolderPath)
+config.plugins.dreamplex.skinfolderpath = ConfigDirectory(default=defaultSkinsFolderPath)
 
-config.plugins.dreamplex.remoteAgent	    = ConfigYesNo()
-config.plugins.dreamplex.remotePort         = ConfigInteger(default=32400, limits=(1, 65555))
-config.plugins.dreamplex.seekTime           = ConfigInteger(default=5, limits=(1, 30))
+config.plugins.dreamplex.remoteAgent = ConfigYesNo()
+config.plugins.dreamplex.remotePort = ConfigInteger(default=32400, limits=(1, 65555))
+config.plugins.dreamplex.seekTime = ConfigInteger(default=5, limits=(1, 30))
 
-config.plugins.dreamplex.logfolderpath     		= ConfigDirectory(default=defaultLogFolderPath, visible_width=50)
-config.plugins.dreamplex.cachefolderpath  		= ConfigDirectory(default=defaultCacheFolderPath, visible_width=50)
-config.plugins.dreamplex.mediafolderpath   		= ConfigDirectory(default=defaultMediaFolderPath, visible_width=50)
-config.plugins.dreamplex.configfolderpath   	= ConfigDirectory(default=defaultConfigFolderPath, visible_width=50)
-config.plugins.dreamplex.playerTempPath   		= ConfigDirectory(default=defaultPlayerTempPath, visible_width=50)
+config.plugins.dreamplex.logfolderpath = ConfigDirectory(default=defaultLogFolderPath, visible_width=50)
+config.plugins.dreamplex.cachefolderpath = ConfigDirectory(default=defaultCacheFolderPath, visible_width=50)
+config.plugins.dreamplex.mediafolderpath = ConfigDirectory(default=defaultMediaFolderPath, visible_width=50)
+config.plugins.dreamplex.configfolderpath = ConfigDirectory(default=defaultConfigFolderPath, visible_width=50)
+config.plugins.dreamplex.playerTempPath = ConfigDirectory(default=defaultPlayerTempPath, visible_width=50)
 
-config.plugins.dreamplex.entriescount              = ConfigInteger(0)
-config.plugins.dreamplex.Entries                   = ConfigSubList()
+config.plugins.dreamplex.entriescount = ConfigInteger(0)
+config.plugins.dreamplex.Entries = ConfigSubList()
 
 #===============================================================================
 # 
@@ -161,29 +161,29 @@ def initServerEntryConfig():
 	printl("", "__init__::initServerEntryConfig", "S")
 
 	config.plugins.dreamplex.Entries.append(ConfigSubsection())
-	i = len(config.plugins.dreamplex.Entries) -1
+	i = len(config.plugins.dreamplex.Entries) - 1
 
 	defaultName = "PlexServer"
 	defaultIp = [192,168,0,1]
 	defaultPort = 32400
 
 	# SERVER SETTINGS
-	config.plugins.dreamplex.Entries[i].id				= ConfigInteger(i)
-	config.plugins.dreamplex.Entries[i].state 			= ConfigYesNo(default=True)
-	config.plugins.dreamplex.Entries[i].autostart		= ConfigYesNo()
-	config.plugins.dreamplex.Entries[i].name 			= ConfigText(default=defaultName, visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].connectionType  = ConfigSelection(default="0", choices=[("0", _("IP")),("1", _("DNS")), ("2", _("MYPLEX"))])
-	config.plugins.dreamplex.Entries[i].ip				= ConfigIP(default=defaultIp)
-	config.plugins.dreamplex.Entries[i].dns				= ConfigText(default="my.dns.url", visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].port 			= ConfigInteger(default=defaultPort, limits=(1, 65555))
-	config.plugins.dreamplex.Entries[i].playbackType	= ConfigSelection(default="0", choices=[("0", _("Streamed")),("1", _("Transcoded")), ("2", _("Direct Local"))])
-	config.plugins.dreamplex.Entries[i].localAuth	    = ConfigYesNo()
+	config.plugins.dreamplex.Entries[i].id = ConfigInteger(i)
+	config.plugins.dreamplex.Entries[i].state = ConfigYesNo(default=True)
+	config.plugins.dreamplex.Entries[i].autostart = ConfigYesNo()
+	config.plugins.dreamplex.Entries[i].name = ConfigText(default=defaultName, visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].connectionType = ConfigSelection(default="0", choices=[("0", _("IP")),("1", _("DNS")), ("2", _("MYPLEX"))])
+	config.plugins.dreamplex.Entries[i].ip = ConfigIP(default=defaultIp)
+	config.plugins.dreamplex.Entries[i].dns = ConfigText(default="my.dns.url", visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].port = ConfigInteger(default=defaultPort, limits=(1, 65555))
+	config.plugins.dreamplex.Entries[i].playbackType = ConfigSelection(default="0", choices=[("0", _("Streamed")),("1", _("Transcoded")), ("2", _("Direct Local"))])
+	config.plugins.dreamplex.Entries[i].localAuth = ConfigYesNo()
 	config.plugins.dreamplex.Entries[i].machineIdentifier = ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].loadExtraData 	= ConfigSelection(default="0", choices=[("0", "None"),("1", "Plex Pass"), ("2", "YTTrailer")])
+	config.plugins.dreamplex.Entries[i].loadExtraData = ConfigSelection(default="0", choices=[("0", "None"),("1", "Plex Pass"), ("2", "YTTrailer")])
 
-	config.plugins.dreamplex.Entries[i].srtRenamingForDirectLocal	= ConfigYesNo()
-	config.plugins.dreamplex.Entries[i].subtitlesLanguage       = ConfigText(default="de", visible_width=10, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].useForcedSubtitles			= ConfigYesNo(default=True)
+	config.plugins.dreamplex.Entries[i].srtRenamingForDirectLocal = ConfigYesNo()
+	config.plugins.dreamplex.Entries[i].subtitlesLanguage = ConfigText(default="de", visible_width=10, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].useForcedSubtitles = ConfigYesNo(default=True)
 
 
 	printl("=== SERVER SETTINGS ===", "__init__::initServerEntryConfig", "D")
@@ -199,22 +199,22 @@ def initServerEntryConfig():
 	printl("playbackType: " + str(config.plugins.dreamplex.Entries[i].playbackType.value), "__init__::initServerEntryConfig", "D")
 
 	# myPlex
-	config.plugins.dreamplex.Entries[i].myplexUrl		            = ConfigText(default="my.plexapp.com", visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].myplexUsername			    = ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].myplexId			        = ConfigInteger(default=0, limits=(1, 999999999999))
-	config.plugins.dreamplex.Entries[i].myplexPassword			    = ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].myplexPinProtect	        = ConfigYesNo()
-	config.plugins.dreamplex.Entries[i].myplexPin                   = ConfigPIN(default=0000)
-	config.plugins.dreamplex.Entries[i].myplexToken				    = ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].myplexLocalToken		    = ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].myplexTokenUsername		    = ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].myplexHomeUsers		        = ConfigYesNo()
-	config.plugins.dreamplex.Entries[i].protectSettings		        = ConfigYesNo()
-	config.plugins.dreamplex.Entries[i].settingsPin                 = ConfigPIN(default=0000)
-	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUser		= ConfigText(visible_width=50, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUserPin	= ConfigText(visible_width=4)
-	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUserAccessToken	= ConfigText(visible_width=4)
-	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUserId	    = ConfigInteger(default=0, limits=(1, 999999999999))
+	config.plugins.dreamplex.Entries[i].myplexUrl = ConfigText(default="my.plexapp.com", visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].myplexUsername = ConfigText(visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].myplexId = ConfigInteger(default=0, limits=(1, 999999999999))
+	config.plugins.dreamplex.Entries[i].myplexPassword = ConfigText(visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].myplexPinProtect = ConfigYesNo()
+	config.plugins.dreamplex.Entries[i].myplexPin = ConfigPIN(default=0000)
+	config.plugins.dreamplex.Entries[i].myplexToken = ConfigText(visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].myplexLocalToken = ConfigText(visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].myplexTokenUsername = ConfigText(visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].myplexHomeUsers = ConfigYesNo()
+	config.plugins.dreamplex.Entries[i].protectSettings = ConfigYesNo()
+	config.plugins.dreamplex.Entries[i].settingsPin = ConfigPIN(default=0000)
+	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUser = ConfigText(visible_width=50, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUserPin = ConfigText(visible_width=4)
+	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUserAccessToken = ConfigText(visible_width=4)
+	config.plugins.dreamplex.Entries[i].myplexCurrentHomeUserId = ConfigInteger(default=0, limits=(1, 999999999999))
 
 	printl("=== myPLEX ===", "__init__::initServerEntryConfig", "D")
 	printl("myplexUrl: " + str(config.plugins.dreamplex.Entries[i].myplexUrl.value), "__init__::initServerEntryConfig", "D")
@@ -235,11 +235,11 @@ def initServerEntryConfig():
 	# no options at the moment
 
 	# TRANSCODED
-	config.plugins.dreamplex.Entries[i].universalTranscoder	= ConfigYesNo(default=True)
+	config.plugins.dreamplex.Entries[i].universalTranscoder = ConfigYesNo(default=True)
 
 	# old transcoder settings
-	config.plugins.dreamplex.Entries[i].quality				= ConfigSelection(default="7", choices=[("0", _("64kbps, 128p, 3fps")), ("1", _("96kbps, 128p, 12fps")), ("2", _("208kbps, 160p, 15fps")), ("3", _("320kbps, 240p")),("4", _("720kbps, 320p")), ("5", _("1.5Mbps, 480p")), ("6", _("2Mbps, 720p")), ("7", _("3Mbps, 720p")), ("8", _("4Mbps, 720p")), ("9", _("8Mbps, 1080p")), ("10", _("10Mbps, 1080p")),("11", _("12Mbps, 1080p")),("12", _("20Mbps, 1080p"))])
-	config.plugins.dreamplex.Entries[i].segments 			= ConfigInteger(default=5, limits=(1, 10))
+	config.plugins.dreamplex.Entries[i].quality = ConfigSelection(default="7", choices=[("0", _("64kbps, 128p, 3fps")), ("1", _("96kbps, 128p, 12fps")), ("2", _("208kbps, 160p, 15fps")), ("3", _("320kbps, 240p")),("4", _("720kbps, 320p")), ("5", _("1.5Mbps, 480p")), ("6", _("2Mbps, 720p")), ("7", _("3Mbps, 720p")), ("8", _("4Mbps, 720p")), ("9", _("8Mbps, 1080p")), ("10", _("10Mbps, 1080p")),("11", _("12Mbps, 1080p")),("12", _("20Mbps, 1080p"))])
+	config.plugins.dreamplex.Entries[i].segments = ConfigInteger(default=5, limits=(1, 10))
 
 	# universal transcoder settings
 	config.plugins.dreamplex.Entries[i].uniQuality = ConfigSelection(default="3", choices=[("0", _("420x240, 320kbps")), ("1", _("576x320, 720 kbps")), ("2", _("720x480, 1,5mbps")), ("3", _("1024x768, 2mbps")),("4", _("1280x720, 3mbps")), ("5", _("1280x720, 4mbps")), ("6", _("1920x1080, 8mbps")), ("7", _("1920x1080, 10mbps")), ("8", _("1920x1080, 12mbps")), ("9", _("1920x1080, 20mbps"))])
@@ -269,9 +269,9 @@ def initServerEntryConfig():
 	printl("nasRoot: " + str(config.plugins.dreamplex.Entries[i].nasRoot.value), "__init__::initServerEntryConfig", "D")
 
 	# WOL
-	config.plugins.dreamplex.Entries[i].wol				= ConfigYesNo()
-	config.plugins.dreamplex.Entries[i].wol_mac			= ConfigText(default="00AA00BB00CC", visible_width=12, fixed_size=False)
-	config.plugins.dreamplex.Entries[i].wol_delay		= ConfigInteger(default=60, limits=(1, 180))
+	config.plugins.dreamplex.Entries[i].wol = ConfigYesNo()
+	config.plugins.dreamplex.Entries[i].wol_mac = ConfigText(default="00AA00BB00CC", visible_width=12, fixed_size=False)
+	config.plugins.dreamplex.Entries[i].wol_delay = ConfigInteger(default=60, limits=(1, 180))
 
 	printl("=== WOL ===", "__init__::initServerEntryConfig", "D")
 	printl("wol: " + str(config.plugins.dreamplex.Entries[i].wol.value), "__init__::initServerEntryConfig", "D")
@@ -279,9 +279,9 @@ def initServerEntryConfig():
 	printl("wol_delay: " + str(config.plugins.dreamplex.Entries[i].wol_delay.value), "__init__::initServerEntryConfig", "D")
 
 	printl("=== SYNC ===", "__init__::initServerEntryConfig", "D")
-	config.plugins.dreamplex.Entries[i].syncMovies	    = ConfigYesNo(default=True)
-	config.plugins.dreamplex.Entries[i].syncShows	    = ConfigYesNo(default=True)
-	config.plugins.dreamplex.Entries[i].syncMusic	    = ConfigYesNo(default=True)
+	config.plugins.dreamplex.Entries[i].syncMovies = ConfigYesNo(default=True)
+	config.plugins.dreamplex.Entries[i].syncShows = ConfigYesNo(default=True)
+	config.plugins.dreamplex.Entries[i].syncMusic = ConfigYesNo(default=True)
 
 	printl("", "__init__::initServerEntryConfig", "C")
 	return config.plugins.dreamplex.Entries[i]
@@ -438,7 +438,7 @@ def getInstalledSkins():
 
 	printl("Found enigma2 skins \"%s\"" % str(mySkins), "__init__::getInstalledSkins", "D")
 
-	config.plugins.dreamplex.skin	= ConfigSelection(default=myDefaultSkin, choices=mySkins)
+	config.plugins.dreamplex.skin = ConfigSelection(default=myDefaultSkin, choices=mySkins)
 
 	printl("", "__init__::getInstalledSkins", "C")
 

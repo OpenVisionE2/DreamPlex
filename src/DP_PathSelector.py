@@ -72,11 +72,11 @@ class DPS_PathSelector(Screen, DPH_PlexScreen):
 
 		self["targetText"] = Label()
 
-		self["btn_red"]			= Pixmap()
-		self["btn_redText"]		= Label()
+		self["btn_red"] = Pixmap()
+		self["btn_redText"] = Label()
 
-		self["btn_green"]		= Pixmap()
-		self["btn_greenText"]   = Label()
+		self["btn_green"] = Pixmap()
+		self["btn_greenText"] = Label()
 
 		self.onLayoutFinish.append(self.finishLayout)
 		

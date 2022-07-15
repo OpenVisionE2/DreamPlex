@@ -63,7 +63,7 @@ class DPS_Server(Screen, DPH_PlexScreen):
 
 		self.guiElements = getGuiElements()
 
-		self["entryList"]= List(self.builEntryList(), True)
+		self["entryList"] = List(self.builEntryList(), True)
 		self["header"] = Label()
 		self["columnHeader"] = Label()
 
@@ -81,12 +81,12 @@ class DPS_Server(Screen, DPH_PlexScreen):
 
 		self["actions"] = ActionMap(["WizardActions","MenuActions","ShortcutActions"],
 			{
-			 "ok":	self.keyOk,
-			 "back":	self.keyClose,
-			 "red":	self.keyRed,
-			 "yellow":	self.keyYellow,
-			 "green":	self.keyGreen,
-			 "blue":	self.keyBlue,
+			 "ok": self.keyOk,
+			 "back": self.keyClose,
+			 "red": self.keyRed,
+			 "yellow": self.keyYellow,
+			 "green": self.keyGreen,
+			 "blue": self.keyBlue,
 			 }, -1)
 		self.what = what
 
@@ -134,7 +134,7 @@ class DPS_Server(Screen, DPH_PlexScreen):
 				text2 = serverConfig.myplexUsername.value
 			else:
 				text1 = "%d.%d.%d.%d" % tuple(serverConfig.ip.value)
-				text2 = "%d"% serverConfig.port.value
+				text2 = "%d" % serverConfig.port.value
 
 			active = str(serverConfig.state.value)
 
@@ -221,7 +221,7 @@ class DPS_Server(Screen, DPH_PlexScreen):
 		if sel is None:
 			return
 
-		printl("config selction: " +  str(sel), self, "D")
+		printl("config selction: " + str(sel), self, "D")
 		self.session.openWithCallback(self.updateList, DPS_ServerConfig, sel)
 
 		printl("", self, "C")
@@ -242,7 +242,7 @@ class DPS_Server(Screen, DPH_PlexScreen):
 		if serverConfig is None:
 			return
 
-		printl("config selction: " +  str(serverConfig), self, "D")
+		printl("config selction: " + str(serverConfig), self, "D")
 		self.session.open(DPS_Syncer, "sync", serverConfig)
 
 		printl("", self, "C")

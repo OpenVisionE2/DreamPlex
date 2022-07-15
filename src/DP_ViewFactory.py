@@ -243,19 +243,19 @@ def getMovieViewDefaults():
 		params["elements"][element]["visible"] = True
 
 	# override default True
-	params["elements"]["grandparentTitle"]["visible"]              = False
-	params["elements"]["childCount"]["visible"]                    = False
-	params["elements"]["leafCount"]["visible"]                     = False
-	params["elements"]["unviewedLeafCount"]["visible"]             = False
-	params["elements"]["viewedLeafCount"]["visible"]               = False
-	params["elements"]["videoCodec"]["visible"]                    = False
-	params["elements"]["bitrate"]["visible"]                       = False
-	params["elements"]["videoFrameRate"]["visible"]                = False
-	params["elements"]["audioChannels"]["visible"]                 = False
-	params["elements"]["aspectRatio"]["visible"]                   = False
-	params["elements"]["videoResolution"]["visible"]               = False
-	params["elements"]["audioCodec"]["visible"]                    = False
-	params["elements"]["file"]["visible"]                          = False
+	params["elements"]["grandparentTitle"]["visible"] = False
+	params["elements"]["childCount"]["visible"] = False
+	params["elements"]["leafCount"]["visible"] = False
+	params["elements"]["unviewedLeafCount"]["visible"] = False
+	params["elements"]["viewedLeafCount"]["visible"] = False
+	params["elements"]["videoCodec"]["visible"] = False
+	params["elements"]["bitrate"]["visible"] = False
+	params["elements"]["videoFrameRate"]["visible"] = False
+	params["elements"]["audioChannels"]["visible"] = False
+	params["elements"]["aspectRatio"]["visible"] = False
+	params["elements"]["videoResolution"]["visible"] = False
+	params["elements"]["audioCodec"]["visible"] = False
+	params["elements"]["file"]["visible"] = False
 
 	# add addional params in elements
 	# params["elements"]["backdrop"]["height"]                       = "315"
@@ -291,25 +291,25 @@ def getShowViewDefaults():
 		params["elements"][element]["visible"] = True
 
 	# override default True
-	params["elements"]["subtitles"]["visible"]                     = False
-	params["elements"]["audio"]["visible"]                         = False
-	params["elements"]["videoCodec"]["visible"]                    = False
-	params["elements"]["bitrate"]["visible"]                       = False
-	params["elements"]["videoFrameRate"]["visible"]                = False
-	params["elements"]["audioChannels"]["visible"]                 = False
-	params["elements"]["aspectRatio"]["visible"]                   = False
-	params["elements"]["videoResolution"]["visible"]               = False
-	params["elements"]["audioCodec"]["visible"]                    = False
-	params["elements"]["file"]["visible"]                          = False
-	params["elements"]["director"]["visible"]                      = False
-	params["elements"]["writer"]["visible"]                        = False
-	params["elements"]["cast"]["visible"]                          = False
-	params["elements"]["codec"]["visible"]                         = False
-	params["elements"]["aspect"]["visible"]                        = False
-	params["elements"]["resolution"]["visible"]                    = False
-	params["elements"]["rated"]["visible"]                         = False
-	params["elements"]["sound"]["visible"]                         = False
-	params["elements"]["soundchannels"]["visible"]                 = False
+	params["elements"]["subtitles"]["visible"] = False
+	params["elements"]["audio"]["visible"] = False
+	params["elements"]["videoCodec"]["visible"] = False
+	params["elements"]["bitrate"]["visible"] = False
+	params["elements"]["videoFrameRate"]["visible"] = False
+	params["elements"]["audioChannels"]["visible"] = False
+	params["elements"]["aspectRatio"]["visible"] = False
+	params["elements"]["videoResolution"]["visible"] = False
+	params["elements"]["audioCodec"]["visible"] = False
+	params["elements"]["file"]["visible"] = False
+	params["elements"]["director"]["visible"] = False
+	params["elements"]["writer"]["visible"] = False
+	params["elements"]["cast"]["visible"] = False
+	params["elements"]["codec"]["visible"] = False
+	params["elements"]["aspect"]["visible"] = False
+	params["elements"]["resolution"]["visible"] = False
+	params["elements"]["rated"]["visible"] = False
+	params["elements"]["sound"]["visible"] = False
+	params["elements"]["soundchannels"]["visible"] = False
 
 	# add addional params in elements
 	# params["elements"]["backdrop"]["height"]                       = "315"
@@ -345,27 +345,27 @@ def getMusicViewDefaults():
 		params["elements"][element]["visible"] = True
 
 	# override default True
-	params["elements"]["subtitles"]["visible"]                     = False
-	params["elements"]["audio"]["visible"]                         = False
-	params["elements"]["year"]["visible"]                          = False
-	params["elements"]["duration"]["visible"]                      = False
-	params["elements"]["childCount"]["visible"]                    = False
-	params["elements"]["writer"]["visible"]                        = False
-	params["elements"]["director"]["visible"]                      = False
-	params["elements"]["cast"]["visible"]                          = False
-	params["elements"]["leafCount"]["visible"]                     = False
-	params["elements"]["unviewedLeafCount"]["visible"]             = False
-	params["elements"]["viewedLeafCount"]["visible"]               = False
-	params["elements"]["videoCodec"]["visible"]                    = False
-	params["elements"]["bitrate"]["visible"]                       = False
-	params["elements"]["videoFrameRate"]["visible"]                = False
-	params["elements"]["audioChannels"]["visible"]                 = False
-	params["elements"]["aspectRatio"]["visible"]                   = False
-	params["elements"]["videoResolution"]["visible"]               = False
-	params["elements"]["audioCodec"]["visible"]                    = False
-	params["elements"]["file"]["visible"]                          = False
-	params["elements"]["genre"]["visible"]                         = False
-	params["elements"]["studio"]["visible"]                        = False
+	params["elements"]["subtitles"]["visible"] = False
+	params["elements"]["audio"]["visible"] = False
+	params["elements"]["year"]["visible"] = False
+	params["elements"]["duration"]["visible"] = False
+	params["elements"]["childCount"]["visible"] = False
+	params["elements"]["writer"]["visible"] = False
+	params["elements"]["director"]["visible"] = False
+	params["elements"]["cast"]["visible"] = False
+	params["elements"]["leafCount"]["visible"] = False
+	params["elements"]["unviewedLeafCount"]["visible"] = False
+	params["elements"]["viewedLeafCount"]["visible"] = False
+	params["elements"]["videoCodec"]["visible"] = False
+	params["elements"]["bitrate"]["visible"] = False
+	params["elements"]["videoFrameRate"]["visible"] = False
+	params["elements"]["audioChannels"]["visible"] = False
+	params["elements"]["aspectRatio"]["visible"] = False
+	params["elements"]["videoResolution"]["visible"] = False
+	params["elements"]["audioCodec"]["visible"] = False
+	params["elements"]["file"]["visible"] = False
+	params["elements"]["genre"]["visible"] = False
+	params["elements"]["studio"]["visible"] = False
 
 	# add addional params in elements
 	# params["elements"]["backdrop"]["height"]                       = "315"

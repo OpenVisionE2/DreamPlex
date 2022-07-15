@@ -140,7 +140,7 @@ class DPS_Syncer(Screen, DPH_ScreenHelper, DPH_PlexScreen):
 		isRunning = self.mediaSyncerInfo.isRunning()
 		if isRunning:
 			currentMode = self.mediaSyncerInfo.getMode()
-			printl("currentMode: " +  str(currentMode), self, "D")
+			printl("currentMode: " + str(currentMode), self, "D")
 			printl("_mode: " + str(self._mode), self, "D")
 
 			if currentMode != self._mode:
@@ -949,8 +949,8 @@ class BackgroundMediaSyncer(Thread):
 
 		# get sections from server
 		self.sectionList = self.plexInstance.getAllSections()
-		self.sectionCount=len(self.sectionList)
-		printl("sectionList: "+ str(self.sectionList),self, "D")
+		self.sectionCount = len(self.sectionList)
+		printl("sectionList: " + str(self.sectionList),self, "D")
 
 		# get servername
 		self.prefix = self.plexInstance.getServerName().lower()
@@ -978,7 +978,7 @@ class BackgroundMediaSyncer(Thread):
 			printl("showCount  " + str(self.showCount),self, "D")
 			printl("seasonCount " + str(self.seasonCount),self, "D")
 			printl("episodeCount " + str(self.episodeCount),self, "D")
-			printl("artistCount "  + str(self.artistCount),self, "D")
+			printl("artistCount " + str(self.artistCount),self, "D")
 			printl("albumCount " + str(self.albumCount),self, "D")
 
 			# this run really fetches the data
@@ -1046,7 +1046,7 @@ class BackgroundMediaSyncer(Thread):
 							break
 						printl("seasons: " + str(seasons))
 
-						seasonsUrl = seasons[1]["server"] +  seasons[1]["key"]
+						seasonsUrl = seasons[1]["server"] + seasons[1]["key"]
 						printl("seasonsUrl: " + str(seasonsUrl), self, "D")
 						library, mediaContainer = self.plexInstance.getSeasonsOfShow(seasonsUrl)
 
@@ -1060,7 +1060,7 @@ class BackgroundMediaSyncer(Thread):
 								break
 							printl("episode: " + str(episodes))
 
-							episodesUrl = episodes[1]["server"] +  episodes[1]["key"]
+							episodesUrl = episodes[1]["server"] + episodes[1]["key"]
 							printl("episodesUrl: " + str(episodesUrl), self, "D")
 							library, mediaContainer = self.plexInstance.getEpisodesOfSeason(episodesUrl)
 
@@ -1128,11 +1128,11 @@ class BackgroundMediaSyncer(Thread):
 				t_postfix = variant[2]
 
 				# location string
-				location = config.plugins.dreamplex.mediafolderpath.value + str(self.prefix) + "_" +  str(media[1]["ratingKey"]) + str(t_postfix)
+				location = config.plugins.dreamplex.mediafolderpath.value + str(self.prefix) + "_" + str(media[1]["ratingKey"]) + str(t_postfix)
 
 				# check if backdrop exists
 				if fileExists(location):
-					msg_text = _("found backdrop - size(" + str(t_width) +"x" +str(t_height)+ ")")
+					msg_text = _("found backdrop - size(" + str(t_width) + "x" + str(t_height) + ")")
 					self.messages.push((THREAD_WORKING, msg_text))
 					self.messagePump.send(0)
 					continue
@@ -1154,11 +1154,11 @@ class BackgroundMediaSyncer(Thread):
 				t_postfix = variant[2]
 
 				# location string
-				location = config.plugins.dreamplex.mediafolderpath.value + str(self.prefix) + "_" +  str(media[1]["ratingKey"]) + str(t_postfix)
+				location = config.plugins.dreamplex.mediafolderpath.value + str(self.prefix) + "_" + str(media[1]["ratingKey"]) + str(t_postfix)
 
 				# check if poster exists
 				if fileExists(location):
-					msg_text = _("found poster - size(" + str(t_width) +"x" +str(t_height)+ ")")
+					msg_text = _("found poster - size(" + str(t_width) + "x" + str(t_height) + ")")
 					self.messages.push((THREAD_WORKING, msg_text))
 					self.messagePump.send(0)
 					continue
@@ -1247,7 +1247,7 @@ class BackgroundMediaSyncer(Thread):
 		printl("", self, "S")
 
 		# we establish the connection once here
-		self.urllibInstance=urllib.URLopener()
+		self.urllibInstance = urllib.URLopener()
 
 		# we add headers only in special cases
 		connectionType = self.serverConfig.connectionType.value

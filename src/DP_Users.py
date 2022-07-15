@@ -93,14 +93,14 @@ class DPS_Users(Screen):
 		else:
 			self.error = True
 
-		self["btn_red"]			= Pixmap()
-		self["btn_redText"]		= Label()
+		self["btn_red"] = Pixmap()
+		self["btn_redText"] = Label()
 
-		self["btn_green"]		= Pixmap()
-		self["btn_greenText"]   = Label()
+		self["btn_green"] = Pixmap()
+		self["btn_greenText"] = Label()
 
-		self["btn_yellow"]		= Pixmap()
-		self["btn_yellowText"]   = Label()
+		self["btn_yellow"] = Pixmap()
+		self["btn_yellowText"] = Label()
 
 		self.onShown.append(self.finishLayout)
 		
@@ -316,7 +316,7 @@ class DPS_UsersEntryList(MenuList):
 	def buildList(self):
 		printl("", self, "S")
 		
-		self.list=[]
+		self.list = []
 
 		homeUsersFromServer = self.getHomeUsersFromServer()
 		if homeUsersFromServer is not None:
@@ -331,10 +331,10 @@ class DPS_UsersEntryList(MenuList):
 				printl("token: " + str(token), self, "D")
 
 				res = [user]
-				res.append((eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 200, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(self.lastUserId)))
-				res.append((eListboxPythonMultiContent.TYPE_TEXT, 50, 0, 300, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(username)))
-				res.append((eListboxPythonMultiContent.TYPE_TEXT, 355, 0, 300, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(pin)))
-				res.append((eListboxPythonMultiContent.TYPE_TEXT, 655, 0, 300, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(token)))
+				res.append((eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 200, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(self.lastUserId)))
+				res.append((eListboxPythonMultiContent.TYPE_TEXT, 50, 0, 300, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(username)))
+				res.append((eListboxPythonMultiContent.TYPE_TEXT, 355, 0, 300, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(pin)))
+				res.append((eListboxPythonMultiContent.TYPE_TEXT, 655, 0, 300, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(token)))
 
 				self.list.append(res)
 

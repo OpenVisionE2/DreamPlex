@@ -206,7 +206,7 @@ def revokeCacheFiles():
 
 	try:
 		os.chdir(cachePath)
-		files=glob.glob('*.cache')
+		files = glob.glob('*.cache')
 		for filename in files:
 			os.unlink(filename)
 
@@ -288,7 +288,7 @@ def testInetConnectivity(target="http://www.google.com"):
 	printl2("", "__common__::testInetConnectivity", "S")
 
 	import urllib2
-	from   sys import version_info
+	from sys import version_info
 	import socket
 
 	try:
@@ -525,7 +525,7 @@ def getBoxInformation():
 	"""
 	printl2("", "__common__::getBoxtype", "S")
 
-	if g_boxData is  None:
+	if g_boxData is None:
 		setBoxInformation()
 
 	printl2("", "__common__::getBoxtype", "C")
@@ -739,7 +739,7 @@ def getOeVersion():
 #===============================================================================
 #
 #===============================================================================
-def  setOeVersion():
+def setOeVersion():
 	printl2("", "__common__::getBoxArch", "S")
 
 	oeVersion = "unknown"
@@ -930,7 +930,7 @@ def indentXml(elem, level=0, more_sibs=False):
 def durationToTime(duration):
 	printl2("", "__common__::durationToTime", "S")
 
-	m, s = divmod(int(duration)/1000, 60)
+	m, s = divmod(int(duration) / 1000, 60)
 	h, m = divmod(m, 60)
 
 	printl2("", "__common__::durationToTime", "C")
@@ -1053,7 +1053,7 @@ def getPlexHeader(g_sessionID, asDict=True):
 	# ERROR - [TranscodeUniversalRequest] Unable to find a matching profile
 
 	if asDict:
-		plexHeader={'X-Plex-Platform': "iOS",
+		plexHeader = {'X-Plex-Platform': "iOS",
 					'X-Plex-Platform-Version': boxData[3],
 					'X-Plex-Provides': "player",
 					'X-Plex-Product': "DreamPlex",
@@ -1070,7 +1070,7 @@ def getPlexHeader(g_sessionID, asDict=True):
 		plexHeader.append('X-Plex-Provides:player')
 		plexHeader.append('X-Plex-Product:DreamPlex')
 		plexHeader.append('X-Plex-Version:' + getVersion())
-		plexHeader.append('X-Plex-Device:' +  boxData[0]) # manu
+		plexHeader.append('X-Plex-Device:' + boxData[0]) # manu
 		plexHeader.append("X-Plex-Device-Name:" + boxName)
 		plexHeader.append("X-Plex-Model:" + boxData[1]) # model
 		plexHeader.append('X-Plex-Client-Identifier:' + g_sessionID)
@@ -1130,7 +1130,7 @@ def getMyIp():
 #
 #===========================================================================
 def timeToMillis(time):
-	return (time['hours']*3600 + time['minutes']*60 + time['seconds'])*1000 + time['milliseconds']
+	return (time['hours'] * 3600 + time['minutes'] * 60 + time['seconds']) * 1000 + time['milliseconds']
 
 #===========================================================================
 #
@@ -1152,7 +1152,7 @@ def getXMLHeader():
 	#printl("", "getXMLHeader", "S")
 
 	#printl("", "getXMLHeader", "C")
-	return '<?xml version="1.0" encoding="utf-8"?>'+"\r\n"
+	return '<?xml version="1.0" encoding="utf-8"?>' + "\r\n"
 
 #===========================================================================
 #

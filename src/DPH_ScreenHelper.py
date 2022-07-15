@@ -125,7 +125,7 @@ class DPH_ScreenHelper(object):
 					self.width = screen.get('width')
 					self.height = screen.get('height')
 				else:
-					self.Poster= translateValues(str(screen.get('usePoster')))
+					self.Poster = translateValues(str(screen.get('usePoster')))
 					if self.Poster:
 						self.width = screen.get('width')
 						self.height = screen.get('height')
@@ -225,15 +225,15 @@ class DPH_MultiColorFunctions(object):
 
 			if functionList is not None:
 				# if it is not already visible we change this now
-				if self["btn_"+ color + "Text"].getVisible() == 0:
-					self["btn_"+ color + "Text"].show()
-					self["btn_"+ color].show()
+				if self["btn_" + color + "Text"].getVisible() == 0:
+					self["btn_" + color + "Text"].show()
+					self["btn_" + color].show()
 
-				self["btn_"+ color + "Text"].setText(self.colorFunctionContainer[color][level][0])
+				self["btn_" + color + "Text"].setText(self.colorFunctionContainer[color][level][0])
 			else:
-				if self["btn_"+ color + "Text"].getVisible() == 1:
-					self["btn_"+ color + "Text"].hide()
-					self["btn_"+ color].hide()
+				if self["btn_" + color + "Text"].getVisible() == 1:
+					self["btn_" + color + "Text"].hide()
+					self["btn_" + color].hide()
 
 		printl("", self, "C")
 
@@ -247,10 +247,10 @@ class DPH_MultiColorFunctions(object):
 		dp_highlighted = parseColor(getSkinHighlightedColor())
 		dp_normal = parseColor(getSkinNormalColor())
 
-		for i in range(1,int(levels)+1):
-			self["L"+str(i)] = MultiColorLabel()
-			self["L"+str(i)].foreColors = [dp_highlighted, dp_normal]
-			self["L"+str(i)].setText(str(i))
+		for i in range(1,int(levels) + 1):
+			self["L" + str(i)] = MultiColorLabel()
+			self["L" + str(i)].foreColors = [dp_highlighted, dp_normal]
+			self["L" + str(i)].setText(str(i))
 
 		printl("", self, "C")
 
@@ -263,7 +263,7 @@ class DPH_MultiColorFunctions(object):
 		self.currentFunctionLevel = currentLevel
 		printl("currentFunctionLevel: " + str(self.currentFunctionLevel), self, "D")
 
-		for i in range(1,int(self.levels)+1):
+		for i in range(1,int(self.levels) + 1):
 			if int(self.currentFunctionLevel) == int(i):
 				self["L" + str(i)].setForegroundColorNum(0)
 			else:
@@ -286,7 +286,7 @@ class DPH_Screen(Screen):
 
 		self["globalActions"] = HelpableActionMap(self, "DP_PluginCloser",
 			{
-			    "stop":    (self.closePlugin, ""),
+			    "stop": (self.closePlugin, ""),
 			}, -2)
 
 		self.onLayoutFinish.append(self.addNewScreen)
@@ -331,16 +331,16 @@ class DPH_Filter(NumericalTextInput):
 
 		self["filterActions"] = HelpableActionMap(self, "DP_FilterMenuActions",
 			{
-			"1":			(self.onKey1, ""),
-			"2":			(self.onKey2, ""),
-			"3":			(self.onKey3, ""),
-			"4":			(self.onKey4, ""),
-			"5":			(self.onKey5, ""),
-			"6":			(self.onKey6, ""),
-			"7":			(self.onKey7, ""),
-			"8":			(self.onKey8, ""),
-			"9":			(self.onKey9, ""),
-			"0":			(self.onKey0, ""),
+			"1": (self.onKey1, ""),
+			"2": (self.onKey2, ""),
+			"3": (self.onKey3, ""),
+			"4": (self.onKey4, ""),
+			"5": (self.onKey5, ""),
+			"6": (self.onKey6, ""),
+			"7": (self.onKey7, ""),
+			"8": (self.onKey8, ""),
+			"9": (self.onKey9, ""),
+			"0": (self.onKey0, ""),
 			}, -2)
 
 		# for number key input

@@ -216,7 +216,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		self["endingTime"] = Label()
 
 		# init volume object
-		self.volumeHandler= eDVBVolumecontrol.getInstance()
+		self.volumeHandler = eDVBVolumecontrol.getInstance()
 		# only images >= 05.08.2010, must use try/except
 		try:
 			self.volumeControlInstance = VolumeControl.instance
@@ -231,9 +231,9 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 			self["MovieListActions"].setEnabled(False)
 
 		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
-			iPlayableService.evUser+10: self.__evAudioDecodeError,
-			iPlayableService.evUser+11: self.__evVideoDecodeError,
-			iPlayableService.evUser+12: self.__evPluginError,
+			iPlayableService.evUser + 10: self.__evAudioDecodeError,
+			iPlayableService.evUser + 11: self.__evVideoDecodeError,
+			iPlayableService.evUser + 12: self.__evPluginError,
 			iPlayableService.evBuffering: self.__evUpdatedBufferInfo,
 			iPlayableService.evEOF: self.__evEOF,
 		})
@@ -346,7 +346,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		#if we have two or more files for the same movie, then present a screen
 		self.options = options
 		self.server = server
-		self.dvdplayback=False
+		self.dvdplayback = False
 
 		if not self.options:
 			response = Singleton().getPlexInstance().getLastResponse()
@@ -354,13 +354,13 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		else:
 			if count > 1:
 				printl("we have more than one playable part ...", self, "I")
-				indexCount=0
+				indexCount = 0
 				functionList = []
 
 				for items in self.options:
 					printl("item: " + str(items), self, "D")
 					if items[1] is not None:
-						name=items[1].split('/')[-1]
+						name = items[1].split('/')[-1]
 					else:
 						size = convertSize(int(items[3]))
 						duration = time.strftime('%H:%M:%S', time.gmtime(int(items[4])))
@@ -369,7 +369,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 					printl("name " + str(name), self, "D")
 					functionList.append((name,indexCount, ))
-					indexCount+=1
+					indexCount += 1
 
 				self.session.openWithCallback(self.setSelectedMedia, ChoiceBox, title=_("Select media to play"), list=functionList)
 
@@ -784,7 +784,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	def pauseService(self):
 		printl("", self, "S")
 
-		if self.playbackType == "1"  and self.universalTranscoder:
+		if self.playbackType == "1" and self.universalTranscoder:
 			self.transcoderHeartbeat = eTimer()
 
 			if getOeVersion() != "oe22":
@@ -920,7 +920,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 			if self.bufferPercent > 95:
 				self.bufferFull()
 
-			if self.bufferPercent == 0 and not self.endReached and (bufferInfo[1] != 0 and bufferInfo[2] !=0):
+			if self.bufferPercent == 0 and not self.endReached and (bufferInfo[1] != 0 and bufferInfo[2] != 0):
 				self.bufferEmpty()
 		except:
 			pass
@@ -969,7 +969,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		
 		try:
 			currPlay = self.session.nav.getCurrentService()
-			message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
+			message = currPlay.info().getInfoString(iServiceInformation.sUser + 12)
 			printl("[PlexPlayer] PluginError " + message, self, "I")
 			Notifications.AddNotification(MessageBox, _("Your Box can't decode this video stream!\n%s") % message, type=MessageBox.TYPE_INFO, timeout=10)
 		
@@ -987,7 +987,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		printl("got evEOF", self, "W")
 		
 		try:
-			err = self.session.nav.getCurrentService().info().getInfoString(iServiceInformation.sUser+12)
+			err = self.session.nav.getCurrentService().info().getInfoString(iServiceInformation.sUser + 12)
 			printl("Error: " + str(err), self, "W")
 			
 			if err != "":
@@ -1192,7 +1192,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 			printl("progress data available, ...", self, "D")
 
 			if not EOF and currentTime is not None and currentTime > 0 and totalTime is not None and totalTime > 0:
-				progress = currentTime / float(totalTime/100.0)
+				progress = currentTime / float(totalTime / 100.0)
 				printl("played time is %s secs of %s @ %s%%" % (currentTime, totalTime, progress),self, "I")
 			else:
 				progress = 100
@@ -1202,7 +1202,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 				self.timelineWatcher.stop()
 
 				urlPath = self.server + "/:/timeline?containerKey=/library/sections/onDeck&key=/library/metadata/" + self.id + "&ratingKey=" + self.id
-				urlPath += "&state=stopped&time=" + str(currentTime*1000) + "&duration=" + str(totalTime*1000)
+				urlPath += "&state=stopped&time=" + str(currentTime * 1000) + "&duration=" + str(totalTime * 1000)
 				self.plexInstance.doRequest(urlPath)
 
 			#Legacy PMS Server server support before MultiUser version v0.9.8.0 and if we are not connected via myPlex
@@ -1213,12 +1213,12 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 				#If we are less than 95% complete, store resume time
 				elif progress < 95:
 					printl("Less than 95% progress, will store resume time", self, "I")
-					self.plexInstance.doRequest("http://"+self.server+"/:/progress?key="+self.id+"&identifier=com.plexapp.plugins.library&time="+str(currentTime*1000))
+					self.plexInstance.doRequest("http://" + self.server + "/:/progress?key=" + self.id + "&identifier=com.plexapp.plugins.library&time=" + str(currentTime * 1000))
 
 				#Otherwise, mark as watched
 				else:
 					printl("Movie marked as watched. Over 95% complete", self, "I")
-					self.plexInstance.doRequest("http://"+self.server+"/:/scrobble?key="+self.id+"&identifier=com.plexapp.plugins.library")
+					self.plexInstance.doRequest("http://" + self.server + "/:/scrobble?key=" + self.id + "&identifier=com.plexapp.plugins.library")
 
 		except:
 			printl("no progress data maybe playback never started, returning ...", self, "D")
@@ -1232,7 +1232,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	def keepTranscoderAlive(self):
 		printl("", self, "S")
 
-		self.plexInstance.doRequest("http://"+self.server+"/video/:/transcode/universal/ping?session=" + self.transcodingSession)
+		self.plexInstance.doRequest("http://" + self.server + "/video/:/transcode/universal/ping?session=" + self.transcodingSession)
 
 		printl("", self, "C")
 
@@ -1243,9 +1243,9 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		printl("", self, "S")
 		
 		if self.universalTranscoder:
-			self.plexInstance.doRequest("http://"+self.server+"/video/:/transcode/universal/stop?session=" + self.transcodingSession)
+			self.plexInstance.doRequest("http://" + self.server + "/video/:/transcode/universal/stop?session=" + self.transcodingSession)
 		else:
-			self.plexInstance.doRequest("http://"+self.server+"/video/:/transcode/segmented/stop?session=" + self.transcodingSession)
+			self.plexInstance.doRequest("http://" + self.server + "/video/:/transcode/segmented/stop?session=" + self.transcodingSession)
 		
 		printl("", self, "C")
 	
@@ -1320,12 +1320,12 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 				if seekState == self.SEEK_STATE_PAUSE:
 					printl("Movies PAUSED time: %s secs of %s @ %s%%" % (currentTime, totalTime, progress), self,"D")
-					urlPath += "&state=paused&time=" + str(currentTime*1000) + "&duration=" + str(totalTime*1000)
+					urlPath += "&state=paused&time=" + str(currentTime * 1000) + "&duration=" + str(totalTime * 1000)
 					self.plexInstance.doRequest(urlPath)
 
 				elif seekState == self.SEEK_STATE_PLAY:
 					printl("Movies PLAYING time: %s secs of %s @ %s%%" % (currentTime, totalTime, progress),self,"D")
-					urlPath += "&state=playing&time=" + str(currentTime*1000) + "&duration=" + str(totalTime*1000)
+					urlPath += "&state=playing&time=" + str(currentTime * 1000) + "&duration=" + str(totalTime * 1000)
 					self.plexInstance.doRequest(urlPath)
 
 				# todo add buffering here if needed
@@ -1352,9 +1352,9 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 			currentTime = self.getPlayPosition()[1] / 90000
 			totalTime = self.getPlayLength()[1] / 90000
 
-			params["duration"] = str(totalTime*1000)
+			params["duration"] = str(totalTime * 1000)
 
-			params["progress"] = str(currentTime*1000)
+			params["progress"] = str(currentTime * 1000)
 
 			if self.seekstate == self.SEEK_STATE_PAUSE:
 				params["state"] = "paused"
@@ -1432,7 +1432,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 					trackList += [str(lang)]
 				
 				systemLanguage = language.getLanguage()[:2] # getLanguage returns e.g. "fi_FI" for "language_country"
-				printl("found systemLanguage: " +  systemLanguage, self, "I")
+				printl("found systemLanguage: " + systemLanguage, self, "I")
 				#systemLanguage = "en"
 				
 				self.tryAudioEnable(trackList, systemLanguage, tracks)
@@ -1487,7 +1487,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	def seekToMinute(self, minutes):
 		printl("", self, "S")
 
-		self.resumeStamp = int(minutes)*60
+		self.resumeStamp = int(minutes) * 60
 		self.seekToStartPos()
 
 		printl("", self, "C")   

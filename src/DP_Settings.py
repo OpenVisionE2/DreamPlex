@@ -78,8 +78,8 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 			"ok": self.ok,
 			"left": self.keyLeft,
 			"right": self.keyRight,
-			"bouquet_up":	self.keyBouquetUp,
-			"bouquet_down":	self.keyBouquetDown,
+			"bouquet_up": self.keyBouquetUp,
+			"bouquet_down": self.keyBouquetDown,
 		}, -2)
 
 		self.createSetup()
@@ -180,7 +180,7 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 		self.cachefolderpath = getConfigListEntry(_("> Cache Folder Path"), config.plugins.dreamplex.cachefolderpath, _("/hdd/dreamplex/cache"))
 		self.cfglist.append(self.cachefolderpath)
 
-		self.playerTempPath =  getConfigListEntry(_("> Player Temp Path"), config.plugins.dreamplex.playerTempPath, _("/tmp"))
+		self.playerTempPath = getConfigListEntry(_("> Player Temp Path"), config.plugins.dreamplex.playerTempPath, _("/tmp"))
 		self.cfglist.append(self.playerTempPath)
 		
 		self.logfolderpath = getConfigListEntry(_("> Log Folder Path"), config.plugins.dreamplex.logfolderpath, _("/tmp"))
@@ -375,22 +375,22 @@ class DPS_ServerEntryList(MenuList):
 	def buildList(self):
 		printl("", self, "S")
 		
-		self.list=[]
+		self.list = []
 
 		
 		for entry in config.plugins.dreamplex.Entries:
 			res = [entry]
-			res.append((eListboxPythonMultiContent.TYPE_TEXT, 55, 0, 200, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(entry.name.value)))
+			res.append((eListboxPythonMultiContent.TYPE_TEXT, 55, 0, 200, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(entry.name.value)))
 			
 			if entry.connectionType.value == "2":
 				text1 = entry.myplexUrl.value
 				text2 = entry.myplexUsername.value
 			else:
 				text1 = "%d.%d.%d.%d" % tuple(entry.ip.value)
-				text2 = "%d"% entry.port.value
+				text2 = "%d" % entry.port.value
 				
-			res.append((eListboxPythonMultiContent.TYPE_TEXT, 260, 0, 150, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(text1)))
-			res.append((eListboxPythonMultiContent.TYPE_TEXT, 450, 0, 80, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(text2)))
+			res.append((eListboxPythonMultiContent.TYPE_TEXT, 260, 0, 150, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(text1)))
+			res.append((eListboxPythonMultiContent.TYPE_TEXT, 450, 0, 80, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(text2)))
 			self.list.append(res)
 		
 		

@@ -77,7 +77,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 		DPH_PlexScreen.__init__(self)
 
 		self.selectionOverride = None
-		printl("selectionOverride:" +str(self.selectionOverride), self, "D")
+		printl("selectionOverride:" + str(self.selectionOverride), self, "D")
 		self.session = session
 
 		self.g_serverConfig = g_serverConfig
@@ -93,26 +93,26 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 
 		self["title"] = StaticText()
 
-		self["menu"]= List(enableWrapAround=True)
+		self["menu"] = List(enableWrapAround=True)
 
 		self["actions"] = HelpableActionMap(self, "DP_MainMenuActions",
 			{
-				"ok":		(self.okbuttonClick, ""),
-				"left":		(self.left, ""),
-				"right":	(self.right, ""),
-				"up":		(self.up, ""),
-				"down":		(self.down, ""),
-				"cancel":	(self.cancel, ""),
-			    "red":		(self.onKeyRed, ""),
-			    "green":    (self.onKeyGreen, ""),
+				"ok": (self.okbuttonClick, ""),
+				"left": (self.left, ""),
+				"right": (self.right, ""),
+				"up": (self.up, ""),
+				"down": (self.down, ""),
+				"cancel": (self.cancel, ""),
+			    "red": (self.onKeyRed, ""),
+			    "green": (self.onKeyGreen, ""),
 			}, -2)
 
-		self["btn_green"]		= Pixmap()
+		self["btn_green"] = Pixmap()
 		self["btn_green"].hide()
-		self["btn_greenText"]   = Label()
+		self["btn_greenText"] = Label()
 
-		self["text_HomeUserLabel"]   = Label()
-		self["text_HomeUser"]   = Label()
+		self["text_HomeUserLabel"] = Label()
+		self["text_HomeUser"] = Label()
 
 		self.onLayoutFinish.append(self.finishLayout)
 		self.onLayoutFinish.append(self.getInitialData)

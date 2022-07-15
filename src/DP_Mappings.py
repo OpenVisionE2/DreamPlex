@@ -93,11 +93,11 @@ class DPS_Mappings(Screen):
 		else:
 			self.error = True
 
-		self["btn_red"]			= Pixmap()
-		self["btn_redText"]		= Label()
+		self["btn_red"] = Pixmap()
+		self["btn_redText"] = Label()
 
-		self["btn_green"]		= Pixmap()
-		self["btn_greenText"]   = Label()
+		self["btn_green"] = Pixmap()
+		self["btn_greenText"] = Label()
 
 		self.onShown.append(self.finishLayout)
 		
@@ -238,7 +238,7 @@ class DPS_MappingsEntryList(MenuList):
 	def buildList(self):
 		printl("", self, "S")
 		
-		self.list=[]
+		self.list = []
 
 		printl("serverID: " + str(self.serverID), self, "D")
 		for server in self.tree.findall("server"):
@@ -254,9 +254,9 @@ class DPS_MappingsEntryList(MenuList):
 					printl("localPathPart: " + str(localPathPart), self, "D")
 
 					res = [mapping]
-					res.append((eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 200, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(self.lastMappingId)))
-					res.append((eListboxPythonMultiContent.TYPE_TEXT, 50, 0, 300, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(localPathPart)))
-					res.append((eListboxPythonMultiContent.TYPE_TEXT, 355, 0, 300, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(remotePathPart)))
+					res.append((eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 200, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(self.lastMappingId)))
+					res.append((eListboxPythonMultiContent.TYPE_TEXT, 50, 0, 300, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(localPathPart)))
+					res.append((eListboxPythonMultiContent.TYPE_TEXT, 355, 0, 300, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(remotePathPart)))
 
 					self.list.append(res)
 

@@ -168,7 +168,7 @@ def gotThreadMsg(msg):
 
 		elif command == "addSubscriber":
 			print("subscriber")
-			protocol= data["protocol"]
+			protocol = data["protocol"]
 			host = data["host"]
 			port = data["port"]
 			uuid = data["uuid"]
@@ -201,14 +201,14 @@ def gotThreadMsg(msg):
 #
 #===========================================================================
 def startPlayback(data, stopPlaybackFirst=False):
-	listViewList    = data["listViewList"]
-	currentIndex    = data["currentIndex"]
-	libraryName     = data["libraryName"]
-	autoPlayMode    = data["autoPlayMode"]
-	resumeMode      = data["resumeMode"]
-	playbackMode    = data["playbackMode"]
-	forceResume     = data["forceResume"]
-	subtitleData    = data["subtitleData"]
+	listViewList = data["listViewList"]
+	currentIndex = data["currentIndex"]
+	libraryName = data["libraryName"]
+	autoPlayMode = data["autoPlayMode"]
+	resumeMode = data["resumeMode"]
+	playbackMode = data["playbackMode"]
+	forceResume = data["forceResume"]
+	subtitleData = data["subtitleData"]
 
 	if stopPlaybackFirst:
 		stopPlayback()

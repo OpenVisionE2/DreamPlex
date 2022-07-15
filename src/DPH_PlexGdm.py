@@ -98,7 +98,7 @@ class PlexGdm(object):
 		self.client_data += "Resource-Identifier: %s\n" % self.client_id
 		self.client_data += "Name: %s\n" % config.plugins.dreamplex.boxName.value
 		self.client_data += "Port: %s\n" % config.plugins.dreamplex.remotePort.value
-		self.client_data += "Product: %s\n" % gBoxType[1] + " (" + str(getMyIp()) +")"
+		self.client_data += "Product: %s\n" % gBoxType[1] + " (" + str(getMyIp()) + ")"
 		self.client_data += "Version: %s\n" % str(getVersion())
 		self.client_data += "Protocol: plex\n"
 		self.client_data += "Protocol-Version: 1\n"

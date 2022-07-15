@@ -75,7 +75,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 		self.allowOverride = allowOverride
 
 		self.selectionOverride = None
-		printl("selectionOverride:" +str(self.selectionOverride), self, "D")
+		printl("selectionOverride:" + str(self.selectionOverride), self, "D")
 		self.session = session
 
 		# save liveTvData
@@ -90,16 +90,16 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 
 		self["title"] = StaticText()
 
-		self["menu"]= List(enableWrapAround=True)
+		self["menu"] = List(enableWrapAround=True)
 
 		self["actions"] = HelpableActionMap(self, "DP_MainMenuActions",
 			{
-				"ok":		(self.okbuttonClick, ""),
-				"left":		(self.left, ""),
-				"right":	(self.right, ""),
-				"up":		(self.up, ""),
-				"down":		(self.down, ""),
-				"cancel":	(self.cancel, ""),
+				"ok": (self.okbuttonClick, ""),
+				"left": (self.left, ""),
+				"right": (self.right, ""),
+				"up": (self.up, ""),
+				"down": (self.down, ""),
+				"cancel": (self.cancel, ""),
 			}, -2)
 		
 		if config.plugins.dreamplex.stopLiveTvOnStartup.value:
@@ -303,7 +303,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 		else:
 			self.setTitle(_("Main Menu"))
 
-			printl("selectedEntry " +  str(self.selectedEntry), self, "D")
+			printl("selectedEntry " + str(self.selectedEntry), self, "D")
 			self.getServerList()
 
 			self["menu"].setList(self.menu_main_list)
@@ -412,7 +412,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 		connectionType = str(self.g_serverConfig.connectionType.value)
 		if connectionType == "0":
 			ip = "%d.%d.%d.%d" % tuple(self.g_serverConfig.ip.value)
-			port =  int(self.g_serverConfig.port.value)
+			port = int(self.g_serverConfig.port.value)
 			isOnline = testPlexConnectivity(ip, port)
 
 		elif connectionType == "2":

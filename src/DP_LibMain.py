@@ -114,7 +114,7 @@ class DP_LibMain(Screen):
 				
 				if len(cause) >= 5 and cause[4] is not None:
 					for i in range(len(self._views)):
-						if cause[4]== self._views[i][1]:
+						if cause[4] == self._views[i][1]:
 							self.currentViewIndex = i
 							break
 				
