@@ -159,7 +159,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 			self.selectedEntry = selection[1]
 			printl("selected entry " + str(self.selectedEntry), self, "D")
 
-			if type(self.selectedEntry) is int:
+			if isinstance(self.selectedEntry, int):
 				printl("selected entry is int", self, "D")
 
 				if self.selectedEntry == Plugin.MENU_MAIN:
@@ -185,7 +185,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 					if self.g_horizontal_menu:
 						self.refreshOrientationHorMenu(0)
 
-			elif type(self.selectedEntry) is str:
+			elif isinstance(self.selectedEntry, str):
 				printl("selected entry is string", self, "D")
 
 				if selection[1] == "DPS_Settings":

@@ -38,7 +38,7 @@ def registerPlugin(plugin):
 	printl("", "__plugin__::registerPlugin", "S")
 
 	ps = []
-	if type(plugin) is list:
+	if isinstance(plugin, list):
 		ps = plugin
 	else:
 		ps.append(plugin)

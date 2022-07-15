@@ -345,7 +345,7 @@ class DPS_ServerMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper, DPH_Filte
 			self.selectedEntry = selection[1]
 			printl("selected entry " + str(self.selectedEntry), self, "D")
 
-			if type(self.selectedEntry) is int:
+			if isinstance(self.selectedEntry, int):
 				printl("selected entry is int", self, "D")
 
 				if self.selectedEntry == Plugin.MENU_MOVIES:
