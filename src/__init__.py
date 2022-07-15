@@ -19,6 +19,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 """
+from __future__ import print_function
 #===============================================================================
 # IMPORT
 #===============================================================================
@@ -427,7 +428,7 @@ def getInstalledSkins():
 
 	try:
 		for skin in os.listdir(config.plugins.dreamplex.skinfolderpath.value):
-			print("skin: " + str(skin), None, "D")
+			print(("skin: " + str(skin), None, "D"))
 			if os.path.isdir(os.path.join(config.plugins.dreamplex.skinfolderpath.value, skin)) and skin != "default_FHD": # we exclude the default FHD because we switch between HD and FHD automatically
 				mySkins.append(skin)
 	except Exception as ex:

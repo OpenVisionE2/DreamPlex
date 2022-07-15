@@ -2,6 +2,7 @@
 #===============================================================================
 # IMPORT
 #===============================================================================
+from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Standby import inStandby
 
