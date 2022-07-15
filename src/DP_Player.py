@@ -234,7 +234,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		self.EXpicloadPoster = ePicLoad()
 
 		# it will stop up/down/movielist buttons opening standard movielist whilst playing movie in plex
-		if self.has_key('MovieListActions'):
+		if 'MovieListActions' in self:
 			self["MovieListActions"].setEnabled(False)
 
 		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
@@ -690,7 +690,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 					selected = ""
 
 					if x[4] != "und":
-						if LanguageCodes.has_key(x[4]):
+						if x[4] in LanguageCodes:
 							myLanguage = LanguageCodes[x[4]][0]
 						else:
 							myLanguage = x[4]
@@ -711,7 +711,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 					myLanguageFromPlex = self.subtitleData["languageCode"]
 
-					if LanguageCodes.has_key(myLanguageFromPlex):
+					if myLanguageFromPlex in LanguageCodes:
 						myLanguageFromPlex = LanguageCodes[myLanguageFromPlex][0]
 
 					printl("myLanguage: " + str(myLanguage) + " / myLanguageFromPlex: " + str(myLanguageFromPlex), self, "D")

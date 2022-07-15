@@ -138,7 +138,7 @@ class DP_LibMain(Screen):
 
 		url = entryData["contentUrl"]
 
-		if entryData.has_key("source"):
+		if "source" in entryData:
 			try:
 				source = entryData["source"]
 				uuid = entryData["uuid"]
@@ -151,7 +151,7 @@ class DP_LibMain(Screen):
 
 		# in this case we do not use cache because there is no uuid and updated on information on this level
 		# maybe we find a way later and implement it than
-		if entryData.has_key("nextViewMode"):
+		if "nextViewMode" in entryData:
 			nextViewMode = entryData["nextViewMode"]
 			currentViewMode = entryData["currentViewMode"]
 			source = "plex"

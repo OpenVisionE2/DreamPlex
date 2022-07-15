@@ -449,11 +449,11 @@ class PlexLibrary(Screen):
 		printl("incomingEntryData: " + str(incomingEntryData), self, "D")
 
 		# we need this for cache mechanism
-		if incomingEntryData.has_key("uuid"):
+		if "uuid" in incomingEntryData:
 			printl("we have a uuid ...", self, "D")
 			self.currentUuid = incomingEntryData["uuid"]
 
-		if incomingEntryData.has_key("type"):
+		if "type" in incomingEntryData:
 			printl("we have a type ...", self, "D")
 			self.type = incomingEntryData["type"]
 
@@ -486,7 +486,7 @@ class PlexLibrary(Screen):
 
 					if config.plugins.dreamplex.useCache.value:
 						# we set this here now to have this information later
-						if self.g_sectionCache.has_key(self.currentUuid):
+						if self.currentUuid in self.g_sectionCache:
 							entryData["source"] = self.g_sectionCache[self.currentUuid]["source"]
 						else:
 							entryData["source"] = "plex"
