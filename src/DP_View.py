@@ -64,6 +64,8 @@ from __init__ import _ # _ is translation
 #===========================================================================
 #
 #===========================================================================
+
+
 class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter):
 
 	ON_CLOSED_CAUSE_CHANGE_VIEW = 1
@@ -856,6 +858,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===========================================================================
 	#
 	#===========================================================================
+
 	def reduceMappings(self, currentRemotePath, currentLocalPath, currentLimiter):
 		printl("", self, "S")
 		printl("currentRemotePath: " + str(currentRemotePath), self, "D")
@@ -1868,6 +1871,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===============================================================================
 	#
 	#===============================================================================
+
 	def setToDirectoryMode(self):
 		printl("", self, "S")
 
@@ -2156,7 +2160,6 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 		self.getSubtitleList()
 
 		functionList = []
-
 
 		for item in self.subtitlesList:
 			languageText = item.get('language').encode("utf-8", "")
@@ -2528,6 +2531,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#==============================================================================
 	#
 	#==============================================================================
+
 	def finishLayout(self):
 		"""
 		adds buttons pics from xml and handles fastScrollMode function
@@ -2776,6 +2780,7 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 	#===========================================================================
 	#
 	#===========================================================================
+
 	def resetGuiElementsInFastScrollMode(self):
 		printl("", self, "S")
 

@@ -51,6 +51,8 @@ from __init__ import _ # _ is translation
 #===============================================================================
 #
 #===============================================================================
+
+
 class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 
 	g_horizontal_menu = False
@@ -375,6 +377,7 @@ class DPS_MainMenu(DPH_Screen, DPH_HorizontalMenu, DPH_ScreenHelper):
 	#===============================================================================
 	#
 	#===============================================================================
+
 	def getServerList(self, allowOverride=True):
 			printl("", self, "S")
 

@@ -76,6 +76,8 @@ MYPLEX_SERVER = "my.plexapp.com"
 #===============================================================================
 # PlexLibrary
 #===============================================================================
+
+
 class PlexLibrary(Screen):
 
 	g_sessionID = None
@@ -724,6 +726,7 @@ class PlexLibrary(Screen):
 	#===============================================================================
 	#
 	#===============================================================================
+
 	def getEpisodesOfSeason(self, url, directMode=False):
 		printl("", self, "S")
 		printl("url: " + str(url), self, "D")
@@ -1498,7 +1501,6 @@ class PlexLibrary(Screen):
 						loginstring = self.g_nasuserid + ":" + self.g_naspass + "@"
 						printl("Adding AFP/SMB login info for user " + nasuser, self, "I")
 
-
 				if myFile.find('Volumes') > 0:
 					filelocation = protocol + ":/" + myFile.replace("Volumes", loginstring + server)
 				else:
@@ -1525,10 +1527,10 @@ class PlexLibrary(Screen):
 		printl("", self, "C")
 		return filelocation
 
-
 	#===========================================================================
 	#
 	#===========================================================================
+
 	def checkFileLocation(self, remotePathPart, localPathPart):
 		printl("", self, "S")
 
@@ -1677,7 +1679,6 @@ class PlexLibrary(Screen):
 				pass
 
 		tags = tree.getiterator('Stream')
-
 
 		subtitle = {'id': 0,
 		                'language': "None",
@@ -1922,7 +1923,6 @@ class PlexLibrary(Screen):
 						else:
 								printl("Stream selection is set OFF", self, "I")
 
-
 			streamData = {'contents': contents,
 						'audio': audio,
 						'audioCount': audioCount,
@@ -2069,7 +2069,6 @@ class PlexLibrary(Screen):
 											printl("even not embedded ...: " + str(e), self, "D")
 						else:
 								printl("Stream selection is set OFF", self, "I")
-
 
 			streamData = {'contents': contents,
 						'audio': audio,
@@ -2357,6 +2356,7 @@ class PlexLibrary(Screen):
 	#===============================================================================
 	#
 	#===============================================================================
+
 	def getLastErrorMessage(self):
 		printl("", self, "S")
 

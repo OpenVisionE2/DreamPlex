@@ -73,6 +73,8 @@ SUBTITLES_CONTENT = None
 #===============================================================================
 #
 #===============================================================================
+
+
 class InfobarAudioSelectionExtended(InfoBarAudioSelection):
 	def __init__(self):
 		InfoBarAudioSelection.__init__(self)
@@ -86,6 +88,8 @@ class InfobarAudioSelectionExtended(InfoBarAudioSelection):
 #===============================================================================
 #
 #===============================================================================
+
+
 class myAudioSelection(AudioSelection):
 	def __init__(self, session, infobar=None):
 		AudioSelection.__init__(self, session, infobar)
@@ -99,6 +103,8 @@ class myAudioSelection(AudioSelection):
 #===============================================================================
 #
 #===============================================================================
+
+
 class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		InfoBarSeek, InfobarAudioSelectionExtended, HelpableScreen,
 		InfoBarServiceNotifications, InfoBarSimpleEventView,
@@ -274,10 +280,10 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 		printl("", self, "C")
 
-
 	#==============================================================================
 	# is called automatically
 	#==============================================================================
+
 	def createSummary(self):
 		printl("", self, "S")
 
@@ -512,6 +518,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	#===========================================================================
 	#
 	#===========================================================================
+
 	def setServiceReferenceData(self):
 		printl("", self, "S")
 
@@ -820,6 +827,7 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 	#===========================================================================
 	#
 	#===========================================================================
+
 	def getTitle(self):
 		printl("", self, "S")
 
@@ -1088,10 +1096,10 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 
 		#printl("", self, "C")
 		
-
 	#===========================================================================
 	# 
 	#===========================================================================
+
 	def leavePlayer(self):
 		printl("", self, "S")
 		
@@ -1414,7 +1422,6 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 			try:
 				service = self.session.nav.getCurrentService()
 		
-		
 				tracks = service and self.getServiceInterface("audioTracks")
 				nTracks = tracks and tracks.getNumberOfTracks() or 0
 				
@@ -1465,10 +1472,10 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		self.switchedLanguage = True
 		printl("", self, "S")
 		
-	
 	#===========================================================================
 	# getServiceInterface
 	#===========================================================================
+
 	def getServiceInterface(self, iface):
 		printl("", self, "S")
 		service = self.session.nav.getCurrentService() # self.service
@@ -1537,7 +1544,6 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		image_prefix = Singleton().getPlexInstance().getServerName().lower()
 
 		self.poster_postfix = "_poster_" + self.width + "x" + self.height + "_v2.jpg"
-
 
 		if self.isShow:
 			self.whatPoster = mediaPath + image_prefix + "_" + self.show_id + self.poster_postfix

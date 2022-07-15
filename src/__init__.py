@@ -114,6 +114,8 @@ config.plugins.dreamplex.Entries = ConfigSubList()
 #===============================================================================
 # 
 #===============================================================================
+
+
 def initBoxInformation():
 	printl("", "__init__::getBoxInformation", "S")
 
@@ -126,6 +128,8 @@ def initBoxInformation():
 #===============================================================================
 # 
 #===============================================================================
+
+
 def printGlobalSettings():
 	printl("", "__init__::initGlobalSettings", "S")
 
@@ -157,6 +161,8 @@ def printGlobalSettings():
 #===============================================================================
 # 
 #===============================================================================
+
+
 def initServerEntryConfig():
 	printl("", "__init__::initServerEntryConfig", "S")
 
@@ -184,7 +190,6 @@ def initServerEntryConfig():
 	config.plugins.dreamplex.Entries[i].srtRenamingForDirectLocal = ConfigYesNo()
 	config.plugins.dreamplex.Entries[i].subtitlesLanguage = ConfigText(default="de", visible_width=10, fixed_size=False)
 	config.plugins.dreamplex.Entries[i].useForcedSubtitles = ConfigYesNo(default=True)
-
 
 	printl("=== SERVER SETTINGS ===", "__init__::initServerEntryConfig", "D")
 	printl("Server Settings: ", "__init__::initServerEntryConfig", "D")
@@ -244,7 +249,6 @@ def initServerEntryConfig():
 	# universal transcoder settings
 	config.plugins.dreamplex.Entries[i].uniQuality = ConfigSelection(default="3", choices=[("0", _("420x240, 320kbps")), ("1", _("576x320, 720 kbps")), ("2", _("720x480, 1,5mbps")), ("3", _("1024x768, 2mbps")), ("4", _("1280x720, 3mbps")), ("5", _("1280x720, 4mbps")), ("6", _("1920x1080, 8mbps")), ("7", _("1920x1080, 10mbps")), ("8", _("1920x1080, 12mbps")), ("9", _("1920x1080, 20mbps"))])
 
-
 	printl("=== TRANSCODED ===", "__init__::initServerEntryConfig", "D")
 	printl("universalTranscoder: " + str(config.plugins.dreamplex.Entries[i].universalTranscoder.value), "__init__::initServerEntryConfig", "D")
 	printl("quality: " + str(config.plugins.dreamplex.Entries[i].quality.value), "__init__::initServerEntryConfig", "D")
@@ -289,6 +293,8 @@ def initServerEntryConfig():
 #===============================================================================
 #
 #===============================================================================
+
+
 def registerSkinParamsInstance():
 	printl("", "__init__::registerSkinParamsInstance", "S")
 
@@ -316,6 +322,8 @@ def registerSkinParamsInstance():
 #===============================================================================
 # 
 #===============================================================================
+
+
 def checkSkinResolution():
 	printl("", "__init__::checkSkinResolution", "S")
 
@@ -342,6 +350,8 @@ def checkSkinResolution():
 #===============================================================================
 # 
 #===============================================================================
+
+
 def initPlexServerConfig():
 	printl("", "__init__::initPlexServerConfig", "S")
 
@@ -357,6 +367,8 @@ def initPlexServerConfig():
 #===============================================================================
 # 
 #===============================================================================
+
+
 def loadPlexPlugins():
 	printl("", "__init__::loadPlexPlugins", "S")
 
@@ -405,6 +417,8 @@ def localeInit():
 #===============================================================================
 # 
 #===============================================================================
+
+
 def getInstalledSkins():
 	printl("", "__init__::getInstalledSkins", "S")
 
@@ -445,6 +459,8 @@ def getInstalledSkins():
 #===============================================================================
 #
 #===============================================================================
+
+
 def getViewTypesForSettings():
 	printl("", "__init__::getViewTypesForSettings", "S")
 
@@ -463,6 +479,8 @@ def getViewTypesForSettings():
 #===============================================================================
 #
 #===============================================================================
+
+
 def getViewsByType(myType):
 	printl("", "__init__::getViewsByType", "S")
 	views = getViews(myType)
@@ -479,6 +497,8 @@ def getViewsByType(myType):
 #===============================================================================
 # 
 #===============================================================================
+
+
 def _(txt):
 	#printl("", "__init__::_(txt)", "S")
 
@@ -496,6 +516,8 @@ def _(txt):
 #===============================================================================
 # EXECUTE ON STARTUP
 #===============================================================================
+
+
 def prepareEnvironment():
 	# the order here is important
 	localeInit()
@@ -514,6 +536,8 @@ def prepareEnvironment():
 #===============================================================================
 #
 #===============================================================================
+
+
 def startEnvironment():
 	# we put load skin here to avoid bootloops if there is something wrong with the skin
 	loadPlexSkin()

@@ -27,6 +27,7 @@ from skin import parseColor
 from __common__ import printl2 as printl
 from DPH_Singleton import Singleton
 
+
 class DPH_HorizontalMenu(object):
 	highlightedColor = "#e69405"
 	normalColor = "#ffffff"
@@ -130,6 +131,7 @@ class DPH_HorizontalMenu(object):
 	#===============================================================================
 	#
 	#===============================================================================
+
 	def translatePositionToName(self, name, value=None):
 		#printl("", self, "S")
 

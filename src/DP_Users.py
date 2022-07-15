@@ -171,10 +171,10 @@ class DPS_Users(Screen):
 
 		printl("", self, "C")
 		
-	
 	#===================================================================
 	# 
 	#===================================================================
+
 	def setUsernameCallback(self, callback=None, myType=None):
 		printl("", self, "S")
 		printl("myType: " + str(myType), self, "S")
@@ -265,6 +265,7 @@ class DPS_Users(Screen):
 	#===================================================================
 	# 
 	#===================================================================
+
 	def redKey(self):
 		printl("", self, "S")
 
@@ -281,6 +282,8 @@ class DPS_Users(Screen):
 #===============================================================================
 #
 #===============================================================================
+
+
 class DPS_UsersEntryList(MenuList):
 	
 	lastMappingId = 0 # we use this to find the next id if we add a new element

@@ -29,6 +29,8 @@ from __common__ import printl2 as printl
 #===============================================================================
 # 
 #===============================================================================
+
+
 def wake_on_lan(macaddress, broadcastIp):
 	printl("", "DPH_WOL::wake_on_lan", "S")
 	printl("using this mac ... " + macaddress, "DPH_WOL::wake_on_lan", "D")

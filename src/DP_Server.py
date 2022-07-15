@@ -51,6 +51,8 @@ from DPH_Singleton import Singleton
 #===============================================================================
 #
 #===============================================================================
+
+
 class DPS_Server(Screen, DPH_PlexScreen):
 
 	def __init__(self, session, what=None):
@@ -298,6 +300,8 @@ class DPS_Server(Screen, DPH_PlexScreen):
 #===============================================================================
 #
 #===============================================================================
+
+
 class DPS_ServerConfig(ConfigListScreen, Screen, DPH_PlexScreen):
 
 	useMappings = False

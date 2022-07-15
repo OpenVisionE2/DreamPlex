@@ -33,6 +33,8 @@ from __common__ import printl2 as printl, getUUID, timeToMillis, getPlexHeaders,
 #===========================================================================
 #
 #===========================================================================
+
+
 class SubscriptionManager:
 	def __init__(self):
 		self.subscribers = {}
@@ -239,6 +241,8 @@ class SubscriptionManager:
 #===========================================================================
 #
 #===========================================================================
+
+
 class Subscriber:
 	#===========================================================================
 	#
@@ -291,6 +295,8 @@ class Subscriber:
 #===========================================================================
 #
 #===========================================================================
+
+
 class RequestMgr:
 	def __init__(self):
 		self.conns = {}
@@ -382,5 +388,6 @@ class RequestMgr:
 			self.conns.pop(protocol + host + str(port), None)
 			conn.close()
 			return False
+
 
 requests = RequestMgr()

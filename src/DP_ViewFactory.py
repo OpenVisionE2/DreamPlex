@@ -35,6 +35,8 @@ from __common__ import printl2 as printl, getSkinDebugMode
 #===========================================================================
 #
 #===========================================================================
+
+
 def getDefaultCineElementsList():
 	printl("", "DP_ViewFactory::", "S")
 
@@ -50,6 +52,8 @@ def getDefaultCineElementsList():
 #===========================================================================
 #
 #===========================================================================
+
+
 def getDefaultDirectoryElementsList():
 	printl("", "DP_ViewFactory::getDefaultDirectoryElementsList", "S")
 
@@ -61,6 +65,8 @@ def getDefaultDirectoryElementsList():
 #===========================================================================
 #
 #===========================================================================
+
+
 def getNoneDirectoryElements():
 	printl("", "DP_ViewFactory::getNoneDirectoryElements", "S")
 
@@ -78,6 +84,8 @@ def getNoneDirectoryElements():
 #===========================================================================
 #
 #===========================================================================
+
+
 def getDefaultSettingsList():
 	printl("", "DP_ViewFactory::getDefaultSettingsList", "S")
 
@@ -89,6 +97,8 @@ def getDefaultSettingsList():
 #===============================================================================
 # 
 #===============================================================================
+
+
 def getViews(libraryName):
 	"""
 	@return: availableViewList
@@ -116,6 +126,8 @@ def getViews(libraryName):
 #===========================================================================
 # 
 #===========================================================================
+
+
 def getViewsFromSkinParams(myType):
 	printl("", "DP_ViewFactory::getViewsFromSkinParams", "S")
 	
@@ -191,6 +203,8 @@ def getViewsFromSkinParams(myType):
 #===========================================================================
 #
 #===========================================================================
+
+
 def getSubViewParams(tree):
 	printl("", "DP_ViewFactory::getSubViewParams", "S")
 
@@ -224,6 +238,8 @@ def getSubViewParams(tree):
 #===========================================================================
 # 
 #===========================================================================
+
+
 def getMovieViewDefaults():
 	printl("", "DP_ViewFactory::getMovieViewDefaults", "S")
 	params = {}
@@ -272,6 +288,8 @@ def getMovieViewDefaults():
 #===========================================================================
 #
 #===========================================================================
+
+
 def getShowViewDefaults():
 	printl("", "DP_ViewFactory::getShowViewDefaults", "S")
 	params = {}
@@ -326,6 +344,8 @@ def getShowViewDefaults():
 #===========================================================================
 # 
 #===========================================================================
+
+
 def getMusicViewDefaults():
 	printl("", "DP_ViewFactory::getMusicViewDefaults", "S")
 	params = {}
@@ -382,6 +402,8 @@ def getMusicViewDefaults():
 #===========================================================================
 #
 #===========================================================================
+
+
 def translateValues(value):
 	#printl("", "DP_ViewFactory::translateValues", "S")
 
@@ -398,6 +420,8 @@ def translateValues(value):
 #===========================================================================
 #
 #===========================================================================
+
+
 def getGuiElements():
 	printl("", "DP_ViewFactory::getGuiElements", "S")
 

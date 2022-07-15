@@ -151,10 +151,10 @@ class DPS_Mappings(Screen):
 		
 		printl("", self, "C")
 		
-	
 	#===================================================================
 	# 
 	#===================================================================
+
 	def setLocalPathCallback(self, callback=None, myType=None):
 		printl("", self, "S")
 		printl("myType: " + str(myType), self, "S")
@@ -181,7 +181,6 @@ class DPS_Mappings(Screen):
 		else:
 			self.session.open(MessageBox, _("Adding new mapping was not completed"), MessageBox.TYPE_INFO)
 		
-		
 		self.close()
 		printl("", self, "C")	
 		
@@ -204,6 +203,8 @@ class DPS_Mappings(Screen):
 #===============================================================================
 #
 #===============================================================================
+
+
 class DPS_MappingsEntryList(MenuList):
 	
 	lastMappingId = 0 # we use this to find the next id if we add a new element

@@ -55,6 +55,8 @@ from __init__ import _ # _ is translation
 #===========================================================================
 #
 #===========================================================================
+
+
 class DPS_Syncer(Screen, DPH_ScreenHelper, DPH_PlexScreen):
 
 	_session = None
@@ -372,6 +374,8 @@ class DPS_Syncer(Screen, DPH_ScreenHelper, DPH_PlexScreen):
 #===========================================================================
 #
 #===========================================================================
+
+
 class MediaSyncerInfo(object):
 	instance = None
 
@@ -574,6 +578,7 @@ class MediaSyncerInfo(object):
 
 		printl("", self, "C")
 
+
 # !!! important !!!!
 # this is a singleton implementation so that there is only one instance of this class
 # it can be also imported from other classes with from file import g_mediaSyncerInfo
@@ -582,6 +587,8 @@ g_mediaSyncerInfo = MediaSyncerInfo()
 #===========================================================================
 #
 #===========================================================================
+
+
 class BackgroundMediaSyncer(Thread):
 
 	urllibInstance = None
@@ -1177,7 +1184,6 @@ class BackgroundMediaSyncer(Thread):
 			self.progress.push((THREAD_WORKING, msg_text))
 			self.progressPump.send(0)
 
-
 		printl("", self, "C")
 
 	#===========================================================================
@@ -1206,7 +1212,6 @@ class BackgroundMediaSyncer(Thread):
 
 		else:
 			raise Exception
-
 
 		printl("", self, "C")
 
@@ -1266,6 +1271,8 @@ THREAD_ERROR = 3
 #===========================================================================
 #
 #===========================================================================
+
+
 class ThreadQueue(object):
 	def __init__(self):
 		self.__list = []

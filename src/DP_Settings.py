@@ -45,6 +45,8 @@ from DP_ViewFactory import getGuiElements
 #===============================================================================
 #
 #===============================================================================
+
+
 class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 
 	_hasChanged = False
@@ -191,7 +193,6 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 		self.cfglist.append(getConfigListEntry(_("> Activate Remote Player"), config.plugins.dreamplex.remoteAgent, _("Activate to be able to use with any app with remote function for Plex.")))
 		if config.plugins.dreamplex.remoteAgent.value:
 			self.cfglist.append(getConfigListEntry(_("> Remote Player Port"), config.plugins.dreamplex.remotePort, _("Change the port to your needs.")))
-
 
 		# MISC
 		self.cfglist.append(getConfigListEntry(_("Misc Settings ") + separator, config.plugins.dreamplex.about, _(" ")))
@@ -343,7 +344,6 @@ class DPS_Settings(Screen, ConfigListScreen, HelpableScreen, DPH_PlexScreen):
 		printl("", self, "C")
 
 
-
 #===============================================================================
 #
 #===============================================================================
@@ -377,7 +377,6 @@ class DPS_ServerEntryList(MenuList):
 		
 		self.list = []
 
-		
 		for entry in config.plugins.dreamplex.Entries:
 			res = [entry]
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 55, 0, 200, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(entry.name.value)))
@@ -392,7 +391,6 @@ class DPS_ServerEntryList(MenuList):
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 260, 0, 150, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(text1)))
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 450, 0, 80, 20, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, str(text2)))
 			self.list.append(res)
-		
 		
 		self.l.setList(self.list)
 		self.moveToIndex(0)
