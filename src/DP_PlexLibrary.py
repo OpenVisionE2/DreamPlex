@@ -1862,8 +1862,10 @@ class PlexLibrary(Screen):
 									bits = part.get('key'), video.get("type") + ": " + video.get("title") + " (" + media.get("width") + "x" + media.get("height") + ")", part.get('container'), video.get("type"), video.get("duration")
 									parts.append(bits)
 									partsCount += 1
-								except: pass
-				except Exception: pass
+								except:
+									pass
+				except Exception:
+					pass
 			else:
 				mainContent = tree.find('Video/Media') # main content
 				#Get the Parts info for media type and source selection
@@ -1874,7 +1876,8 @@ class PlexLibrary(Screen):
 						bits = part.get('key'), part.get('file'), part.get('container'), part.get('size'), part.get('duration')
 						parts.append(bits)
 						partsCount += 1
-					except: pass
+					except:
+						pass
 
 					if myType == "Video":
 						if self.g_streamControl == "1" or self.g_streamControl == "2":
@@ -1896,7 +1899,8 @@ class PlexLibrary(Screen):
 											printl("Found preferred audio id: " + str(stream['id']), self, "I" )
 											audio=stream
 											selectedAudioOffset=audioOffset
-									except: pass
+									except:
+										pass
 
 								elif stream['streamType'] == '3': #subtitle
 									subOffset += 1
@@ -1913,7 +1917,8 @@ class PlexLibrary(Screen):
 												subCount += 1
 												subtitle = stream
 												selectedSubOffset=subOffset
-										except: pass
+										except:
+											pass
 						else:
 								printl( "Stream selection is set OFF", self, "I")
 
@@ -2007,7 +2012,8 @@ class PlexLibrary(Screen):
 								bits = part.get('key'), video.get("type") + ": " + video.get("title") + " (" + media.get("width") + "x" + media.get("height") + ")", part.get('container'), video.get("type"), video.get("duration"), video.get("ratingKey")
 								parts.append(bits)
 								partsCount += 1
-							except: pass
+							except:
+								pass
 			else:
 				mainContent = tree.find(myType+'/Media') # main content
 				#Get the Parts info for media type and source selection
@@ -2234,7 +2240,8 @@ class PlexLibrary(Screen):
 					if audio['selected'] == "1":
 						printl ("Found preferred language at index " + str(stream['audioOffset']), self, "I")
 						printl ("Audio set", self, "I")
-				except: pass
+				except:
+					pass
 
 		#Try and set embedded subtitles
 		if self.g_streamControl == "1":
@@ -2264,7 +2271,8 @@ class PlexLibrary(Screen):
 						else:	
 							printl("", self, "C")
 							return True
-					except: pass					
+					except:
+						pass					
 				else:
 					printl ("No external subtitles available. Will turn off subs", self, "I")
 			except:

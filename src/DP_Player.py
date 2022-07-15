@@ -218,8 +218,10 @@ class DP_Player(Screen, InfoBarBase, InfoBarShowHide, InfoBarCueSheetSupport,
 		# init volume object
 		self.volumeHandler= eDVBVolumecontrol.getInstance()
 		# only images >= 05.08.2010, must use try/except
-		try: self.volumeControlInstance = VolumeControl.instance
-		except: pass
+		try:
+			self.volumeControlInstance = VolumeControl.instance
+		except:
+			pass
 
 		# Poster
 		self.EXpicloadPoster = ePicLoad()

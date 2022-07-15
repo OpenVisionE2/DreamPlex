@@ -1875,7 +1875,8 @@ class DP_View(DPH_Screen, DPH_ScreenHelper, DPH_MultiColorFunctions, DPH_Filter)
 			for element in self.noneDirectoryElementsList:
 				try:
 					self.toggleElementVisibilityWithLabel(element, "hide")
-				except: pass
+				except:
+					pass
 
 			self.hideMediaFunctions()
 			self.hideMediaPixmaps()
