@@ -38,7 +38,7 @@ from Components.config import config
 from Components.ScrollLabel import ScrollLabel
 from Components.Pixmap import Pixmap
 
-import urllib
+from six.moves.urllib.request import URLopener
 
 from Screens.Screen import Screen
 
@@ -1252,7 +1252,7 @@ class BackgroundMediaSyncer(Thread):
 		printl("", self, "S")
 
 		# we establish the connection once here
-		self.urllibInstance = urllib.URLopener()
+		self.urllibInstance = URLopener()
 
 		# we add headers only in special cases
 		connectionType = self.serverConfig.connectionType.value

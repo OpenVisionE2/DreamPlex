@@ -311,12 +311,12 @@ def testInetConnectivity(target="http://www.google.com"):
 	"""
 	printl2("", "__common__::testInetConnectivity", "S")
 
-	import urllib2
+	from six.moves.urllib.request import build_opener
 	from sys import version_info
 	import socket
 
 	try:
-		opener = urllib2.build_opener()
+		opener = build_opener()
 
 		if version_info[1] >= 6:
 			page = opener.open(target, timeout=2)
@@ -763,13 +763,8 @@ def getBoxArch():
 def setBoxArch():
 	printl2("", "__common__::setBoxArch", "S")
 
-	archType = "unknown"
-
-	if (2, 6, 8) > sys.version_info > (2, 6, 6):
-		archType = "mipsel"
-
-	elif (2, 7, 4) > sys.version_info > (2, 7, 0):
-		archType = "mips32el"
+	from Components.SystemInfo import BoxInfo
+	archType = BoxInfo.getItem("architecture")
 
 	global g_archType
 	g_archType = archType
@@ -798,20 +793,8 @@ def getOeVersion():
 def setOeVersion():
 	printl2("", "__common__::getBoxArch", "S")
 
-	oeVersion = "unknown"
-
-	if (2, 6, 8) > sys.version_info > (2, 6, 6):
-		oeVersion = "oe16"
-
-	if (2, 7, 4) > sys.version_info > (2, 7, 0):
-		oeVersion = "oe20"
-
-		# check for new oe2.2
-		try:
-			from enigma import eMediaDatabase
-			oeVersion = "oe22"
-		except:
-			pass
+	from Components.SystemInfo import BoxInfo
+	oeVersion = BoxInfo.getItem("oe")
 
 	global g_oeVersion
 	g_oeVersion = oeVersion

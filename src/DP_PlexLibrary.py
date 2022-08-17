@@ -28,14 +28,16 @@ import sys
 import base64
 import hmac
 # import uuid
-import cPickle as pickle
-
+try:
+	import cPickle as pickle
+except:
+	import pickle
 from time import time
-from urllib import quote_plus, unquote
+from six.moves.urllib.parse import quote_plus, unquote
 from base64 import b64encode, b64decode
 from Components.config import config
 from hashlib import sha256
-from urllib2 import urlopen, Request
+from six.moves.urllib.request import urlopen, Request
 from random import seed
 from Tools.Directories import fileExists, copyfile
 
