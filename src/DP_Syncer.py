@@ -740,7 +740,7 @@ class BackgroundMediaSyncer(Thread):
 
 		import math
 		import glob
-		import commands
+		import subprocess as commands
 
 		try:
 			from PIL import Image
